@@ -8,6 +8,7 @@ create public synonym listargsd for listargsd;
 create public synonym bool for bool;
 create public synonym text for text;
 create public synonym datetime for datetime;
+create public synonym period for period;
 -- Grant/Revoke object privileges
 grant execute on args to public;
 grant execute on argsd to public;
@@ -21,3 +22,4 @@ grant execute on obj_aggr_argsn to public;
 grant execute on bool to public;
 grant execute on text to public;
 grant execute on datetime to public;
+grant execute on period to public;
