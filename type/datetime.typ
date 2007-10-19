@@ -82,9 +82,15 @@ create or replace type datetime as object
   member function se_nulo(data date) return datetime,
   member procedure se_nulo(self in out nocopy datetime
                           ,data date),
+  member function se_nulo(data    varchar2
+                         ,formato varchar2 default 'DD/MM/RRRR') return datetime,
+  member procedure se_nulo(data    varchar2
+                          ,formato varchar2 default 'DD/MM/RRRR'),
   member function esta_na_lista(list      varchar2
                                ,formato   varchar2 default 'DD/MM/RRRR'
                                ,separador varchar2 default ';') return varchar2,
+  member function esta_dentro(inicio datetime
+                             ,fim    datetime) return varchar2,
   member function esta_dentro(inicio date
                              ,fim    date) return varchar2,
   member function esta_dentro(inicio  varchar2
@@ -96,6 +102,8 @@ create or replace type datetime as object
   member function cruzamento_horas(hora_ini   varchar2
                                   ,hora_fim   varchar2
                                   ,inicio_fim boolean default false) return varchar2,
+  member function truncado return date,
+  member function get return date,
   member function mostra(formato varchar2 default 'DD/MM/RRRR') return varchar2
 )
 /
@@ -377,22 +385,40 @@ create or replace type body datetime is
     se_nulo(datetime(data));
   end;
 
-  member function esta_dentro(inicio date
-                             ,fim    date) return varchar2 is
+  member function se_nulo(data    varchar2
+                         ,formato varchar2 default 'DD/MM/RRRR') return datetime is
   begin
-    if trunc(self.data) between nvl(trunc(inicio), to_date('01/01/0001', 'DD/MM/RRRR')) and
-       nvl(trunc(fim), to_date('31/12/9999', 'DD/MM/RRRR')) then
+    return se_nulo(datetime(data, formato));
+  end;
+
+  member procedure se_nulo(data    varchar2
+                          ,formato varchar2 default 'DD/MM/RRRR') is
+  begin
+    se_nulo(datetime(data, formato));
+  end;
+
+  member function esta_dentro(inicio datetime
+                             ,fim    datetime) return varchar2 is
+  begin
+    if self.truncado between (inicio.se_nulo('01/01/0001').truncado) and
+       (fim.se_nulo('31/12/9999').truncado) then
       return 'S';
     else
       return 'N';
     end if;
   end esta_dentro;
 
+  member function esta_dentro(inicio date
+                             ,fim    date) return varchar2 is
+  begin
+    return esta_dentro(datetime(inicio), datetime(fim));
+  end esta_dentro;
+
   member function esta_dentro(inicio  varchar2
                              ,fim     varchar2
                              ,formato varchar2 default 'DD/MM/RRRR') return varchar2 is
   begin
-    return esta_dentro(to_date(inicio, formato), to_date(fim, formato));
+    return esta_dentro(datetime(inicio, formato), datetime(fim, formato));
   end esta_dentro;
 
   member function esta_na_lista(list      varchar2
@@ -401,7 +427,7 @@ create or replace type body datetime is
   begin
     for reg in (select to_date(column_value, formato) val from table(text(list).to_table(separador)))
     loop
-      if trunc(self.data) = trunc(reg.val) then
+      if self.truncado = trunc(reg.val) then
         return 'S';
       end if;
     end loop;
@@ -435,6 +461,16 @@ create or replace type body datetime is
   begin
     return cruzamento_horas(vhora_ini, vhora_fim, inicio_fim);
   end cruzamento_horas;
+
+  member function truncado return date is
+  begin
+    return trunc(self.data);
+  end truncado;
+  
+  member function get return date is
+  begin
+    return self.data;
+  end get;
 
   member function mostra(formato varchar2 default 'DD/MM/RRRR') return varchar2 is
   begin

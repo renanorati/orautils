@@ -86,8 +86,14 @@ create or replace type period as object
                           ,limpar   boolean default false) return period,
   member function alterar(inicio date default null
                          ,fim    date default null) return period,
+  member function limitar(periodo period) return period,
+  member function limitar(inicio datetime default datetime(null)
+                         ,fim    datetime default datetime(null)) return period,
   member function limitar(inicio date default null
                          ,fim    date default null) return period,
+  member function limitar(inicio  varchar2 default null
+                         ,fim     varchar2 default null
+                         ,formato varchar2 default 'DD/MM/RRRR') return period,
   member function adicionar(dias     number default null
                            ,meses    number default null
                            ,anos     number default null
@@ -166,10 +172,11 @@ create or replace type period as object
                           ,horas    number default null
                           ,minutos  number default null
                           ,segundos number default null),
-  member function inicio_nulo(data date default '01/01/0001') return datetime,
-  member function fim_nulo(data date default '31/12/9999') return datetime,
   member function nulo return boolean,
   member function nao_nulo return boolean,
+  member function inicio_nulo(data date default '01/01/0001') return datetime,
+  member function fim_nulo(data date default '31/12/9999') return datetime,
+  member function fim_menor return boolean,
   member function dias(contar_dia_inicial boolean default true) return number,
   member function meses return number,
   member function anos return number,
@@ -178,6 +185,11 @@ create or replace type period as object
   member function segundos return number,
   member function tempo return varchar2,
   member function cruzamento(periodo period) return varchar2,
+  member function cruzamento(inicio datetime
+                            ,fim    datetime) return varchar2,
+  member function cruzamento(inicio  varchar2
+                            ,fim     varchar2
+                            ,formato varchar2 default 'DD/MM/RRRR') return varchar2,
   member function cruzamento(inicio date
                             ,fim    date) return varchar2,
   member function cruzamento_lista(list      varchar2
@@ -194,15 +206,25 @@ create or replace type period as object
                                   ,fim        varchar2
                                   ,inicio_fim boolean default true) return varchar2,
   member function esta_dentro(periodo period) return varchar2,
+  member function esta_dentro(inicio datetime
+                             ,fim    datetime) return varchar2,
   member function esta_dentro(inicio date
                              ,fim    date) return varchar2,
-  member function abrange(data datetime) return varchar2,
-  member function abrange(data date) return varchar2,
-  member function abrange(data    varchar2
-                         ,formato varchar2 default 'DD/MM/RRRR') return varchar2,
+  member function esta_dentro(inicio  varchar2
+                             ,fim     varchar2
+                             ,formato varchar2 default 'DD/MM/RRRR') return varchar2,
   member function abrange(periodo period) return varchar2,
+  member function abrange(inicio datetime
+                         ,fim    datetime) return varchar2,
   member function abrange(inicio date
                          ,fim    date) return varchar2,
+  member function abrange(inicio  varchar2
+                         ,fim     varchar2
+                         ,formato varchar2 default 'DD/MM/RRRR') return varchar2,
+  member function possui(data datetime) return varchar2,
+  member function possui(data date) return varchar2,
+  member function possui(data    varchar2
+                        ,formato varchar2 default 'DD/MM/RRRR') return varchar2,
   member function mostra(formato varchar2 default 'DD/MM/RRRR') return varchar2
 )
 /
@@ -383,11 +405,29 @@ create or replace type body period is
     return period(nvl(inicio, self.inicio.data), nvl(fim, self.fim.data));
   end alterar;
 
+  member function limitar(periodo period) return period is
+  begin
+    return period(greatest(nvl(periodo.inicio.data, self.inicio.data), self.inicio_nulo().data)
+                 ,least(nvl(periodo.fim.data, self.fim.data), self.fim_nulo().data));
+  end limitar;
+
+  member function limitar(inicio datetime default datetime(null)
+                         ,fim    datetime default datetime(null)) return period is
+  begin
+    return limitar(period(inicio, fim));
+  end limitar;
+
   member function limitar(inicio date default null
                          ,fim    date default null) return period is
   begin
-    return period(greatest(nvl(inicio, self.inicio.data), self.inicio.data)
-                 ,least(nvl(fim, self.fim.data), self.fim.data));
+    return limitar(period(datetime(inicio), datetime(fim)));
+  end limitar;
+
+  member function limitar(inicio  varchar2 default null
+                         ,fim     varchar2 default null
+                         ,formato varchar2 default 'DD/MM/RRRR') return period is
+  begin
+    return limitar(period(datetime(inicio, formato), datetime(fim, formato)));
   end limitar;
 
   member function adicionar(dias     number default null
@@ -520,16 +560,6 @@ create or replace type body period is
     self.fim.subtrair(dias, meses, anos, horas, minutos, segundos);
   end sub_fim;
 
-  member function inicio_nulo(data date default '01/01/0001') return datetime is
-  begin
-    return self.inicio.se_nulo(data);
-  end;
-
-  member function fim_nulo(data date default '31/12/9999') return datetime is
-  begin
-    return self.fim.se_nulo(data);
-  end;
-
   member function nulo return boolean is
   begin
     if self.inicio.data is null
@@ -543,6 +573,25 @@ create or replace type body period is
   member function nao_nulo return boolean is
   begin
     return not(nulo);
+  end;
+
+  member function inicio_nulo(data date default '01/01/0001') return datetime is
+  begin
+    return self.inicio.se_nulo(data);
+  end;
+
+  member function fim_nulo(data date default '31/12/9999') return datetime is
+  begin
+    return self.fim.se_nulo(data);
+  end;
+
+  member function fim_menor return boolean is
+  begin
+    if self.fim.data < self.inicio.data then
+      return true;
+    else
+      return false;
+    end if;
   end;
 
   member function dias(contar_dia_inicial boolean default true) return number is
@@ -699,11 +748,24 @@ create or replace type body period is
     end if;
   end cruzamento;
 
+  member function cruzamento(inicio datetime
+                            ,fim    datetime) return varchar2 is
+  begin
+    return cruzamento(period(inicio, fim));
+  end cruzamento;
+
   member function cruzamento(inicio date
                             ,fim    date) return varchar2 is
   begin
     return cruzamento(period(inicio, fim));
   end cruzamento;
+
+  member function cruzamento(inicio  varchar2
+                            ,fim     varchar2
+                            ,formato varchar2 default 'DD/MM/RRRR') return varchar2 is
+  begin
+    return cruzamento(period(datetime(inicio, formato), datetime(fim, formato)));
+  end;
 
   member function cruzamento_lista(list      varchar2
                                   ,formato   varchar2 default 'DD/MM/RRRR'
@@ -711,7 +773,7 @@ create or replace type body period is
   begin
     for reg in (select to_date(column_value, formato) val from table(text(list).to_table(separador)))
     loop
-      if bool(abrange(reg.val)).to_bool then
+      if bool(possui(reg.val)).to_bool then
         return 'S';
       end if;
     end loop;
@@ -780,31 +842,34 @@ create or replace type body period is
     end if;
   end esta_dentro;
 
+  member function esta_dentro(inicio datetime
+                             ,fim    datetime) return varchar2 is
+  begin
+    return esta_dentro(period(inicio, fim));
+  end esta_dentro;
+
   member function esta_dentro(inicio date
                              ,fim    date) return varchar2 is
   begin
     return esta_dentro(period(inicio, fim));
   end esta_dentro;
 
-  member function abrange(data datetime) return varchar2 is
+  member function esta_dentro(inicio  varchar2
+                             ,fim     varchar2
+                             ,formato varchar2 default 'DD/MM/RRRR') return varchar2 is
   begin
-    return data.esta_dentro(self.inicio_nulo().data, self.fim_nulo().data);
-  end abrange;
-
-  member function abrange(data date) return varchar2 is
-  begin
-    return abrange(datetime(data));
-  end abrange;
-
-  member function abrange(data    varchar2
-                         ,formato varchar2 default 'DD/MM/RRRR') return varchar2 is
-  begin
-    return abrange(datetime(data, formato));
-  end abrange;
+    return esta_dentro(period(datetime(inicio, formato), datetime(fim, formato)));
+  end esta_dentro;
 
   member function abrange(periodo period) return varchar2 is
   begin
     return periodo.esta_dentro(self);
+  end abrange;
+
+  member function abrange(inicio datetime
+                         ,fim    datetime) return varchar2 is
+  begin
+    return abrange(period(inicio, fim));
   end abrange;
 
   member function abrange(inicio date
@@ -812,6 +877,29 @@ create or replace type body period is
   begin
     return abrange(period(inicio, fim));
   end abrange;
+
+  member function abrange(inicio  varchar2
+                         ,fim     varchar2
+                         ,formato varchar2 default 'DD/MM/RRRR') return varchar2 is
+  begin
+    return abrange(period(datetime(inicio, formato), datetime(fim, formato)));
+  end abrange;
+
+  member function possui(data datetime) return varchar2 is
+  begin
+    return data.esta_dentro(self.inicio, self.fim);
+  end possui;
+
+  member function possui(data date) return varchar2 is
+  begin
+    return possui(datetime(data));
+  end possui;
+
+  member function possui(data    varchar2
+                        ,formato varchar2 default 'DD/MM/RRRR') return varchar2 is
+  begin
+    return possui(datetime(data, formato));
+  end possui;
 
   member function mostra(formato varchar2 default 'DD/MM/RRRR') return varchar2 is
   begin
