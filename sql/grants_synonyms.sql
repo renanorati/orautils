@@ -2,6 +2,8 @@
 create public synonym args for args;
 create public synonym argsd for argsd;
 create public synonym argsn for argsn;
+create public synonym argsdt for argsdt;
+create public synonym argspr for argspr;
 create public synonym listargs for listargs;
 create public synonym listargsn for listargsn;
 create public synonym listargsd for listargsd;
@@ -14,6 +16,8 @@ create public synonym datelist for datelist;
 grant execute on args to public;
 grant execute on argsd to public;
 grant execute on argsn to public;
+grant execute on argsdt to public;
+grant execute on argspr to public;
 grant execute on listargs to public;
 grant execute on listargsd to public;
 grant execute on listargsn to public;
