@@ -20,9 +20,12 @@ create or replace type bool as object
                            ,value boolean default null),
   member function atribuir(self  in out nocopy bool
                           ,value boolean default null) return bool,
+  member procedure inverter(self in out nocopy bool),
+  member function inverter return bool,
   member function to_bool return boolean,
   member function to_text return varchar2,
-  member function to_number return number
+  member function to_number return number,
+  member function to_forms return number
 )
 /
 create or replace type body bool is
@@ -70,7 +73,7 @@ create or replace type body bool is
                            ,value varchar2 default null) is
     valor varchar2(100) := trim(value);
   begin
-    /* Valores considerados **false**:    
+    /* Valores considerados **false**:
      * n
      * f
      * property_false
@@ -112,6 +115,16 @@ create or replace type body bool is
     return self;
   end atribuir;
 
+  member procedure inverter(self in out nocopy bool) is
+  begin
+    self := inverter;
+  end inverter;
+
+  member function inverter return bool is
+  begin
+    return bool(not to_bool);
+  end inverter;
+
   member function to_bool return boolean is
   begin
     -- Se o valor é **menor ou igual a 0**, considera **false**
@@ -138,6 +151,15 @@ create or replace type body bool is
       return 1;
     else
       return 0;
+    end if;
+  end;
+
+  member function to_forms return number is
+  begin
+    if to_bool then
+      return 4;
+    else
+      return 5;
     end if;
   end;
 
