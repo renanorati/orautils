@@ -1464,7 +1464,7 @@ create or replace type body datetime is
                                ,formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return self as result is
   begin
     if formato = 'ISO8601' then
-      atribuir(data, formato=>formato);
+      atribuir(data, formato => formato);
     else
       self.data := standard.to_date(data, formato);
     end if;
@@ -1475,7 +1475,7 @@ create or replace type body datetime is
                                ,formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return self as result is
   begin
     if formato = 'ISO8601' then
-      atribuir(data, formato=>formato);
+      atribuir(data, formato => formato);
       null;
     else
       self.data := standard.to_date(data, formato);
@@ -1802,7 +1802,7 @@ create or replace type body datetime is
                            ,list_feriados argsd default argsd()) return datetime is
     dias_total    number := nvl(dias_uteis, 0);
     dias_contados number := 0;
-    result        datetime := self;
+    result        date := self.trunc();
     lferiados     argsd;
   begin
     -- verifica feriados
@@ -1816,15 +1816,15 @@ create or replace type body datetime is
     loop
       exit when dias_contados = dias_total;
       -- soma dia
-      result.data := result.data + 1;
+      result := result + 1;
       -- verifica se deve contar dia somado (dia util)
-      if standard.to_char(result.data, 'D') between 2 and 6 and
-         result.data not member of lferiados then
+      if standard.to_char(result, 'D') between 2 and 6 and
+         result not member of lferiados then
         dias_contados := dias_contados + 1;
       end if;
     end loop;
     -- --
-    return result;
+    return datetime(result);
     -- --
   end;
 
@@ -1898,7 +1898,7 @@ create or replace type body datetime is
                           ,list_feriados argsd default argsd()) return datetime is
     dias_total    number := nvl(dias_uteis, 0);
     dias_contados number := 0;
-    result        datetime := self;
+    result        date := self.trunc();
     lferiados     argsd;
   begin
     -- verifica feriados
@@ -1912,15 +1912,15 @@ create or replace type body datetime is
     loop
       exit when dias_contados = dias_total;
       -- subtrai dia
-      result.data := result.data - 1;
+      result := result - 1;
       -- verifica se deve contar dia somado (dia util)
-      if standard.to_char(result.data, 'D') between 2 and 6 and
-         result.data not member of lferiados then
+      if standard.to_char(result, 'D') between 2 and 6 and
+         result not member of lferiados then
         dias_contados := dias_contados + 1;
       end if;
     end loop;
     -- --
-    return result;
+    return datetime(result);
     -- --
   end;
 
