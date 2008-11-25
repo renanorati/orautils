@@ -21,10 +21,8 @@ create or replace type datetime force as object
 * %param data (varchar2)
 * %return novo objeto (datetime)
 **/
-  constructor function datetime(data    varchar2
-                               ,formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return self as result,
-  constructor function datetime(data    number
-                               ,formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return self as result,
+  constructor function datetime(data varchar2, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return self as result,
+  constructor function datetime(data number, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return self as result,
 
 /** [constructor] Construir o objeto com partes da data, o restante será preenchido com sysdate truncado (pode ser informado dia, mes, ano, hora, minuto, segundo)<br>
 *<code>
@@ -59,8 +57,7 @@ create or replace type datetime force as object
 * %param formato da data (default 'DD/MM/RRRR HH24:MI:SS')
 * %return novo objeto (datetime)
 **/
-  member function alterar(data    varchar2
-                         ,formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return datetime,
+  member function alterar(data varchar2, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return datetime,
 /** [function] Altera parte da data retornando um novo objeto (pode ser alterado dia, mes, ano, hora, minuto, segundo)<br>
 *<code>
 *declare
@@ -90,15 +87,12 @@ create or replace type datetime force as object
 /** [procedure] Informar nova data no objeto passando um date
 * %param data nova data (date)
 **/
-  member procedure atribuir(self in out nocopy datetime
-                           ,data date default null),
+  member procedure atribuir(self in out nocopy datetime, data date default null),
 /** [procedure] Informar nova data no objeto passando um varchar2
 * %param data nova data (varchar2)
 * %param formato da nova data (default 'DD/MM/RRRR HH24:MI:SS')
 **/
-  member procedure atribuir(self    in out nocopy datetime
-                           ,data    varchar2
-                           ,formato varchar2 default 'DD/MM/RRRR HH24:MI:SS'),
+  member procedure atribuir(self in out nocopy datetime, data varchar2, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS'),
 /** [procedure] Informar novas partes do objeto (pode ser informado dia, mes, ano, hora, minuto, segundo)<br>
 *<code>
 *declare
@@ -259,8 +253,7 @@ create or replace type datetime force as object
 * %param list_feriados lista de feriados (argsd)
 * %return novo objeto (datetime)
 **/
-  member function adicionar(dias_uteis    number
-                           ,list_feriados argsd default argsd()) return datetime,
+  member function adicionar(dias_uteis number, list_feriados argsd default argsd()) return datetime,
 /** [function] Adiciona dias úteis na data passando lista de feriádos em varchar2<br>
 *<code>
 *declare
@@ -281,7 +274,8 @@ create or replace type datetime force as object
   member function adicionar(dias_uteis    number
                            ,list_feriados varchar2
                            ,formato       varchar2 default 'DD/MM/RRRR HH24:MI:SS'
-                           ,separador     char default ';') return datetime,
+                           ,separador     char default ';'
+                           ,intervalo     char default '-') return datetime,
 /** [procedure] Adiciona dias úteis na data<br>
 *É possível informar a lista de feriádos a serem considerados, ou por padrão serão consultados na tabela vw_calendario.<br>
 *<code>
@@ -293,9 +287,7 @@ create or replace type datetime force as object
 *</code>
 * %param dias_uteis Quantidade de dias (number)
 **/
-  member procedure adicionar(self          in out nocopy datetime
-                            ,dias_uteis    number
-                            ,list_feriados argsd default argsd()),
+  member procedure adicionar(self in out nocopy datetime, dias_uteis number, list_feriados argsd default argsd()),
 /** [function] Adiciona dias úteis na data passando lista de feriádos em varchar2<br>
 *<code>
 *declare
@@ -383,8 +375,7 @@ create or replace type datetime force as object
 * %param list_feriados lista de feriados (argsd)
 * %return novo objeto (datetime)
 **/
-  member function subtrair(dias_uteis    number
-                          ,list_feriados argsd default argsd()) return datetime,
+  member function subtrair(dias_uteis number, list_feriados argsd default argsd()) return datetime,
 /** [function] Subtrai dias úteis na data passando lista de feriádos em varchar2<br>
 *<code>
 *declare
@@ -405,7 +396,8 @@ create or replace type datetime force as object
   member function subtrair(dias_uteis    number
                           ,list_feriados varchar2
                           ,formato       varchar2 default 'DD/MM/RRRR HH24:MI:SS'
-                          ,separador     char default ';') return datetime,
+                          ,separador     char default ';'
+                          ,intervalo     char default '-') return datetime,
 /** [procedure] Subtrai dias úteis na data<br>
 *É possível informar a lista de feriádos a serem considerados, ou por padrão serão consultados na tabela vw_calendario.<br>
 *<code>
@@ -417,9 +409,7 @@ create or replace type datetime force as object
 *</code>
 * %param dias_uteis Quantidade de dias (number)
 **/
-  member procedure subtrair(self          in out nocopy datetime
-                           ,dias_uteis    number
-                           ,list_feriados argsd default argsd()),
+  member procedure subtrair(self in out nocopy datetime, dias_uteis number, list_feriados argsd default argsd()),
 /** [function] Subtrai dias úteis na data passando lista de feriádos em varchar2<br>
 *<code>
 *declare
@@ -868,8 +858,7 @@ create or replace type datetime force as object
 * %param formato da data (default 'DD/MM/RRRR HH24:MI:SS')
 * %return novo objeto (datetime)
 **/
-  member function se_nulo(data    varchar2
-                         ,formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return datetime,
+  member function se_nulo(data varchar2, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return datetime,
 /** [procedure] Atribui uma nova data caso a data atual seja nula, passando um datetime<br>
 *<code>
 *declare -- considerando sysdate = 11/05/2018
@@ -883,8 +872,7 @@ create or replace type datetime force as object
 *</code>
 * %param data nova data (datetime)
 **/
-  member procedure se_nulo(self in out nocopy datetime
-                          ,data datetime),
+  member procedure se_nulo(self in out nocopy datetime, data datetime),
 /** [procedure] Atribui uma nova data caso a data atual seja nula, passando um date<br>
 *<code>
 *declare -- considerando sysdate = 11/05/2018
@@ -898,8 +886,7 @@ create or replace type datetime force as object
 *</code>
 * %param data nova data (date)
 **/
-  member procedure se_nulo(self in out nocopy datetime
-                          ,data date),
+  member procedure se_nulo(self in out nocopy datetime, data date),
 /** [procedure] Atribui uma nova data caso a data atual seja nula, passando um varchar2<br>
 *<code>
 *declare
@@ -914,8 +901,7 @@ create or replace type datetime force as object
 * %param data nova data (varchar2)
 * %param formato da data (default 'DD/MM/RRRR HH24:MI:SS')
 **/
-  member procedure se_nulo(data    varchar2
-                          ,formato varchar2 default 'DD/MM/RRRR HH24:MI:SS'),
+  member procedure se_nulo(data varchar2, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS'),
 /** [function] Retorna um novo objeto com a primeira data possível caso a data atual seja nula<br>
 *<code>
 *declare
@@ -992,7 +978,24 @@ create or replace type datetime force as object
 **/
   member function esta_na_lista(list      varchar2
                                ,formato   varchar2 default 'DD/MM/RRRR HH24:MI:SS'
-                               ,separador char default ';') return char,
+                               ,separador char default ';'
+                               ,intervalo char default '-') return char,
+/** [function] Retorna se a data atual está dentro de uma lista de datas (S/N)<br>
+*<code>
+*declare
+*  dt datetime := datetime('07/09/2016');
+*  dt2 datetime := datetime('01/02/2016');
+*begin
+*  console.log(args(
+*    dt.esta_na_lista(datetime.feriados()), -- S
+*    dt2.esta_na_lista(datetime.feriados()) -- N
+*  ));
+*end;
+*</code>
+* %return char (S/N)
+* %param list argsd default argsd() 
+**/
+  member function esta_na_lista(list argsd default argsd()) return char,
 /** [function] Retorna se a data atual está dentro de um período (passando datas em datetime) (S/N)<br>
 *<code>
 *declare
@@ -1011,9 +1014,7 @@ create or replace type datetime force as object
 * %param infinito considerar período infinito quando inicio e fim forem ambos nulos S/N (default 'N')
 * %return está dentro do periodo (S/N)
 **/
-  member function esta_dentro(inicio   datetime
-                             ,fim      datetime
-                             ,infinito char default 'N') return char,
+  member function esta_dentro(inicio datetime, fim datetime, infinito char default 'N') return char,
 /** [function] Retorna se a data atual está dentro de um período (passando datas em date) (S/N)<br>
 *<code>
 *declare -- considerando sysdate = 10/12/2018
@@ -1037,9 +1038,7 @@ create or replace type datetime force as object
 * %param infinito considerar período infinito quando inicio e fim forem ambos nulos S/N (default 'N')
 * %return está dentro do periodo (S/N)
 **/
-  member function esta_dentro(inicio   date default null
-                             ,fim      date default null
-                             ,infinito char default 'N') return char,
+  member function esta_dentro(inicio date default null, fim date default null, infinito char default 'N') return char,
 /** [function] Retorna se a data atual está dentro de um período (passando datas em varchar2) (S/N)<br>
 *<code>
 *declare
@@ -1087,9 +1086,7 @@ create or replace type datetime force as object
 * %param infinito considerar período infinito quando inicio e fim forem ambos nulos S/N (default 'N')
 * %return está dentro do periodo AN0/MES (S/N)
 **/
-  member function esta_dentro_anomes(inicio   datetime
-                                    ,fim      datetime
-                                    ,infinito char default 'N') return char,
+  member function esta_dentro_anomes(inicio datetime, fim datetime, infinito char default 'N') return char,
 /** [function] Retorna se a data atual está dentro de um período AN0/MES (passando datas em date) (S/N)<br>
 *Se a data possuir "dia" será descartado da comparação.
 *<code>
@@ -1114,9 +1111,7 @@ create or replace type datetime force as object
 * %param infinito considerar período infinito quando inicio e fim forem ambos nulos S/N (default 'N')
 * %return está dentro do periodo AN0/MES (S/N)
 **/
-  member function esta_dentro_anomes(inicio   date default null
-                                    ,fim      date default null
-                                    ,infinito char default 'N') return char,
+  member function esta_dentro_anomes(inicio date default null, fim date default null, infinito char default 'N') return char,
 /** [function] Retorna se a data atual está dentro de um período AN0/MES (passando datas em varchar2) (S/N)<br>
 *Se a data possuir "dia" será descartado da comparação.
 *<code>
@@ -1169,9 +1164,7 @@ create or replace type datetime force as object
 * %param infinito considerar período infinito quando inicio e fim forem ambos nulos S/N (default 'N')
 * %return está dentro do periodo AN0/MES (S/N)
 **/
-  member function esta_dentro_anomes(inicio   number default null
-                                    ,fim      number default null
-                                    ,infinito char default 'N') return char,
+  member function esta_dentro_anomes(inicio number default null, fim number default null, infinito char default 'N') return char,
 /** [function] Retorna o horário atual está dentro de um período de horário (passando HH24MI em number) (S/N)<br>
 *<b>Obs.:</b> Considera apenas horas e minutos.
 *<code>
@@ -1196,9 +1189,7 @@ create or replace type datetime force as object
 * %param inicio_fim data pode colidir com o final do período (default 'N')
 * %return está dentro de outro horário (S/N)
 **/
-  member function esta_dentro_horario(inicio     number default null
-                                     ,fim        number default null
-                                     ,inicio_fim char default 'N') return varchar2,
+  member function esta_dentro_horario(inicio number default null, fim number default null, inicio_fim char default 'N') return varchar2,
 
 /** [function] Retorna o horário atual está dentro de um período de horário (passando datetime) (S/N)<br>
 *<b>Obs.:</b> Considera apenas horas e minutos.
@@ -1223,9 +1214,7 @@ create or replace type datetime force as object
 * %param inicio_fim data pode colidir com o final do período (default 'N')
 * %return está dentro de outro horário (S/N)
 **/
-  member function esta_dentro_horario(inicio     datetime
-                                     ,fim        datetime
-                                     ,inicio_fim char default 'N') return varchar2,
+  member function esta_dentro_horario(inicio datetime, fim datetime, inicio_fim char default 'N') return varchar2,
 /** [function] Retorna o horário atual está dentro de um período de horário (passando date) (S/N)<br>
 *<b>Obs.:</b> Considera apenas horas e minutos.
 *<code>
@@ -1246,9 +1235,7 @@ create or replace type datetime force as object
 * %param inicio_fim data pode colidir com o final do período (default 'N')
 * %return está dentro de outro horário (S/N)
 **/
-  member function esta_dentro_horario(inicio     date default null
-                                     ,fim        date default null
-                                     ,inicio_fim char default 'N') return varchar2,
+  member function esta_dentro_horario(inicio date default null, fim date default null, inicio_fim char default 'N') return varchar2,
 /** [function] Retorna o horário atual está dentro de um período de horário (passando varchar2) (S/N)<br>
 *<b>Obs.:</b> Considera apenas horas e minutos.
 *<code>
@@ -1269,9 +1256,7 @@ create or replace type datetime force as object
 * %param inicio_fim data pode colidir com o final do período (default 'N')
 * %return está dentro de outro horário (S/N)
 **/
-  member function esta_dentro_horario(inicio     varchar2 default null
-                                     ,fim        varchar2 default null
-                                     ,inicio_fim char default 'N') return varchar2,
+  member function esta_dentro_horario(inicio varchar2 default null, fim varchar2 default null, inicio_fim char default 'N') return varchar2,
 /** [function] Retorna a data truncada<br>
 *<code>
 *declare
@@ -1366,8 +1351,7 @@ create or replace type datetime force as object
 * %param fim (datetime)
 * %return feriados (argsd)
 **/
-  static function feriados(inicio datetime
-                          ,fim    datetime) return argsd,
+  static function feriados(inicio datetime, fim datetime) return argsd,
 /** [static function] Retorna datas de feriados<br>
 *<code>
 *select * from table(datetime.feriados(sysdate)); -- feriados a partir de sysdate
@@ -1376,8 +1360,7 @@ create or replace type datetime force as object
 * %param fim (date)
 * %return feriados (argsd)
 **/
-  static function feriados(inicio date
-                          ,fim    date default null) return argsd,
+  static function feriados(inicio date, fim date default null) return argsd,
 /** [static function] Retorna datas de feriados<br>
 *<code>
 *select * from table(datetime.feriados('01/01/2018','31/12/2018')); -- feriados de 01/01/2018 até 31/12/2018
@@ -1387,9 +1370,7 @@ create or replace type datetime force as object
 * %param formato (default 'DD/MM/RRRR HH24:MI:SS')
 * %return feriados (argsd)
 **/
-  static function feriados(inicio  varchar2
-                          ,fim     varchar2 default null
-                          ,formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return argsd,
+  static function feriados(inicio varchar2, fim varchar2 default null, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return argsd,
 /** [static function] Retorna a lista de feriados<br>
 *<code>
 *begin
@@ -1417,8 +1398,7 @@ create or replace type datetime force as object
 * %param fim (datetime)
 * %return lista separada por ';' (varchar2)
 **/
-  static function listar_feriados(inicio datetime
-                                 ,fim    datetime) return varchar2,
+  static function listar_feriados(inicio datetime, fim datetime) return varchar2,
 /** [static function] Retorna a lista de feriados<br>
 *<code>
 *declare
@@ -1435,8 +1415,7 @@ create or replace type datetime force as object
 * %param fim (date)
 * %return lista separada por ';' (varchar2)
 **/
-  static function listar_feriados(inicio date
-                                 ,fim    date default null) return varchar2,
+  static function listar_feriados(inicio date, fim date default null) return varchar2,
 /** [static function] Retorna a lista de feriados<br>
 *<code>
 *begin
@@ -1451,17 +1430,14 @@ create or replace type datetime force as object
 * %param formato (default 'DD/MM/RRRR HH24:MI:SS')
 * %return lista separada por ';' (varchar2)
 **/
-  static function listar_feriados(inicio  varchar2
-                                 ,fim     varchar2 default null
-                                 ,formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return varchar2,
+  static function listar_feriados(inicio varchar2, fim varchar2 default null, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return varchar2,
   member function mostra(formato varchar2 default 'DD/MM/RRRR') return varchar2
 )
 /
 create or replace type body datetime is
 
   -- Constructor
-  constructor function datetime(data    varchar2
-                               ,formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return self as result is
+  constructor function datetime(data varchar2, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return self as result is
   begin
     if formato = 'ISO8601' then
       atribuir(data, formato => formato);
@@ -1471,8 +1447,7 @@ create or replace type body datetime is
     return;
   end;
 
-  constructor function datetime(data    number
-                               ,formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return self as result is
+  constructor function datetime(data number, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return self as result is
   begin
     if formato = 'ISO8601' then
       atribuir(data, formato => formato);
@@ -1539,8 +1514,7 @@ create or replace type body datetime is
     end if;
   end alterar;
 
-  member function alterar(data    varchar2
-                         ,formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return datetime is
+  member function alterar(data varchar2, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return datetime is
   begin
     if data is not null then
       return datetime(standard.to_date(data, formato));
@@ -1614,15 +1588,12 @@ create or replace type body datetime is
     end if;
   end alterar;
 
-  member procedure atribuir(self in out nocopy datetime
-                           ,data date default null) is
+  member procedure atribuir(self in out nocopy datetime, data date default null) is
   begin
     self.data := data;
   end atribuir;
 
-  member procedure atribuir(self    in out nocopy datetime
-                           ,data    varchar2
-                           ,formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') is
+  member procedure atribuir(self in out nocopy datetime, data varchar2, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') is
   begin
     if formato = 'ISO8601' then
       self.data := cast(to_timestamp_tz(upper(data), 'YYYY-MM-DD"T"HH24:MI:SS.ff9TZR') at time zone dbtimezone as date);
@@ -1798,8 +1769,7 @@ create or replace type body datetime is
     self := adicionar(anos, meses, dias, horas, minutos, segundos);
   end adicionar;
 
-  member function adicionar(dias_uteis    number
-                           ,list_feriados argsd default argsd()) return datetime is
+  member function adicionar(dias_uteis number, list_feriados argsd default argsd()) return datetime is
     dias_total    number := nvl(dias_uteis, 0);
     dias_contados number := 0;
     result        date := self.trunc();
@@ -1831,25 +1801,13 @@ create or replace type body datetime is
   member function adicionar(dias_uteis    number
                            ,list_feriados varchar2
                            ,formato       varchar2 default 'DD/MM/RRRR HH24:MI:SS'
-                           ,separador     char default ';') return datetime is
-    lferiados argsd := argsd();
+                           ,separador     char default ';'
+                           ,intervalo     char default '-') return datetime is
+    lferiados argsd;
   begin
     if list_feriados is not null then
       -- gera lista de feriados
-      declare
-        vpos varchar2(100) := null;
-        i    number := 1;
-      begin
-        loop
-          vpos := regexp_substr(list_feriados, '[^' || separador || ']+', 1, i);
-          exit when vpos is null;
-          -- add
-          lferiados.extend;
-          lferiados(lferiados.last) := standard.to_date(vpos, formato);
-          -- --
-          i := i + 1;
-        end loop;
-      end;
+      lferiados := dlist(list_feriados, separador => separador, intervalo => intervalo, formato => formato).to_argsd();
       -- executa adicionar padrão
       return adicionar(dias_uteis => dias_uteis, list_feriados => lferiados);
     else
@@ -1857,9 +1815,7 @@ create or replace type body datetime is
     end if;
   end;
 
-  member procedure adicionar(self          in out nocopy datetime
-                            ,dias_uteis    number
-                            ,list_feriados argsd default argsd()) is
+  member procedure adicionar(self in out nocopy datetime, dias_uteis number, list_feriados argsd default argsd()) is
   begin
     self := adicionar(dias_uteis => dias_uteis, list_feriados => list_feriados);
   end;
@@ -1894,8 +1850,7 @@ create or replace type body datetime is
     self := adicionar(-anos, -meses, -dias, -horas, -minutos, -segundos);
   end subtrair;
 
-  member function subtrair(dias_uteis    number
-                          ,list_feriados argsd default argsd()) return datetime is
+  member function subtrair(dias_uteis number, list_feriados argsd default argsd()) return datetime is
     dias_total    number := nvl(dias_uteis, 0);
     dias_contados number := 0;
     result        date := self.trunc();
@@ -1927,25 +1882,13 @@ create or replace type body datetime is
   member function subtrair(dias_uteis    number
                           ,list_feriados varchar2
                           ,formato       varchar2 default 'DD/MM/RRRR HH24:MI:SS'
-                          ,separador     char default ';') return datetime is
+                          ,separador     char default ';'
+                          ,intervalo     char default '-') return datetime is
     lferiados argsd := argsd();
   begin
     if list_feriados is not null then
       -- gera lista de feriados
-      declare
-        vpos varchar2(100) := null;
-        i    number := 1;
-      begin
-        loop
-          vpos := regexp_substr(list_feriados, '[^' || separador || ']+', 1, i);
-          exit when vpos is null;
-          -- add
-          lferiados.extend;
-          lferiados(lferiados.last) := standard.to_date(vpos, formato);
-          -- --
-          i := i + 1;
-        end loop;
-      end;
+      lferiados := dlist(list_feriados, separador => separador, intervalo => intervalo, formato => formato).to_argsd();
       -- executa adicionar padrão
       return subtrair(dias_uteis => dias_uteis, list_feriados => lferiados);
     else
@@ -1953,9 +1896,7 @@ create or replace type body datetime is
     end if;
   end;
 
-  member procedure subtrair(self          in out nocopy datetime
-                           ,dias_uteis    number
-                           ,list_feriados argsd default argsd()) is
+  member procedure subtrair(self in out nocopy datetime, dias_uteis number, list_feriados argsd default argsd()) is
   begin
     self := subtrair(dias_uteis => dias_uteis, list_feriados => list_feriados);
   end;
@@ -2143,14 +2084,12 @@ create or replace type body datetime is
     return se_nulo(datetime(data));
   end;
 
-  member function se_nulo(data    varchar2
-                         ,formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return datetime is
+  member function se_nulo(data varchar2, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return datetime is
   begin
     return se_nulo(datetime(data, formato));
   end;
 
-  member procedure se_nulo(self in out nocopy datetime
-                          ,data datetime) is
+  member procedure se_nulo(self in out nocopy datetime, data datetime) is
   begin
     if self.data is null then
       self := data;
@@ -2162,8 +2101,7 @@ create or replace type body datetime is
     se_nulo(datetime(data));
   end;
 
-  member procedure se_nulo(data    varchar2
-                          ,formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') is
+  member procedure se_nulo(data varchar2, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') is
   begin
     se_nulo(datetime(data, formato));
   end;
@@ -2202,24 +2140,24 @@ create or replace type body datetime is
 
   member function esta_na_lista(list      varchar2
                                ,formato   varchar2 default 'DD/MM/RRRR HH24:MI:SS'
-                               ,separador char default ';') return char is
-    vpos varchar2(100) := null;
-    i    number := 1;
+                               ,separador char default ';'
+                               ,intervalo char default '-') return char is
   begin
-    loop
-      vpos := regexp_substr(list, '[^' || separador || ']+', 1, i);
-      exit when vpos is null;
-      if standard.to_date(vpos, formato) = standard.trunc(self.data) then
-        return 'S';
-      end if;
-      i := i + 1;
-    end loop;
-    return 'N';
+    return esta_na_lista(dlist(list, separador => separador, intervalo => intervalo, formato => formato).to_argsd());
   end esta_na_lista;
 
-  member function esta_dentro(inicio   datetime
-                             ,fim      datetime
-                             ,infinito char default 'N') return char is
+  member function esta_na_lista(list argsd default argsd()) return char is
+    vdata date := self.trunc();
+  begin
+    -- verifica se está na lista
+    if vdata member of list then
+      return 'S';
+    else
+      return 'N';
+    end if;
+  end esta_na_lista;
+
+  member function esta_dentro(inicio datetime, fim datetime, infinito char default 'N') return char is
   begin
     if (data is not null and (infinito like 'S' or (infinito like 'N' and (inicio.data is not null or fim.data is not null)))) and
        self.trunc() between (inicio.inicial_se_nulo().trunc()) and (fim.final_se_nulo().trunc()) then
@@ -2229,9 +2167,7 @@ create or replace type body datetime is
     end if;
   end esta_dentro;
 
-  member function esta_dentro(inicio   date default null
-                             ,fim      date default null
-                             ,infinito char default 'N') return char is
+  member function esta_dentro(inicio date default null, fim date default null, infinito char default 'N') return char is
   begin
     return esta_dentro(datetime(inicio), datetime(fim), infinito);
   end esta_dentro;
@@ -2244,16 +2180,12 @@ create or replace type body datetime is
     return esta_dentro(datetime(inicio, formato), datetime(fim, formato), infinito);
   end esta_dentro;
 
-  member function esta_dentro_anomes(inicio   datetime
-                                    ,fim      datetime
-                                    ,infinito char default 'N') return char is
+  member function esta_dentro_anomes(inicio datetime, fim datetime, infinito char default 'N') return char is
   begin
     return esta_dentro_anomes(inicio.anomes, fim.anomes, infinito);
   end esta_dentro_anomes;
 
-  member function esta_dentro_anomes(inicio   date default null
-                                    ,fim      date default null
-                                    ,infinito char default 'N') return char is
+  member function esta_dentro_anomes(inicio date default null, fim date default null, infinito char default 'N') return char is
   begin
     return esta_dentro_anomes(datetime(inicio).anomes, datetime(fim).anomes, infinito);
   end esta_dentro_anomes;
@@ -2266,9 +2198,7 @@ create or replace type body datetime is
     return esta_dentro_anomes(datetime(inicio, formato).anomes, datetime(fim, formato).anomes, infinito);
   end esta_dentro_anomes;
 
-  member function esta_dentro_anomes(inicio   number default null
-                                    ,fim      number default null
-                                    ,infinito char default 'N') return char is
+  member function esta_dentro_anomes(inicio number default null, fim number default null, infinito char default 'N') return char is
   begin
     if (data is not null and (infinito like 'S' or (infinito like 'N' and (inicio is not null or fim is not null)))) and
        anomes between nvl(inicio, 0) and nvl(fim, 999912) then
@@ -2278,9 +2208,7 @@ create or replace type body datetime is
     end if;
   end esta_dentro_anomes;
 
-  member function esta_dentro_horario(inicio     number default null
-                                     ,fim        number default null
-                                     ,inicio_fim char default 'N') return varchar2 is
+  member function esta_dentro_horario(inicio number default null, fim number default null, inicio_fim char default 'N') return varchar2 is
     vinicio number := nvl(inicio, 0);
     vfim    number := nvl(fim, 2359);
   begin
@@ -2296,24 +2224,18 @@ create or replace type body datetime is
     end if;
   end esta_dentro_horario;
 
-  member function esta_dentro_horario(inicio     datetime
-                                     ,fim        datetime
-                                     ,inicio_fim char default 'N') return varchar2 is
+  member function esta_dentro_horario(inicio datetime, fim datetime, inicio_fim char default 'N') return varchar2 is
   begin
     return esta_dentro_horario(inicio.horaminuto, fim.horaminuto, inicio_fim);
   end esta_dentro_horario;
 
-  member function esta_dentro_horario(inicio     date default null
-                                     ,fim        date default null
-                                     ,inicio_fim char default 'N') return varchar2 is
+  member function esta_dentro_horario(inicio date default null, fim date default null, inicio_fim char default 'N') return varchar2 is
   begin
     return esta_dentro_horario(standard.to_number(standard.to_char(inicio, 'HH24MI')), standard.to_number(standard.to_char(fim, 'HH24MI')),
                                inicio_fim);
   end esta_dentro_horario;
 
-  member function esta_dentro_horario(inicio     varchar2 default null
-                                     ,fim        varchar2 default null
-                                     ,inicio_fim char default 'N') return varchar2 is
+  member function esta_dentro_horario(inicio varchar2 default null, fim varchar2 default null, inicio_fim char default 'N') return varchar2 is
   begin
     return esta_dentro_horario(standard.to_number(substr(text(inicio).apenas_numeros(), -4)),
                                standard.to_number(substr(text(fim).apenas_numeros(), -4)), inicio_fim);
@@ -2362,8 +2284,7 @@ create or replace type body datetime is
     return feriados(datetime(), datetime());
   end;
 
-  static function feriados(inicio datetime
-                          ,fim    datetime) return argsd is
+  static function feriados(inicio datetime, fim datetime) return argsd is
     result  argsd := argsd();
     vinicio date := standard.trunc(inicio.inicial_se_nulo().data);
     vfim    date := standard.trunc(fim.final_se_nulo().data);
@@ -2380,15 +2301,12 @@ create or replace type body datetime is
     return result;
   end;
 
-  static function feriados(inicio date
-                          ,fim    date default null) return argsd is
+  static function feriados(inicio date, fim date default null) return argsd is
   begin
     return feriados(datetime(inicio), datetime(fim));
   end;
 
-  static function feriados(inicio  varchar2
-                          ,fim     varchar2 default null
-                          ,formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return argsd is
+  static function feriados(inicio varchar2, fim varchar2 default null, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return argsd is
   begin
     return feriados(datetime(inicio, formato), datetime(fim, formato));
   end;
@@ -2398,8 +2316,7 @@ create or replace type body datetime is
     return listar_feriados(datetime(), datetime());
   end;
 
-  static function listar_feriados(inicio datetime
-                                 ,fim    datetime) return varchar2 is
+  static function listar_feriados(inicio datetime, fim datetime) return varchar2 is
     result  varchar2(32767);
     vinicio date := inicio.inicial_se_nulo().data;
     vfim    date := fim.final_se_nulo().data;
@@ -2418,15 +2335,12 @@ create or replace type body datetime is
     return result;
   end;
 
-  static function listar_feriados(inicio date
-                                 ,fim    date default null) return varchar2 is
+  static function listar_feriados(inicio date, fim date default null) return varchar2 is
   begin
     return listar_feriados(datetime(inicio), datetime(fim));
   end;
 
-  static function listar_feriados(inicio  varchar2
-                                 ,fim     varchar2 default null
-                                 ,formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return varchar2 is
+  static function listar_feriados(inicio varchar2, fim varchar2 default null, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return varchar2 is
   begin
     return listar_feriados(datetime(inicio, formato), datetime(fim, formato));
   end;

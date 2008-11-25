@@ -100,8 +100,7 @@ create or replace type period force as object
 * %param anomes number
 * %param dia_inicio number default 1 
 **/
-  constructor function period(anomes     number
-                             ,dia_inicio number default 1) return self as result,
+  constructor function period(anomes number, dia_inicio number default 1) return self as result,
 /** [constructor] Construir o objeto de ano/mes completo<br>
 *<code>
 *declare
@@ -112,9 +111,7 @@ create or replace type period force as object
 * %param ano number default null 
 * %param dia_inicio number default 1
 **/
-  constructor function period(mes        number
-                             ,ano        number default null
-                             ,dia_inicio number default 1) return self as result,
+  constructor function period(mes number, ano number default null, dia_inicio number default 1) return self as result,
 /** [constructor] Construir o objeto de dia/mes/ano completo<br>
 *<code>
 *declare
@@ -127,10 +124,7 @@ create or replace type period force as object
 * %param ano number default null 
 * %param fim_mes char default 'N' 
 **/
-  constructor function period(dia     number
-                             ,mes     number default null
-                             ,ano     number default null
-                             ,fim_mes char default 'N') return self as result,
+  constructor function period(dia number, mes number default null, ano number default null, fim_mes char default 'N') return self as result,
 /** [constructor] Construir o objeto com quantidade de dias úteis<br>
 *É possível informar a lista de feriádos a serem considerados, ou por padrão serão consultados na tabela vw_calendario.<br>
 *<code>
@@ -143,9 +137,7 @@ create or replace type period force as object
 * %param dias_uteis number 
 * %param list_feriados argsd default argsd() 
 **/
-  constructor function period(inicio        date
-                             ,dias_uteis    number
-                             ,list_feriados argsd default argsd()) return self as result,
+  constructor function period(inicio date, dias_uteis number, list_feriados argsd default argsd()) return self as result,
 /** [constructor] Construir o objeto com quantidade de dias úteis passando lista de feriádos em varchar2<br>
 *<code>
 *declare -- considerando sysdate = 06/09/2017
@@ -213,10 +205,7 @@ create or replace type period force as object
 * %param fim datetime default datetime() 
 * %param limpar char default 'N' (se o parametro é passado nulo elimina o valor atual)
 **/
-  member procedure atribuir(self   in out nocopy period
-                           ,inicio datetime default datetime()
-                           ,fim    datetime default datetime()
-                           ,limpar char default 'N'),
+  member procedure atribuir(self in out nocopy period, inicio datetime default datetime(), fim datetime default datetime(), limpar char default 'N'),
 /** [procedure] Atribuir novos valores de inicio e fim<br>
 *<code>
 *declare -- considerando sysdate = 10/12/2018
@@ -230,9 +219,7 @@ create or replace type period force as object
 * %param fim datetime default datetime() 
 * %param limpar char default 'N' (se o parametro é passado nulo elimina o valor atual)
 **/
-  member procedure atribuir(inicio date default null
-                           ,fim    date default null
-                           ,limpar char default 'N'),
+  member procedure atribuir(inicio date default null, fim date default null, limpar char default 'N'),
 /** [procedure] Atribuir novos valores de inicio e fim<br>
 *<code>
 *declare
@@ -440,9 +427,7 @@ create or replace type period force as object
 * %param fim datetime default datetime() 
 * %param limpar char default 'N' (se o parametro é passado nulo elimina o valor atual)
 **/
-  member function alterar(inicio datetime default datetime()
-                         ,fim    datetime default datetime()
-                         ,limpar char default 'N') return period,
+  member function alterar(inicio datetime default datetime(), fim datetime default datetime(), limpar char default 'N') return period,
 /** [function] Altera os valores de inicio e fim<br>
 *<code>
 *declare -- considerando sysdate = 25/10/2018
@@ -459,9 +444,7 @@ create or replace type period force as object
 * %param fim date default null 
 * %param limpar char default 'N' (se o parametro é passado nulo elimina o valor atual)
 **/
-  member function alterar(inicio date default null
-                         ,fim    date default null
-                         ,limpar char default 'N') return period,
+  member function alterar(inicio date default null, fim date default null, limpar char default 'N') return period,
 /** [function] Altera os valores de inicio e fim<br>
 *<code>
 *declare
@@ -516,8 +499,7 @@ create or replace type period force as object
 * %param inicio datetime default datetime() 
 * %param fim datetime default datetime()
 **/
-  member function limitar(inicio datetime default datetime()
-                         ,fim    datetime default datetime()) return period,
+  member function limitar(inicio datetime default datetime(), fim datetime default datetime()) return period,
 /** [function] Limita o período dentro do novo período informado (datas em date)<br>
 *Obs.: Caso o período limitante não tenha cruzamento com o período base, o limite não é aplicado.<br>
 *<code>
@@ -534,8 +516,7 @@ create or replace type period force as object
 * %param fim date default null 
 
 **/
-  member function limitar(inicio date default null
-                         ,fim    date default null) return period,
+  member function limitar(inicio date default null, fim date default null) return period,
 /** [function] Limita o período dentro do novo período informado (datas em date)<br>
 *Obs.: Caso o período limitante não tenha cruzamento com o período base, o limite não é aplicado.<br>
 *<code>
@@ -554,9 +535,7 @@ create or replace type period force as object
 * %param fim varchar2 default null 
 * %param formato varchar2 default 'DD/MM/RRRR HH24:MI:SS' 
 **/
-  member function limitar(inicio  varchar2 default null
-                         ,fim     varchar2 default null
-                         ,formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return period,
+  member function limitar(inicio varchar2 default null, fim varchar2 default null, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return period,
 /** [function] Adiciona ao início e ao fim<br>
 *<code>
 *begin
@@ -614,8 +593,7 @@ create or replace type period force as object
 * %param dias_uteis number 
 * %param list_feriados argsd default argsd() 
 **/
-  member function adicionar(dias_uteis    number
-                           ,list_feriados argsd default argsd()) return period,
+  member function adicionar(dias_uteis number, list_feriados argsd default argsd()) return period,
 /** [procedure] Adiciona dias úteis ao início e ao fim<br>
 *<code>
 *declare
@@ -629,9 +607,7 @@ create or replace type period force as object
 * %param dias_uteis number 
 * %param list_feriados argsd default argsd() 
 **/
-  member procedure adicionar(self          in out nocopy period
-                            ,dias_uteis    number
-                            ,list_feriados argsd default argsd()),
+  member procedure adicionar(self in out nocopy period, dias_uteis number, list_feriados argsd default argsd()),
 /** [function] Adiciona dias úteis ao início e ao fim passando lista de feriados<br>
 *<code>
 *declare
@@ -650,10 +626,8 @@ create or replace type period force as object
 * %param formato varchar2 default 'DD/MM/RRRR HH24:MI:SS' 
 * %param separador char default ';' 
 **/
-  member function adicionar(dias_uteis    number
-                           ,list_feriados varchar2
-                           ,formato       varchar2 default 'DD/MM/RRRR HH24:MI:SS'
-                           ,separador     char default ';') return period,
+  member function adicionar(dias_uteis number, list_feriados varchar2, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS', separador char default ';')
+    return period,
 /** [procedure] Adiciona dias úteis ao início e ao fim passando lista de feriados<br>
 *<code>
 *declare
@@ -737,8 +711,7 @@ create or replace type period force as object
 * %param dias_uteis number 
 * %param list_feriados argsd default argsd() 
 **/
-  member function add_inicio(dias_uteis    number
-                            ,list_feriados argsd default argsd()) return period,
+  member function add_inicio(dias_uteis number, list_feriados argsd default argsd()) return period,
 /** [procedure] Adiciona dias úteis ao início<br>
 *<code>
 *declare
@@ -752,13 +725,9 @@ create or replace type period force as object
 * %param dias_uteis number 
 * %param list_feriados argsd default argsd() 
 **/
-  member procedure add_inicio(self          in out nocopy period
-                             ,dias_uteis    number
-                             ,list_feriados argsd default argsd()),
-  member function add_inicio(dias_uteis    number
-                            ,list_feriados varchar2
-                            ,formato       varchar2 default 'DD/MM/RRRR HH24:MI:SS'
-                            ,separador     char default ';') return period,
+  member procedure add_inicio(self in out nocopy period, dias_uteis number, list_feriados argsd default argsd()),
+  member function add_inicio(dias_uteis number, list_feriados varchar2, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS', separador char default ';')
+    return period,
   member procedure add_inicio(self          in out nocopy period
                              ,dias_uteis    number
                              ,list_feriados varchar2
@@ -826,8 +795,7 @@ create or replace type period force as object
 * %param dias_uteis number 
 * %param list_feriados argsd default argsd() 
 **/
-  member function add_fim(dias_uteis    number
-                         ,list_feriados argsd default argsd()) return period,
+  member function add_fim(dias_uteis number, list_feriados argsd default argsd()) return period,
 /** [procedure] Adiciona dias úteis ao fim<br>
 *<code>
 *declare
@@ -841,13 +809,9 @@ create or replace type period force as object
 * %param dias_uteis number 
 * %param list_feriados argsd default argsd() 
 **/
-  member procedure add_fim(self          in out nocopy period
-                          ,dias_uteis    number
-                          ,list_feriados argsd default argsd()),
-  member function add_fim(dias_uteis    number
-                         ,list_feriados varchar2
-                         ,formato       varchar2 default 'DD/MM/RRRR HH24:MI:SS'
-                         ,separador     char default ';') return period,
+  member procedure add_fim(self in out nocopy period, dias_uteis number, list_feriados argsd default argsd()),
+  member function add_fim(dias_uteis number, list_feriados varchar2, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS', separador char default ';')
+    return period,
   member procedure add_fim(self          in out nocopy period
                           ,dias_uteis    number
                           ,list_feriados varchar2
@@ -916,8 +880,7 @@ create or replace type period force as object
 * %param dias_uteis number 
 * %param list_feriados argsd default argsd() 
 **/
-  member function subtrair(dias_uteis    number
-                          ,list_feriados argsd default argsd()) return period,
+  member function subtrair(dias_uteis number, list_feriados argsd default argsd()) return period,
 /** [procedure] Subtrai dias úteis do início e fim<br>
 *<code>
 *declare
@@ -931,13 +894,9 @@ create or replace type period force as object
 * %param dias_uteis number 
 * %param list_feriados argsd default argsd() 
 **/
-  member procedure subtrair(self          in out nocopy period
-                           ,dias_uteis    number
-                           ,list_feriados argsd default argsd()),
-  member function subtrair(dias_uteis    number
-                          ,list_feriados varchar2
-                          ,formato       varchar2 default 'DD/MM/RRRR HH24:MI:SS'
-                          ,separador     char default ';') return period,
+  member procedure subtrair(self in out nocopy period, dias_uteis number, list_feriados argsd default argsd()),
+  member function subtrair(dias_uteis number, list_feriados varchar2, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS', separador char default ';')
+    return period,
   member procedure subtrair(self          in out nocopy period
                            ,dias_uteis    number
                            ,list_feriados varchar2
@@ -1005,8 +964,7 @@ create or replace type period force as object
 * %param dias_uteis number 
 * %param list_feriados argsd default argsd() 
 **/
-  member function sub_inicio(dias_uteis    number
-                            ,list_feriados argsd default argsd()) return period,
+  member function sub_inicio(dias_uteis number, list_feriados argsd default argsd()) return period,
 /** [procedure] Subtrai dias úteis do início<br>
 *<code>
 *declare
@@ -1020,13 +978,9 @@ create or replace type period force as object
 * %param dias_uteis number 
 * %param list_feriados argsd default argsd() 
 **/
-  member procedure sub_inicio(self          in out nocopy period
-                             ,dias_uteis    number
-                             ,list_feriados argsd default argsd()),
-  member function sub_inicio(dias_uteis    number
-                            ,list_feriados varchar2
-                            ,formato       varchar2 default 'DD/MM/RRRR HH24:MI:SS'
-                            ,separador     char default ';') return period,
+  member procedure sub_inicio(self in out nocopy period, dias_uteis number, list_feriados argsd default argsd()),
+  member function sub_inicio(dias_uteis number, list_feriados varchar2, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS', separador char default ';')
+    return period,
   member procedure sub_inicio(self          in out nocopy period
                              ,dias_uteis    number
                              ,list_feriados varchar2
@@ -1094,8 +1048,7 @@ create or replace type period force as object
 * %param dias_uteis number 
 * %param list_feriados argsd default argsd() 
 **/
-  member function sub_fim(dias_uteis    number
-                         ,list_feriados argsd default argsd()) return period,
+  member function sub_fim(dias_uteis number, list_feriados argsd default argsd()) return period,
 /** [procedure] Subtrai dias úteis do fim<br>
 *<code>
 *declare
@@ -1109,13 +1062,9 @@ create or replace type period force as object
 * %param dias_uteis number 
 * %param list_feriados argsd default argsd() 
 **/
-  member procedure sub_fim(self          in out nocopy period
-                          ,dias_uteis    number
-                          ,list_feriados argsd default argsd()),
-  member function sub_fim(dias_uteis    number
-                         ,list_feriados varchar2
-                         ,formato       varchar2 default 'DD/MM/RRRR HH24:MI:SS'
-                         ,separador     char default ';') return period,
+  member procedure sub_fim(self in out nocopy period, dias_uteis number, list_feriados argsd default argsd()),
+  member function sub_fim(dias_uteis number, list_feriados varchar2, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS', separador char default ';')
+    return period,
   member procedure sub_fim(self          in out nocopy period
                           ,dias_uteis    number
                           ,list_feriados varchar2
@@ -1195,8 +1144,7 @@ create or replace type period force as object
 * %param inicio date default '01/01/0001' 
 * %param fim date default '31/12/9999'
 **/
-  member function nvl(inicio date default '01/01/0001'
-                     ,fim    date default '31/12/9999') return period,
+  member function nvl(inicio date default '01/01/0001', fim date default '31/12/9999') return period,
 /** [function] Retorna um nvl do início<br>
 *<code>
 *declare
@@ -1352,9 +1300,7 @@ create or replace type period force as object
 * %param resumido char default 'N' (S/N) 
 * %param em_horas char default 'N' (S/N) 
 **/
-  member function tempo(contar_bissexto char default 'N'
-                       ,resumido        char default 'N'
-                       ,em_horas        char default 'N') return varchar2,
+  member function tempo(contar_bissexto char default 'N', resumido char default 'N', em_horas char default 'N') return varchar2,
 /** [function] Retorna a data completa em varchar2<br>
 *<code>
 *begin
@@ -1382,8 +1328,7 @@ create or replace type period force as object
 * %param formato varchar2 default 'D' 
 * %param separador varchar2 default ','
 **/
-  member function ds(formato   varchar2 default 'D'
-                    ,separador varchar2 default ',') return varchar2,
+  member function ds(formato varchar2 default 'D', separador varchar2 default ',') return varchar2,
 /** [function] Retorna a quantidade de dias em finais de semana dentro do período<br>
 *<code>
 *begin
@@ -1550,9 +1495,7 @@ create or replace type period force as object
 * %param infinito char default 'N' 
 * %param considerar_horario char default 'N' 
 **/
-  member function cruzamento(periodo            period
-                            ,infinito           char default 'N'
-                            ,considerar_horario char default 'N') return char,
+  member function cruzamento(periodo period, infinito char default 'N', considerar_horario char default 'N') return char,
 /** [function] Verifica cruzamento de períodos<br>
 *<code>
 *declare
@@ -1620,10 +1563,8 @@ create or replace type period force as object
 * %param infinito char default 'N' 
 * %param considerar_horario char default 'N' 
 **/
-  member function cruzamento(inicio             date default null
-                            ,fim                date default null
-                            ,infinito           char default 'N'
-                            ,considerar_horario char default 'N') return char,
+  member function cruzamento(inicio date default null, fim date default null, infinito char default 'N', considerar_horario char default 'N')
+    return char,
 /** [function] Verifica cruzamento de períodos<br>
 *<code>
 *declare
@@ -1644,7 +1585,8 @@ create or replace type period force as object
 **/
   member function cruzamento_lista(list      varchar2 default null
                                   ,formato   varchar2 default 'DD/MM/RRRR HH24:MI:SS'
-                                  ,separador varchar2 default ';') return char,
+                                  ,separador varchar2 default ';'
+                                  ,infinito  char default 'N') return char,
 /** [function] Verifica cruzamento de períodos<br>
 *<code>
 *declare
@@ -1660,7 +1602,7 @@ create or replace type period force as object
 * %return char (S/N)
 * %param list argsd default argsd() 
 **/
-  member function cruzamento_lista(list argsd default argsd()) return char,
+  member function cruzamento_lista(list argsd default argsd(), infinito char default 'N') return char,
 /** [function] Retorna se o período de horário está dentro do horário do período<br>
 *<b>Obs.:</b> Considera apenas horas e minutos.
 *<code>
@@ -1679,9 +1621,7 @@ create or replace type period force as object
 * %param fim date
 * %param inicio_fim char default 'N' (não cruzar último e primeiro minuto)
 **/
-  member function cruzamento_horario(inicio     date default null
-                                    ,fim        date default null
-                                    ,inicio_fim char default 'N') return char,
+  member function cruzamento_horario(inicio date default null, fim date default null, inicio_fim char default 'N') return char,
 /** [function] Retorna se o período de horário está dentro do horário do período<br>
 *<b>Obs.:</b> Considera apenas horas e minutos.
 *<code>
@@ -1700,9 +1640,7 @@ create or replace type period force as object
 * %param fim varchar2
 * %param inicio_fim char default 'N' (não cruzar último e primeiro minuto)
 **/
-  member function cruzamento_horario(inicio     varchar2 default null
-                                    ,fim        varchar2 default null
-                                    ,inicio_fim char default 'N') return char,
+  member function cruzamento_horario(inicio varchar2 default null, fim varchar2 default null, inicio_fim char default 'N') return char,
 /** [function] Verifica se o período está totalmente dentro de um período<br>
 *<code>
 *declare
@@ -1725,9 +1663,7 @@ create or replace type period force as object
 * %param infinito char default 'N' 
 * %param considerar_horario char default 'N' 
 **/
-  member function esta_dentro(periodo            period
-                             ,infinito           char default 'N'
-                             ,considerar_horario char default 'N') return char,
+  member function esta_dentro(periodo period, infinito char default 'N', considerar_horario char default 'N') return char,
 /** [function] Verifica se o período está totalmente dentro de um período<br>
 *<code>
 *declare
@@ -1770,10 +1706,8 @@ create or replace type period force as object
 * %param infinito char default 'N' 
 * %param considerar_horario char default 'N' 
 **/
-  member function esta_dentro(inicio             date default null
-                             ,fim                date default null
-                             ,infinito           char default 'N'
-                             ,considerar_horario char default 'N') return char,
+  member function esta_dentro(inicio date default null, fim date default null, infinito char default 'N', considerar_horario char default 'N')
+    return char,
 /** [function] Verifica se o período está totalmente dentro de um período<br>
 *<code>
 *declare
@@ -1821,9 +1755,7 @@ create or replace type period force as object
 * %param infinito char default 'N' 
 * %param considerar_horario char default 'N' 
 **/
-  member function abrange(periodo            period
-                         ,infinito           char default 'N'
-                         ,considerar_horario char default 'N') return char,
+  member function abrange(periodo period, infinito char default 'N', considerar_horario char default 'N') return char,
 /** [function] Verifica se o período abrange totalmente um período<br>
 *<code>
 *declare
@@ -1866,10 +1798,8 @@ create or replace type period force as object
 * %param infinito char default 'N' 
 * %param considerar_horario char default 'N' 
 **/
-  member function abrange(inicio             date default null
-                         ,fim                date default null
-                         ,infinito           char default 'N'
-                         ,considerar_horario char default 'N') return char,
+  member function abrange(inicio date default null, fim date default null, infinito char default 'N', considerar_horario char default 'N')
+    return char,
 /** [function] Verifica se o período abrange totalmente um período<br>
 *<code>
 *declare
@@ -1914,9 +1844,7 @@ create or replace type period force as object
 * %param infinito char default 'N' 
 * %param considerar_horario char default 'N' 
 **/
-  member function possui(data               datetime
-                        ,infinito           char default 'N'
-                        ,considerar_horario char default 'N') return char,
+  member function possui(data datetime, infinito char default 'N', considerar_horario char default 'N') return char,
 /** [function] Verifica se o período possui uma data<br>
 *<code>
 *declare
@@ -1936,9 +1864,7 @@ create or replace type period force as object
 * %param infinito char default 'N' 
 * %param considerar_horario char default 'N'
 **/
-  member function possui(data               date
-                        ,infinito           char default 'N'
-                        ,considerar_horario char default 'N') return char,
+  member function possui(data date, infinito char default 'N', considerar_horario char default 'N') return char,
 /** [function] Verifica se o período possui uma data<br>
 *<code>
 *declare
@@ -1979,8 +1905,7 @@ create or replace type period force as object
 * %param ano number 
 * %param infinito char default 'N' 
 **/
-  member function possui_ano(ano      number
-                            ,infinito char default 'N') return char,
+  member function possui_ano(ano number, infinito char default 'N') return char,
 /** [function] Verifica se o período possui um ANOMES<br>
 *<code>
 *begin
@@ -1997,8 +1922,7 @@ create or replace type period force as object
 * %param anomes number 
 * %param infinito char default 'N' 
 **/
-  member function possui_anomes(anomes   number
-                               ,infinito char default 'N') return char,
+  member function possui_anomes(anomes number, infinito char default 'N') return char,
 /** [function] Retorna se o horário está dentro do horário do período<br>
 *<b>Obs.:</b> Considera apenas horas e minutos.
 *<code>
@@ -2015,8 +1939,7 @@ create or replace type period force as object
 * %param data date
 * %param inicio_fim char default 'N' (não cruzar último minuto)
 **/
-  member function possui_horario(data       date
-                                ,inicio_fim char default 'N') return char,
+  member function possui_horario(data date, inicio_fim char default 'N') return char,
 /** [function] Retorna se o horário está dentro do horário do período<br>
 *<b>Obs.:</b> Considera apenas horas e minutos.
 *<code>
@@ -2033,8 +1956,7 @@ create or replace type period force as object
 * %param data varchar2
 * %param inicio_fim char default 'N' (não cruzar último minuto)
 **/
-  member function possui_horario(data       varchar2
-                                ,inicio_fim char default 'N') return char,
+  member function possui_horario(data varchar2, inicio_fim char default 'N') return char,
 /** [function] Retorna se o período possui dia da semana<br>
 *<code>
 *declare
@@ -2209,7 +2131,7 @@ create or replace type body period is
       elsif infinito like 'N' then
         self.fim := self.inicio;
       end if;
-    elsif instr(formato, 'DD') = 0 and
+    elsif instr(upper(formato), 'DD') = 0 and
           formato <> 'ISO8601' then
       -- ajusta fim quando nao tem dia no formato
       self.fim.data := last_day(self.fim.data);
@@ -2246,8 +2168,7 @@ create or replace type body period is
     return;
   end;
 
-  constructor function period(anomes     number
-                             ,dia_inicio number default 1) return self as result is
+  constructor function period(anomes number, dia_inicio number default 1) return self as result is
   begin
     if anomes is not null then
       self.inicio := datetime(lpad(anomes, 6, '0') || lpad(dia_inicio, 2, '0'), 'RRRRMMDD');
@@ -2259,9 +2180,7 @@ create or replace type body period is
     return;
   end;
 
-  constructor function period(mes        number
-                             ,ano        number default null
-                             ,dia_inicio number default 1) return self as result is
+  constructor function period(mes number, ano number default null, dia_inicio number default 1) return self as result is
   begin
     if mes is not null then
       self.inicio := datetime(dia => dia_inicio, mes => mes, ano => ano);
@@ -2273,10 +2192,7 @@ create or replace type body period is
     return;
   end;
 
-  constructor function period(dia     number
-                             ,mes     number default null
-                             ,ano     number default null
-                             ,fim_mes char default 'N') return self as result is
+  constructor function period(dia number, mes number default null, ano number default null, fim_mes char default 'N') return self as result is
   begin
     if dia is not null then
       self.inicio := datetime(dia => dia, mes => mes, ano => ano);
@@ -2292,9 +2208,7 @@ create or replace type body period is
     return;
   end;
 
-  constructor function period(inicio        date
-                             ,dias_uteis    number
-                             ,list_feriados argsd default argsd()) return self as result is
+  constructor function period(inicio date, dias_uteis number, list_feriados argsd default argsd()) return self as result is
   begin
     self.inicio := datetime(inicio);
     self.fim    := self.inicio;
@@ -2342,10 +2256,7 @@ create or replace type body period is
   end;
 
   -- Member procedures and functions
-  member procedure atribuir(self   in out nocopy period
-                           ,inicio datetime default datetime()
-                           ,fim    datetime default datetime()
-                           ,limpar char default 'N') is
+  member procedure atribuir(self in out nocopy period, inicio datetime default datetime(), fim datetime default datetime(), limpar char default 'N') is
   begin
     if inicio.data is not null or
        limpar like 'S' then
@@ -2358,9 +2269,7 @@ create or replace type body period is
     end if;
   end atribuir;
 
-  member procedure atribuir(inicio date default null
-                           ,fim    date default null
-                           ,limpar char default 'N') is
+  member procedure atribuir(inicio date default null, fim date default null, limpar char default 'N') is
   begin
     atribuir(datetime(inicio), datetime(fim), limpar);
   end atribuir;
@@ -2373,9 +2282,7 @@ create or replace type body period is
     atribuir(datetime(inicio, formato), datetime(fim, formato), limpar);
   end atribuir;
 
-  member function alterar(inicio datetime default datetime()
-                         ,fim    datetime default datetime()
-                         ,limpar char default 'N') return period is
+  member function alterar(inicio datetime default datetime(), fim datetime default datetime(), limpar char default 'N') return period is
     result period := self;
   begin
     if inicio.data is not null or
@@ -2390,9 +2297,7 @@ create or replace type body period is
     return result;
   end alterar;
 
-  member function alterar(inicio date default null
-                         ,fim    date default null
-                         ,limpar char default 'N') return period is
+  member function alterar(inicio date default null, fim date default null, limpar char default 'N') return period is
   begin
     return alterar(datetime(inicio), datetime(fim), limpar);
   end alterar;
@@ -2497,21 +2402,17 @@ create or replace type body period is
     end if;
   end limitar;
 
-  member function limitar(inicio datetime default datetime()
-                         ,fim    datetime default datetime()) return period is
+  member function limitar(inicio datetime default datetime(), fim datetime default datetime()) return period is
   begin
     return limitar(period(inicio, fim));
   end limitar;
 
-  member function limitar(inicio date default null
-                         ,fim    date default null) return period is
+  member function limitar(inicio date default null, fim date default null) return period is
   begin
     return limitar(period(datetime(inicio), datetime(fim)));
   end limitar;
 
-  member function limitar(inicio  varchar2 default null
-                         ,fim     varchar2 default null
-                         ,formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return period is
+  member function limitar(inicio varchar2 default null, fim varchar2 default null, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return period is
   begin
     return limitar(period(datetime(inicio, formato), datetime(fim, formato)));
   end limitar;
@@ -2538,25 +2439,20 @@ create or replace type body period is
     self.fim.adicionar(anos, meses, dias, horas, minutos, segundos);
   end adicionar;
 
-  member function adicionar(dias_uteis    number
-                           ,list_feriados argsd default argsd()) return period is
+  member function adicionar(dias_uteis number, list_feriados argsd default argsd()) return period is
   begin
     return period(self.inicio.adicionar(dias_uteis => dias_uteis, list_feriados => list_feriados),
                   self.fim.adicionar(dias_uteis => dias_uteis, list_feriados => list_feriados));
   end;
 
-  member procedure adicionar(self          in out nocopy period
-                            ,dias_uteis    number
-                            ,list_feriados argsd default argsd()) is
+  member procedure adicionar(self in out nocopy period, dias_uteis number, list_feriados argsd default argsd()) is
   begin
     self.inicio.adicionar(dias_uteis => dias_uteis, list_feriados => list_feriados);
     self.fim.adicionar(dias_uteis => dias_uteis, list_feriados => list_feriados);
   end;
 
-  member function adicionar(dias_uteis    number
-                           ,list_feriados varchar2
-                           ,formato       varchar2 default 'DD/MM/RRRR HH24:MI:SS'
-                           ,separador     char default ';') return period is
+  member function adicionar(dias_uteis number, list_feriados varchar2, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS', separador char default ';')
+    return period is
   begin
     return period(self.inicio.adicionar(dias_uteis => dias_uteis, list_feriados => list_feriados, formato => formato, separador => separador),
                   self.fim.adicionar(dias_uteis => dias_uteis, list_feriados => list_feriados, formato => formato, separador => separador));
@@ -2593,23 +2489,18 @@ create or replace type body period is
     self.inicio.adicionar(anos, meses, dias, horas, minutos, segundos);
   end add_inicio;
 
-  member function add_inicio(dias_uteis    number
-                            ,list_feriados argsd default argsd()) return period is
+  member function add_inicio(dias_uteis number, list_feriados argsd default argsd()) return period is
   begin
     return period(self.inicio.adicionar(dias_uteis => dias_uteis, list_feriados => list_feriados), self.fim);
   end;
 
-  member procedure add_inicio(self          in out nocopy period
-                             ,dias_uteis    number
-                             ,list_feriados argsd default argsd()) is
+  member procedure add_inicio(self in out nocopy period, dias_uteis number, list_feriados argsd default argsd()) is
   begin
     self.inicio.adicionar(dias_uteis => dias_uteis, list_feriados => list_feriados);
   end;
 
-  member function add_inicio(dias_uteis    number
-                            ,list_feriados varchar2
-                            ,formato       varchar2 default 'DD/MM/RRRR HH24:MI:SS'
-                            ,separador     char default ';') return period is
+  member function add_inicio(dias_uteis number, list_feriados varchar2, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS', separador char default ';')
+    return period is
   begin
     return period(self.inicio.adicionar(dias_uteis => dias_uteis, list_feriados => list_feriados, formato => formato, separador => separador),
                   self.fim);
@@ -2645,23 +2536,18 @@ create or replace type body period is
     self.fim.adicionar(anos, meses, dias, horas, minutos, segundos);
   end add_fim;
 
-  member function add_fim(dias_uteis    number
-                         ,list_feriados argsd default argsd()) return period is
+  member function add_fim(dias_uteis number, list_feriados argsd default argsd()) return period is
   begin
     return period(self.inicio, self.fim.adicionar(dias_uteis => dias_uteis, list_feriados => list_feriados));
   end;
 
-  member procedure add_fim(self          in out nocopy period
-                          ,dias_uteis    number
-                          ,list_feriados argsd default argsd()) is
+  member procedure add_fim(self in out nocopy period, dias_uteis number, list_feriados argsd default argsd()) is
   begin
     self.fim.adicionar(dias_uteis => dias_uteis, list_feriados => list_feriados);
   end;
 
-  member function add_fim(dias_uteis    number
-                         ,list_feriados varchar2
-                         ,formato       varchar2 default 'DD/MM/RRRR HH24:MI:SS'
-                         ,separador     char default ';') return period is
+  member function add_fim(dias_uteis number, list_feriados varchar2, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS', separador char default ';')
+    return period is
   begin
     return period(self.inicio,
                   self.fim.adicionar(dias_uteis => dias_uteis, list_feriados => list_feriados, formato => formato, separador => separador));
@@ -2698,25 +2584,20 @@ create or replace type body period is
     self.fim.subtrair(anos, meses, dias, horas, minutos, segundos);
   end subtrair;
 
-  member function subtrair(dias_uteis    number
-                          ,list_feriados argsd default argsd()) return period is
+  member function subtrair(dias_uteis number, list_feriados argsd default argsd()) return period is
   begin
     return period(self.inicio.subtrair(dias_uteis => dias_uteis, list_feriados => list_feriados),
                   self.fim.subtrair(dias_uteis => dias_uteis, list_feriados => list_feriados));
   end;
 
-  member procedure subtrair(self          in out nocopy period
-                           ,dias_uteis    number
-                           ,list_feriados argsd default argsd()) is
+  member procedure subtrair(self in out nocopy period, dias_uteis number, list_feriados argsd default argsd()) is
   begin
     self.inicio.subtrair(dias_uteis => dias_uteis, list_feriados => list_feriados);
     self.fim.subtrair(dias_uteis => dias_uteis, list_feriados => list_feriados);
   end;
 
-  member function subtrair(dias_uteis    number
-                          ,list_feriados varchar2
-                          ,formato       varchar2 default 'DD/MM/RRRR HH24:MI:SS'
-                          ,separador     char default ';') return period is
+  member function subtrair(dias_uteis number, list_feriados varchar2, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS', separador char default ';')
+    return period is
   begin
     return period(self.inicio.subtrair(dias_uteis => dias_uteis, list_feriados => list_feriados, formato => formato, separador => separador),
                   self.fim.subtrair(dias_uteis => dias_uteis, list_feriados => list_feriados, formato => formato, separador => separador));
@@ -2753,23 +2634,18 @@ create or replace type body period is
     self.inicio.subtrair(anos, meses, dias, horas, minutos, segundos);
   end sub_inicio;
 
-  member function sub_inicio(dias_uteis    number
-                            ,list_feriados argsd default argsd()) return period is
+  member function sub_inicio(dias_uteis number, list_feriados argsd default argsd()) return period is
   begin
     return period(self.inicio.subtrair(dias_uteis => dias_uteis, list_feriados => list_feriados), self.fim);
   end;
 
-  member procedure sub_inicio(self          in out nocopy period
-                             ,dias_uteis    number
-                             ,list_feriados argsd default argsd()) is
+  member procedure sub_inicio(self in out nocopy period, dias_uteis number, list_feriados argsd default argsd()) is
   begin
     self.inicio.subtrair(dias_uteis => dias_uteis, list_feriados => list_feriados);
   end;
 
-  member function sub_inicio(dias_uteis    number
-                            ,list_feriados varchar2
-                            ,formato       varchar2 default 'DD/MM/RRRR HH24:MI:SS'
-                            ,separador     char default ';') return period is
+  member function sub_inicio(dias_uteis number, list_feriados varchar2, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS', separador char default ';')
+    return period is
   begin
     return period(self.inicio.subtrair(dias_uteis => dias_uteis, list_feriados => list_feriados, formato => formato, separador => separador),
                   self.fim);
@@ -2805,23 +2681,18 @@ create or replace type body period is
     self.fim.subtrair(anos, meses, dias, horas, minutos, segundos);
   end sub_fim;
 
-  member function sub_fim(dias_uteis    number
-                         ,list_feriados argsd default argsd()) return period is
+  member function sub_fim(dias_uteis number, list_feriados argsd default argsd()) return period is
   begin
     return period(self.inicio, self.fim.subtrair(dias_uteis => dias_uteis, list_feriados => list_feriados));
   end;
 
-  member procedure sub_fim(self          in out nocopy period
-                          ,dias_uteis    number
-                          ,list_feriados argsd default argsd()) is
+  member procedure sub_fim(self in out nocopy period, dias_uteis number, list_feriados argsd default argsd()) is
   begin
     self.fim.subtrair(dias_uteis => dias_uteis, list_feriados => list_feriados);
   end;
 
-  member function sub_fim(dias_uteis    number
-                         ,list_feriados varchar2
-                         ,formato       varchar2 default 'DD/MM/RRRR HH24:MI:SS'
-                         ,separador     char default ';') return period is
+  member function sub_fim(dias_uteis number, list_feriados varchar2, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS', separador char default ';')
+    return period is
   begin
     return period(self.inicio,
                   self.fim.subtrair(dias_uteis => dias_uteis, list_feriados => list_feriados, formato => formato, separador => separador));
@@ -2872,8 +2743,7 @@ create or replace type body period is
     end if;
   end;
 
-  member function nvl(inicio date default '01/01/0001'
-                     ,fim    date default '31/12/9999') return period is
+  member function nvl(inicio date default '01/01/0001', fim date default '31/12/9999') return period is
   begin
     return period(datetime(standard.nvl(self.inicio.data, inicio)), datetime(standard.nvl(self.fim.data, fim)));
   end;
@@ -2968,9 +2838,7 @@ create or replace type body period is
     return standard.trunc((fim_nvl().data - inicio_nvl().data + vdia_ini) * 24 * 60 * 60);
   end;
 
-  member function tempo(contar_bissexto char default 'N'
-                       ,resumido        char default 'N'
-                       ,em_horas        char default 'N') return varchar2 is
+  member function tempo(contar_bissexto char default 'N', resumido char default 'N', em_horas char default 'N') return varchar2 is
     result      varchar2(500);
     ano         number := 0;
     mes         number := 0;
@@ -3133,8 +3001,7 @@ create or replace type body period is
     return replace(to_char('DD/MM/RRRR HH24:MI:SS'), ' 00:00:00');
   end;
 
-  member function ds(formato   varchar2 default 'D'
-                    ,separador varchar2 default ',') return varchar2 is
+  member function ds(formato varchar2 default 'D', separador varchar2 default ',') return varchar2 is
     result   varchar2(1000);
     vperiodo period := self.trunc();
   begin
@@ -3393,9 +3260,7 @@ create or replace type body period is
     return result;
   end;
 
-  member function cruzamento(periodo            period
-                            ,infinito           char default 'N'
-                            ,considerar_horario char default 'N') return char is
+  member function cruzamento(periodo period, infinito char default 'N', considerar_horario char default 'N') return char is
     vdata_ini1 date;
     vdata_fim1 date;
     vdata_ini2 date;
@@ -3431,10 +3296,8 @@ create or replace type body period is
     return cruzamento(period(inicio, fim), infinito, considerar_horario);
   end cruzamento;
 
-  member function cruzamento(inicio             date default null
-                            ,fim                date default null
-                            ,infinito           char default 'N'
-                            ,considerar_horario char default 'N') return char is
+  member function cruzamento(inicio date default null, fim date default null, infinito char default 'N', considerar_horario char default 'N')
+    return char is
   begin
     return cruzamento(period(inicio, fim), infinito, considerar_horario);
   end cruzamento;
@@ -3450,29 +3313,48 @@ create or replace type body period is
 
   member function cruzamento_lista(list      varchar2
                                   ,formato   varchar2 default 'DD/MM/RRRR HH24:MI:SS'
-                                  ,separador varchar2 default ';') return char is
-    vpos varchar2(100) := null;
-    vper period := self.nvl().to_format(formato);
-    i    number := 1;
+                                  ,separador varchar2 default ';'
+                                  ,infinito  char default 'N') return char is
+    vper period;
+    vpos number := 1;
+    vsub number;
+    vlen constant number := length(list);
+    vsep constant number := length(separador);
+    valor date;
   begin
-    loop
-      vpos := regexp_substr(list, '[^' || separador || ']+', 1, i);
-      exit when vpos is null;
-      if standard.to_date(vpos, formato) between vper.inicio.data and vper.fim.data then
-        return 'S';
-      end if;
-      i := i + 1;
-    end loop;
+    if (infinito like 'S' or (infinito like 'N' and (self.inicio.data is not null or self.fim.data is not null))) and
+       vlen > 0 then
+      vper := self.nvl().to_format(formato);
+      loop
+        vsub := instr(list, separador, vpos);
+        if vsub = 0 then
+          valor := standard.to_date(substr(list, vpos), formato);
+        else
+          valor := standard.to_date(substr(list, vpos, vsub - vpos), formato);
+        end if;
+        -- >> atrib
+        if valor is not null and
+           valor between vper.inicio.data and vper.fim.data then
+          return 'S';
+        end if;
+        -- >> --
+        exit when vsub = 0;
+        vpos := vsub + vsep;
+      end loop;
+    end if;
     return 'N';
   end cruzamento_lista;
 
-  member function cruzamento_lista(list argsd default argsd()) return char is
-    vinicio date := self.inicio_nvl().trunc();
-    vfim    date := self.fim_nvl().trunc();
+  member function cruzamento_lista(list argsd default argsd(), infinito char default 'N') return char is
+    vinicio date;
+    vfim    date;
   begin
     -- verifica feriados
     if list is not null and
-       list is not empty then
+       list is not empty and
+       (infinito like 'S' or (infinito like 'N' and (self.inicio.data is not null or self.fim.data is not null))) then
+      vinicio := self.inicio_nvl().trunc();
+      vfim    := self.fim_nvl().trunc();
       for i in list.first .. list.last
       loop
         -- verifica se esta no periodo
@@ -3484,9 +3366,7 @@ create or replace type body period is
     return 'N';
   end;
 
-  member function cruzamento_horario(inicio     date default null
-                                    ,fim        date default null
-                                    ,inicio_fim char default 'N') return char is
+  member function cruzamento_horario(inicio date default null, fim date default null, inicio_fim char default 'N') return char is
     vhora_ini1 date := to_date(self.inicio_nvl().horaminuto(), 'HH24MI');
     vhora_fim1 date := to_date(standard.nvl(self.fim_nvl().horaminuto(), '2359'), 'HH24MI');
     vhora_ini2 date := to_date(standard.to_char(inicio, 'HH24MI'), 'HH24MI');
@@ -3507,18 +3387,14 @@ create or replace type body period is
     end if;
   end cruzamento_horario;
 
-  member function cruzamento_horario(inicio     varchar2 default null
-                                    ,fim        varchar2 default null
-                                    ,inicio_fim char default 'N') return char is
+  member function cruzamento_horario(inicio varchar2 default null, fim varchar2 default null, inicio_fim char default 'N') return char is
     vinicio date := to_date(substr(text(inicio).apenas_numeros(), -4), 'HH24MI');
     vfim    date := to_date(standard.nvl(substr(text(fim).apenas_numeros(), -4), '2359'), 'HH24MI');
   begin
     return cruzamento_horario(vinicio, vfim, inicio_fim);
   end cruzamento_horario;
 
-  member function esta_dentro(periodo            period
-                             ,infinito           char default 'N'
-                             ,considerar_horario char default 'N') return char is
+  member function esta_dentro(periodo period, infinito char default 'N', considerar_horario char default 'N') return char is
     vdentro_inicio date;
     vdentro_fim    date;
     vmargem_inicio date;
@@ -3553,10 +3429,8 @@ create or replace type body period is
     return esta_dentro(period(inicio, fim), infinito, considerar_horario);
   end esta_dentro;
 
-  member function esta_dentro(inicio             date default null
-                             ,fim                date default null
-                             ,infinito           char default 'N'
-                             ,considerar_horario char default 'N') return char is
+  member function esta_dentro(inicio date default null, fim date default null, infinito char default 'N', considerar_horario char default 'N')
+    return char is
   begin
     return esta_dentro(period(inicio, fim), infinito, considerar_horario);
   end esta_dentro;
@@ -3570,9 +3444,7 @@ create or replace type body period is
     return esta_dentro(period(datetime(inicio, formato), datetime(fim, formato)), infinito, considerar_horario);
   end esta_dentro;
 
-  member function abrange(periodo            period
-                         ,infinito           char default 'N'
-                         ,considerar_horario char default 'N') return char is
+  member function abrange(periodo period, infinito char default 'N', considerar_horario char default 'N') return char is
   begin
     return periodo.esta_dentro(self, infinito, considerar_horario);
   end abrange;
@@ -3585,10 +3457,7 @@ create or replace type body period is
     return abrange(period(inicio, fim), infinito, considerar_horario);
   end abrange;
 
-  member function abrange(inicio             date default null
-                         ,fim                date default null
-                         ,infinito           char default 'N'
-                         ,considerar_horario char default 'N') return char is
+  member function abrange(inicio date default null, fim date default null, infinito char default 'N', considerar_horario char default 'N') return char is
   begin
     return abrange(period(inicio, fim), infinito, considerar_horario);
   end abrange;
@@ -3602,9 +3471,7 @@ create or replace type body period is
     return abrange(period(datetime(inicio, formato), datetime(fim, formato)), infinito, considerar_horario);
   end abrange;
 
-  member function possui(data               datetime
-                        ,infinito           char default 'N'
-                        ,considerar_horario char default 'N') return char is
+  member function possui(data datetime, infinito char default 'N', considerar_horario char default 'N') return char is
     vperiodo period;
     vdata    datetime;
   begin
@@ -3624,9 +3491,7 @@ create or replace type body period is
     end if;
   end possui;
 
-  member function possui(data               date
-                        ,infinito           char default 'N'
-                        ,considerar_horario char default 'N') return char is
+  member function possui(data date, infinito char default 'N', considerar_horario char default 'N') return char is
   begin
     return possui(datetime(data), infinito, considerar_horario);
   end possui;
@@ -3639,8 +3504,7 @@ create or replace type body period is
     return possui(datetime(data, formato), infinito, considerar_horario);
   end possui;
 
-  member function possui_ano(ano      number
-                            ,infinito char default 'N') return char is
+  member function possui_ano(ano number, infinito char default 'N') return char is
   begin
     if ano is not null and
        (infinito like 'S' or (infinito like 'N' and self.nulo like 'N')) and
@@ -3651,8 +3515,7 @@ create or replace type body period is
     end if;
   end possui_ano;
 
-  member function possui_anomes(anomes   number
-                               ,infinito char default 'N') return char is
+  member function possui_anomes(anomes number, infinito char default 'N') return char is
   begin
     if anomes is not null and
        (infinito like 'S' or (infinito like 'N' and self.nulo like 'N')) and
@@ -3663,14 +3526,12 @@ create or replace type body period is
     end if;
   end possui_anomes;
 
-  member function possui_horario(data       date
-                                ,inicio_fim char default 'N') return char is
+  member function possui_horario(data date, inicio_fim char default 'N') return char is
   begin
     return datetime(data).esta_dentro_horario(self.inicio_nvl().data, self.fim_nvl().data, inicio_fim);
   end possui_horario;
 
-  member function possui_horario(data       varchar2
-                                ,inicio_fim char default 'N') return char is
+  member function possui_horario(data varchar2, inicio_fim char default 'N') return char is
   begin
     return datetime(substr(text(data).apenas_numeros(), -4), 'HH24MI').esta_dentro_horario(self.inicio_nvl().data, self.fim_nvl().data, inicio_fim);
   end possui_horario;
