@@ -1,5 +1,9 @@
 create or replace type period force as object
 (
+-- Author  : Orati
+-- Created : 30/09/2009 14:05:07
+-- Purpose : Tratamento de dados do tipo "Período"
+
 -- Attributes
   inicio datetime,
   fim    datetime,
@@ -1300,7 +1304,7 @@ create or replace type period force as object
 * %param resumido char default 'N' (S/N) 
 * %param em_horas char default 'N' (S/N) 
 **/
-  member function tempo(contar_bissexto char default 'N', resumido char default 'N', em_horas char default 'N') return varchar2,
+  member function tempo(contar_bissexto char default 'N', resumido char default 'N', em_horas char default 'N', separador char default ':') return varchar2,
 /** [function] Retorna a data completa em varchar2<br>
 *<code>
 *begin
@@ -2838,7 +2842,7 @@ create or replace type body period is
     return standard.trunc((fim_nvl().data - inicio_nvl().data + vdia_ini) * 24 * 60 * 60);
   end;
 
-  member function tempo(contar_bissexto char default 'N', resumido char default 'N', em_horas char default 'N') return varchar2 is
+  member function tempo(contar_bissexto char default 'N', resumido char default 'N', em_horas char default 'N', separador char default ':') return varchar2 is
     result      varchar2(500);
     ano         number := 0;
     mes         number := 0;
@@ -2895,7 +2899,12 @@ create or replace type body period is
     
       -- horas:minutos:segundos
       if (hora + minuto + segundo <> 0) then
-        result := result || standard.to_char(hora, 'FM99999999999999999900') || ':' || lpad(minuto, 2, '0') || ':' || lpad(segundo, 2, '0');
+        result := result || standard.to_char(hora, 'FM99999999999999999900') || separador || lpad(minuto, 2, '0') || case
+                    when segundo <> 0 then
+                     separador || lpad(segundo, 2, '0')
+                    else
+                     null
+                  end;
       end if;
     
     elsif resumido like 'S' then
@@ -2918,7 +2927,7 @@ create or replace type body period is
     
       -- horas:minutos:segundos
       if (hora + minuto + segundo <> 0) then
-        result := result || lpad(hora, 2, '0') || ':' || lpad(minuto, 2, '0') || ':' || lpad(segundo, 2, '0');
+        result := result || lpad(hora, 2, '0') || separador || lpad(minuto, 2, '0') || separador || lpad(segundo, 2, '0');
       end if;
     
     else
@@ -3082,14 +3091,17 @@ create or replace type body period is
       lferiados := datetime.feriados(vinicio, vfim);
     end if;
     -- --
-    for i in lferiados.first .. lferiados.last
-    loop
-      -- verifica se esta no periodo
-      if lferiados(i) between vinicio and vfim and
-         standard.to_char(lferiados(i), 'D') between 2 and 6 then
-        vqtd_feriados := vqtd_feriados + 1;
-      end if;
-    end loop;
+    if lferiados is not null and
+       lferiados is not empty then
+      for i in lferiados.first .. lferiados.last
+      loop
+        -- verifica se esta no periodo
+        if lferiados(i) between vinicio and vfim and
+           standard.to_char(lferiados(i), 'D') between 2 and 6 then
+          vqtd_feriados := vqtd_feriados + 1;
+        end if;
+      end loop;
+    end if;
     -- resultado
     return vqtd_feriados;
     -- --
@@ -3109,14 +3121,17 @@ create or replace type body period is
       lferiados := datetime.feriados(vinicio, vfim);
     end if;
     -- --
-    for i in lferiados.first .. lferiados.last
-    loop
-      -- verifica se esta no periodo
-      if lferiados(i) between vinicio and vfim and
-         standard.to_char(lferiados(i), 'D') in (1, 7) then
-        vqtd_feriados := vqtd_feriados + 1;
-      end if;
-    end loop;
+    if lferiados is not null and
+       lferiados is not empty then
+      for i in lferiados.first .. lferiados.last
+      loop
+        -- verifica se esta no periodo
+        if lferiados(i) between vinicio and vfim and
+           standard.to_char(lferiados(i), 'D') in (1, 7) then
+          vqtd_feriados := vqtd_feriados + 1;
+        end if;
+      end loop;
+    end if;
     -- resultado
     return vqtd_feriados;
     -- --
@@ -3166,20 +3181,19 @@ create or replace type body period is
   end;
 
   member function listar_feriados(list_feriados argsd default argsd()) return argsd is
-    vinicio   date := standard.trunc(self.inicio_nvl().data);
-    vfim      date := standard.trunc(self.fim_nvl().data);
-    result    argsd := argsd();
-    lferiados argsd;
+    vinicio date := standard.trunc(self.inicio_nvl().data);
+    vfim    date := standard.trunc(self.fim_nvl().data);
+    result  argsd := argsd();
   begin
     -- verifica feriados
     if list_feriados is not null and
        list_feriados is not empty then
-      for i in lferiados.first .. lferiados.last
+      for i in list_feriados.first .. list_feriados.last
       loop
         -- verifica se esta no periodo
-        if lferiados(i) between vinicio and vfim then
+        if list_feriados(i) between vinicio and vfim then
           result.extend;
-          result(result.last) := lferiados(i);
+          result(result.last) := list_feriados(i);
         end if;
       end loop;
     else
@@ -3201,15 +3215,18 @@ create or replace type body period is
       lferiados := datetime.feriados(vinicio, vfim);
     end if;
     -- --
-    for i in lferiados.first .. lferiados.last
-    loop
-      -- verifica se esta no periodo
-      if lferiados(i) between vinicio and vfim and
-         standard.to_char(lferiados(i), 'D') between 2 and 6 then
-        result.extend;
-        result(result.last) := lferiados(i);
-      end if;
-    end loop;
+    if lferiados is not null and
+       lferiados is not empty then
+      for i in lferiados.first .. lferiados.last
+      loop
+        -- verifica se esta no periodo
+        if lferiados(i) between vinicio and vfim and
+           standard.to_char(lferiados(i), 'D') between 2 and 6 then
+          result.extend;
+          result(result.last) := lferiados(i);
+        end if;
+      end loop;
+    end if;
     return result;
   end;
 
@@ -3227,15 +3244,18 @@ create or replace type body period is
       lferiados := datetime.feriados(vinicio, vfim);
     end if;
     -- --
-    for i in lferiados.first .. lferiados.last
-    loop
-      -- verifica se esta no periodo
-      if lferiados(i) between vinicio and vfim and
-         standard.to_char(lferiados(i), 'D') in (1, 7) then
-        result.extend;
-        result(result.last) := lferiados(i);
-      end if;
-    end loop;
+    if lferiados is not null and
+       lferiados is not empty then
+      for i in lferiados.first .. lferiados.last
+      loop
+        -- verifica se esta no periodo
+        if lferiados(i) between vinicio and vfim and
+           standard.to_char(lferiados(i), 'D') in (1, 7) then
+          result.extend;
+          result(result.last) := lferiados(i);
+        end if;
+      end loop;
+    end if;
     return result;
   end;
 
