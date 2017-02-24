@@ -1304,7 +1304,8 @@ create or replace type period force as object
 * %param resumido char default 'N' (S/N) 
 * %param em_horas char default 'N' (S/N) 
 **/
-  member function tempo(contar_bissexto char default 'N', resumido char default 'N', em_horas char default 'N', separador char default ':') return varchar2,
+  member function tempo(contar_bissexto char default 'N', resumido char default 'N', em_horas char default 'N', separador char default ':')
+    return varchar2,
 /** [function] Retorna a data completa em varchar2<br>
 *<code>
 *begin
@@ -2842,7 +2843,8 @@ create or replace type body period is
     return standard.trunc((fim_nvl().data - inicio_nvl().data + vdia_ini) * 24 * 60 * 60);
   end;
 
-  member function tempo(contar_bissexto char default 'N', resumido char default 'N', em_horas char default 'N', separador char default ':') return varchar2 is
+  member function tempo(contar_bissexto char default 'N', resumido char default 'N', em_horas char default 'N', separador char default ':')
+    return varchar2 is
     result      varchar2(500);
     ano         number := 0;
     mes         number := 0;
