@@ -24,6 +24,7 @@ create or replace type bool as object
   member function inverter return bool,
   member function to_bool return boolean,
   member function to_text return varchar2,
+  member function to_char return varchar2,
   member function to_number return number,
   member function to_forms return number
 )
@@ -137,6 +138,15 @@ create or replace type body bool is
   end;
 
   member function to_text return varchar2 is
+  begin
+    if to_bool then
+      return 'S';
+    else
+      return 'N';
+    end if;
+  end;
+
+  member function to_char return varchar2 is
   begin
     if to_bool then
       return 'S';
