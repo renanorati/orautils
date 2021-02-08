@@ -1,5 +1,7 @@
 create or replace type text force as object
 (
+-- Author  : Renan Orati (renanorati@gmail.com)
+
 -- Attributes
   texto varchar2(32767),
 

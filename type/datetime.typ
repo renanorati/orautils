@@ -1,5 +1,7 @@
 create or replace type datetime force as object
 (
+-- Author  : Renan Orati (renanorati@gmail.com)
+
 -- Attributes
   data date,
 

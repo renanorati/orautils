@@ -1,5 +1,7 @@
 create or replace type bool as object
 (
+-- Author  : Renan Orati (renanorati@gmail.com)
+
 -- Attributes
   val number,
 

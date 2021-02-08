@@ -1,7 +1,6 @@
 create or replace type period force as object
 (
--- Author  : Orati
--- Created : 30/09/2009 14:05:07
+-- Author  : Renan Orati (renanorati@gmail.com)
 -- Purpose : Tratamento de dados do tipo "Período"
 
 -- Attributes

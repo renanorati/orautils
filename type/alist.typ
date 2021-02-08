@@ -1,5 +1,7 @@
 create or replace type alist force as object
 (
+-- Author  : Renan Orati (renanorati@gmail.com)
+
 -- Attributes
   list args,
 

@@ -1,5 +1,7 @@
 create or replace type nlist force as object
 (
+-- Author  : Renan Orati (renanorati@gmail.com)
+
 -- Attributes
   list argsn,
 
