@@ -11,7 +11,7 @@ create or replace type prlist force as object
 *declare
 *  vlista prlist;
 *begin
-*  vlista := prlist('12/01/2020-16/01/2020,21/01/2020,30/01/2020');
+*  vlista := prlist('12/01/2020-16/01/2020;21/01/2020;30/01/2020');
 *  console.log(vlista.to_argspr()); -- 12/01/2020, 13/01/2020, 14/01/2020, 15/01/2020, 16/01/2020, 21/01/2020, 30/01/2020
 *end;
 *</code>
@@ -55,10 +55,10 @@ create or replace type prlist force as object
 *declare
 *  vlista prlist;
 *begin
-*  vlista := prlist('01/01/2020,07/01/2020,09/01/2020');
-*  console.log(vlista.adiciona('04/01/2020')); -- 01/01/2020,07/01/2020,09/01/2020,04/01/2020
-*  console.log(vlista.adiciona('09/01/2020')); -- 01/01/2020,07/01/2020,09/01/2020,09/01/2020
-*  console.log(vlista.adiciona('09/01/2020',dist=>'S')); -- 01/01/2020,07/01/2020,09/01/2020
+*  vlista := prlist('01/01/2020;07/01/2020;09/01/2020');
+*  console.log(vlista.adicionar('04/01/2020')); -- 01/01/2020, 07/01/2020, 09/01/2020, 04/01/2020
+*  console.log(vlista.adicionar('09/01/2020')); -- 01/01/2020, 07/01/2020, 09/01/2020, 09/01/2020
+*  console.log(vlista.adicionar('09/01/2020',dist=>'S')); -- 01/01/2020, 07/01/2020, 09/01/2020
 *end;
 *</code>
 * %return nova lista (prlist)
@@ -70,10 +70,10 @@ create or replace type prlist force as object
 *declare
 *  vlista prlist;
 *begin
-*  vlista := prlist('01/01/2020,07/01/2020,09/01/2020');
-*  console.log(vlista.adiciona('04/01/2020')); -- 01/01/2020,07/01/2020,09/01/2020,04/01/2020
-*  console.log(vlista.adiciona('09/01/2020')); -- 01/01/2020,07/01/2020,09/01/2020,09/01/2020
-*  console.log(vlista.adiciona('09/01/2020',dist=>'S')); -- 01/01/2020,07/01/2020,09/01/2020
+*  vlista := prlist('01/01/2020;07/01/2020;09/01/2020');
+*  console.log(vlista.adicionar('04/01/2020')); -- 01/01/2020, 07/01/2020, 09/01/2020, 04/01/2020
+*  console.log(vlista.adicionar('09/01/2020')); -- 01/01/2020, 07/01/2020, 09/01/2020, 09/01/2020
+*  console.log(vlista.adicionar('09/01/2020',dist=>'S')); -- 01/01/2020, 07/01/2020, 09/01/2020
 *end;
 *</code>
 * %return nova lista (prlist)
@@ -85,10 +85,10 @@ create or replace type prlist force as object
 *declare
 *  vlista prlist;
 *begin
-*  vlista := prlist('01/01/2020,07/01/2020,09/01/2020');
-*  console.log(vlista.adiciona(argspr('03/01/2020','04/01/2020'))); -- 01/01/2020,07/01/2020,09/01/2020,03/01/2020,04/01/2020
-*  console.log(vlista.adiciona(argspr('04/01/2020','09/01/2020'))); -- 01/01/2020,07/01/2020,09/01/2020,04/01/2020,09/01/2020
-*  console.log(vlista.adiciona(argspr('04/01/2020','09/01/2020'),dist=>'S')); -- 01/01/2020,07/01/2020,09/01/2020,04/01/2020
+*  vlista := prlist('01/01/2020;07/01/2020;09/01/2020');
+*  console.log(vlista.adicionar(argspr('03/01/2020','04/01/2020'))); -- 01/01/2020, 07/01/2020, 09/01/2020, 03/01/2020, 04/01/2020
+*  console.log(vlista.adicionar(argspr('04/01/2020','09/01/2020'))); -- 01/01/2020, 07/01/2020, 09/01/2020, 04/01/2020, 09/01/2020
+*  console.log(vlista.adicionar(argspr('04/01/2020','09/01/2020'),dist=>'S')); -- 01/01/2020, 07/01/2020, 09/01/2020, 04/01/2020
 *end;
 *</code>
 * %return nova lista (prlist)
@@ -100,10 +100,10 @@ create or replace type prlist force as object
 *declare
 *  vlista prlist;
 *begin
-*  vlista := prlist('01/01/2020,07/01/2020,09/01/2020');
-*  console.log(vlista.adiciona(prlist('03/01/2020,04/01/2020'))); -- 01/01/2020,07/01/2020,09/01/2020,03/01/2020,04/01/2020
-*  console.log(vlista.adiciona(prlist('04/01/2020-09/01/2020'))); -- 01/01/2020,07/01/2020,09/01/2020,04/01/2020,05/01/2020,06/01/2020,07/01/2020,08/01/2020,09/01/2020
-*  console.log(vlista.adiciona(prlist('04/01/2020,09/01/2020'),dist=>'S')); -- 01/01/2020,07/01/2020,09/01/2020,04/01/2020
+*  vlista := prlist('01/01/2020;07/01/2020;09/01/2020');
+*  console.log(vlista.adicionar(prlist('03/01/2020;04/01/2020'))); -- 01/01/2020, 07/01/2020, 09/01/2020, 03/01/2020, 04/01/2020
+*  console.log(vlista.adicionar(prlist('04/01/2020-09/01/2020'))); -- 01/01/2020, 07/01/2020, 09/01/2020, 04/01/2020, 05/01/2020, 06/01/2020, 07/01/2020, 08/01/2020, 09/01/2020
+*  console.log(vlista.adicionar(prlist('04/01/2020;09/01/2020'),dist=>'S')); -- 01/01/2020, 07/01/2020, 09/01/2020, 04/01/2020
 *end;
 *</code>
 * %return nova lista (prlist)
@@ -132,26 +132,49 @@ create or replace type prlist force as object
 * %return tamanho (number)
 **/
   member function tamanho return number,
-
+/** [function] Retorna o primeiro período<br>
+*<code>
+*declare
+*  vlista prlist;
+*begin
+*  vlista := prlist('12/01/2020-16/01/2020;21/01/2020');
+*  console.log(vlista.primeiro.to_char()); -- 12/01/2020
+*end;
+*</code>
+* %return primeiro (period)
+**/
+  member function primeiro return period,
+/** [function] Retorna o último período<br>
+*<code>
+*declare
+*  vlista prlist;
+*begin
+*  vlista := prlist('12/01/2020-16/01/2020;21/01/2020');
+*  console.log(vlista.ultimo.to_char()); -- 21/01/2020
+*end;
+*</code>
+* %return ultimo (period)
+**/
+  member function ultimo return period,
 /** [function] Verifica cruzamento de períodos<br>
 *<code>
 *declare
-*  vperiod2o period2 := period2('13/10/2016','21/09/2018');
+*  vperiodo period := period('13/10/2016','21/09/2018');
 *begin
 *  console.log(args(
-*    vperiod2o.cruzamento(period2('21/09/2018','28/09/2018')), -- S
-*    vperiod2o.cruzamento(period2('01/09/2018','21/09/2018')), -- S
-*    vperiod2o.cruzamento(period2('01/10/2018')), -- N
-*    vperiod2o.cruzamento(period2('01/01/2015')), -- S
-*    vperiod2o.cruzamento(period2(anomes=>201809)), -- S
-*    vperiod2o.cruzamento(period2(anomes=>201812)), -- N
-*    vperiod2o.cruzamento(period2(ano=>2017)), -- S
-*    vperiod2o.cruzamento(period2(ano=>2019)) -- S
+*    vperiodo.cruzamento(period('21/09/2018','28/09/2018')), -- S
+*    vperiodo.cruzamento(period('01/09/2018','21/09/2018')), -- S
+*    vperiodo.cruzamento(period('01/10/2018')), -- N
+*    vperiodo.cruzamento(period('01/01/2015')), -- S
+*    vperiodo.cruzamento(period(anomes=>201809)), -- S
+*    vperiodo.cruzamento(period(anomes=>201812)), -- N
+*    vperiodo.cruzamento(period(ano=>2017)), -- S
+*    vperiodo.cruzamento(period(ano=>2019)) -- S
 *  ));
 *end;
 *</code>
 * %return char (S/N)
-* %param period2o period2
+* %param periodo period
 * %param infinito char default 'N' 
 * %param considerar_horario char default 'N' 
 **/
@@ -159,13 +182,13 @@ create or replace type prlist force as object
 /** [function] Verifica cruzamento de períodos<br>
 *<code>
 *declare
-*  vperiod2o period2 := period2('13/10/2016','21/09/2018');
+*  vperiodo period := period('13/10/2016','21/09/2018');
 *begin
 *  console.log(args(
-*    vperiod2o.cruzamento(datetime('21/09/2018'),datetime('28/09/2018')), -- S
-*    vperiod2o.cruzamento(datetime('01/09/2018'),datetime('21/09/2018')), -- S
-*    vperiod2o.cruzamento(datetime('01/10/2018')), -- N
-*    vperiod2o.cruzamento(datetime('01/01/2015')) -- S
+*    vperiodo.cruzamento(datetime('21/09/2018'),datetime('28/09/2018')), -- S
+*    vperiodo.cruzamento(datetime('01/09/2018'),datetime('21/09/2018')), -- S
+*    vperiodo.cruzamento(datetime('01/10/2018')), -- N
+*    vperiodo.cruzamento(datetime('01/01/2015')) -- S
 *  ));
 *end;
 *</code>
@@ -182,13 +205,13 @@ create or replace type prlist force as object
 /** [function] Verifica cruzamento de períodos<br>
 *<code>
 *declare
-*  vperiod2o period2 := period2('13/10/2016','21/09/2018');
+*  vperiodo period := period('13/10/2016','21/09/2018');
 *begin
 *  console.log(args(
-*    vperiod2o.cruzamento('21/09/2018','28/09/2018'), -- S
-*    vperiod2o.cruzamento('01/09/2018','21/09/2018'), -- S
-*    vperiod2o.cruzamento('01/10/2018'), -- N
-*    vperiod2o.cruzamento('01/01/2015') -- S
+*    vperiodo.cruzamento('21/09/2018','28/09/2018'), -- S
+*    vperiodo.cruzamento('01/09/2018','21/09/2018'), -- S
+*    vperiodo.cruzamento('01/10/2018'), -- N
+*    vperiodo.cruzamento('01/01/2015') -- S
 *  ));
 *end;
 *</code>
@@ -207,13 +230,13 @@ create or replace type prlist force as object
 /** [function] Verifica cruzamento de períodos<br>
 *<code>
 *declare
-*  vperiod2o period2 := period2('13/10/2016','21/09/2018');
+*  vperiodo period := period('13/10/2016','21/09/2018');
 *begin
 *  console.log(args(
-*    vperiod2o.cruzamento(to_date('21/09/2018'),to_date('28/09/2018')), -- S
-*    vperiod2o.cruzamento(to_date('01/09/2018'),to_date('21/09/2018')), -- S
-*    vperiod2o.cruzamento(to_date('01/10/2018')), -- N
-*    vperiod2o.cruzamento(to_date('01/01/2015')) -- S
+*    vperiodo.cruzamento(to_date('21/09/2018'),to_date('28/09/2018')), -- S
+*    vperiodo.cruzamento(to_date('01/09/2018'),to_date('21/09/2018')), -- S
+*    vperiodo.cruzamento(to_date('01/10/2018')), -- N
+*    vperiodo.cruzamento(to_date('01/01/2015')) -- S
 *  ));
 *end;
 *</code>
@@ -228,13 +251,13 @@ create or replace type prlist force as object
 /** [function] Verifica cruzamento de períodos<br>
 *<code>
 *declare
-*  vperiod2o period2 := period2('13/10/2016','21/09/2018');
+*  vperiodo period := period('13/10/2016','21/09/2018');
 *begin
 *  console.log(args(
-*    vperiod2o.cruzamento(to_date('21/09/2018'),to_date('28/09/2018')), -- S
-*    vperiod2o.cruzamento(to_date('01/09/2018'),to_date('21/09/2018')), -- S
-*    vperiod2o.cruzamento(to_date('01/10/2018')), -- N
-*    vperiod2o.cruzamento(to_date('01/01/2015')) -- S
+*    vperiodo.cruzamento(to_date('21/09/2018'),to_date('28/09/2018')), -- S
+*    vperiodo.cruzamento(to_date('01/09/2018'),to_date('21/09/2018')), -- S
+*    vperiodo.cruzamento(to_date('01/10/2018')), -- N
+*    vperiodo.cruzamento(to_date('01/01/2015')) -- S
 *  ));
 *end;
 *</code>
@@ -248,13 +271,13 @@ create or replace type prlist force as object
 /** [function] Verifica cruzamento de períodos<br>
 *<code>
 *declare
-*  vperiod2o period2 := period2('13/10/2016','21/09/2018');
+*  vperiodo period := period('13/10/2016','21/09/2018');
 *begin
 *  console.log(args(
-*    vperiod2o.cruzamento(to_date('21/09/2018'),to_date('28/09/2018')), -- S
-*    vperiod2o.cruzamento(to_date('01/09/2018'),to_date('21/09/2018')), -- S
-*    vperiod2o.cruzamento(to_date('01/10/2018')), -- N
-*    vperiod2o.cruzamento(to_date('01/01/2015')) -- S
+*    vperiodo.cruzamento(to_date('21/09/2018'),to_date('28/09/2018')), -- S
+*    vperiodo.cruzamento(to_date('01/09/2018'),to_date('21/09/2018')), -- S
+*    vperiodo.cruzamento(to_date('01/10/2018')), -- N
+*    vperiodo.cruzamento(to_date('01/01/2015')) -- S
 *  ));
 *end;
 *</code>
@@ -415,21 +438,24 @@ create or replace type prlist force as object
 *</code>
 * %return novo objeto (args)
 **/
-  member function to_args(formato   varchar2 default 'DD/MM/RRRR'
-                         ,infinito  varchar2 default '<infinito>'
-                         ,separador varchar2 default ' a '
-                         ,a_partir  varchar2 default 'A partir de '
-                         ,ate       varchar2 default 'Até ') return args,
+  member function to_args(formato varchar2 default 'DD/MM/RRRR') return args,
 /** [function] Retorna no formato "argsn"<br>
 *<code>
-*  select * from table(prlist('12/01/2020-16/01/2020;21/01/2020').to_argsn()); -- <<table[varchar2]: 20200112000000, 20200113000000, 20200114000000, 20200115000000, 20200116000000, 20200121000000>>
+*  select * from table(prlist('12/01/2020-16/01/2020;21/01/2020').to_argsn()); -- <<table[number]: 20200112000000, 20200113000000, 20200114000000, 20200115000000, 20200116000000, 20200121000000>>
 *</code>
 * %return novo objeto (argsn)
 **/
-  member function to_argsn(formato varchar2 default 'RRRRMMDDHH24MISS') return argsn,
+  member function to_argsn(formato varchar2 default 'RRRRMMDD') return argsn,
+/** [function] Retorna no formato "argsn"<br>
+*<code>
+*  select * from table(prlist('12/01/2020-16/01/2020;21/01/2020').to_argsd()); -- <<table[date]: 20200112000000, 20200113000000, 20200114000000, 20200115000000, 20200116000000, 20200121000000>>
+*</code>
+* %return novo objeto (argsd)
+**/
+  member function to_argsd return argsd,
 /** [function] Retorna no formato "argspr"<br>
 *<code>
-*  select * from table(prlist('12/01/2020-16/01/2020;21/01/2020').to_args()); -- <<table[date]: 12/01/2020, 13/01/2020, 14/01/2020, 15/01/2020, 16/01/2020, 21/01/2020>>
+*  select * from table(prlist('12/01/2020-16/01/2020;21/01/2020').to_args()); -- <<table[period]: 12/01/2020 a 16/01/2020, 21/01/2020>>
 *</code>
 * %return novo objeto (argspr)
 **/
@@ -456,7 +482,7 @@ create or replace type prlist force as object
 **/
   member function to_char(formato   varchar2 default 'DD/MM/RRRR'
                          ,infinito  varchar2 default '<infinito>'
-                         ,separ_per varchar2 default ' a '
+                         ,sep_per   varchar2 default ' a '
                          ,a_partir  varchar2 default 'A partir de '
                          ,ate       varchar2 default 'Até '
                          ,separador char default ';') return varchar2,
@@ -475,7 +501,7 @@ create or replace type prlist force as object
 **/
   member function to_clob(formato   varchar2 default 'DD/MM/RRRR'
                          ,infinito  varchar2 default '<infinito>'
-                         ,separ_per varchar2 default ' a '
+                         ,sep_per   varchar2 default ' a '
                          ,a_partir  varchar2 default 'A partir de '
                          ,ate       varchar2 default 'Até '
                          ,separador char default ';') return clob
@@ -803,6 +829,24 @@ create or replace type body prlist is
     return self.list.count;
   end;
 
+  member function primeiro return period is
+  begin
+    if self.list.first is null then
+      return null;
+    else
+      return self.list(self.list.first);
+    end if;
+  end;
+
+  member function ultimo return period is
+  begin
+    if self.list.last is null then
+      return null;
+    else
+      return self.list(self.list.last);
+    end if;
+  end;
+
   member function cruzamento(periodo period, infinito char default 'N', considerar_horario char default 'N') return char is
   begin
     if self.list is not null and
@@ -1038,36 +1082,43 @@ create or replace type body prlist is
     return possui(datetime(data, formato), infinito, considerar_horario);
   end possui;
 
-  member function to_args(formato   varchar2 default 'DD/MM/RRRR'
-                         ,infinito  varchar2 default '<infinito>'
-                         ,separador varchar2 default ' a '
-                         ,a_partir  varchar2 default 'A partir de '
-                         ,ate       varchar2 default 'Até ') return args is
-    result args := args();
+  member function to_args(formato varchar2 default 'DD/MM/RRRR') return args is
+    result dlist := dlist();
   begin
     if self.list is not null and
        self.list is not empty then
       for i in self.list.first .. self.list.last
       loop
-        result.extend;
-        result(result.last) := self.list(i).to_char(formato, infinito, separador, a_partir, ate);
+        result.adicionar(self.list(i).to_table());
       end loop;
     end if;
-    return result;
+    return result.to_args(formato);
   end;
 
-  member function to_argsn(formato varchar2 default 'RRRRMMDDHH24MISS') return argsn is
-    result argsn := argsn();
+  member function to_argsn(formato varchar2 default 'RRRRMMDD') return argsn is
+    result dlist := dlist();
   begin
     if self.list is not null and
        self.list is not empty then
       for i in self.list.first .. self.list.last
       loop
-        result.extend;
-        result(result.last) := self.list(i).to_char(formato, separador => '');
+        result.adicionar(self.list(i).to_table());
       end loop;
     end if;
-    return result;
+    return result.to_argsn(formato);
+  end;
+
+  member function to_argsd return argsd is
+    result dlist := dlist();
+  begin
+    if self.list is not null and
+       self.list is not empty then
+      for i in self.list.first .. self.list.last
+      loop
+        result.adicionar(self.list(i).to_table());
+      end loop;
+    end if;
+    return result.list;
   end;
 
   member function to_argspr return argspr is
@@ -1082,7 +1133,7 @@ create or replace type body prlist is
 
   member function to_char(formato   varchar2 default 'DD/MM/RRRR'
                          ,infinito  varchar2 default '<infinito>'
-                         ,separ_per varchar2 default ' a '
+                         ,sep_per   varchar2 default ' a '
                          ,a_partir  varchar2 default 'A partir de '
                          ,ate       varchar2 default 'Até '
                          ,separador char default ';') return varchar2 is
@@ -1092,7 +1143,7 @@ create or replace type body prlist is
        self.list is not empty then
       for i in self.list.first .. self.list.last
       loop
-        result := result || self.list(i).to_char(formato, infinito, separ_per, a_partir, ate) || separador;
+        result := result || self.list(i).to_char(formato, infinito, sep_per, a_partir, ate) || separador;
       end loop;
       -- remove ultimo
       result := rtrim(result, separador);
@@ -1102,7 +1153,7 @@ create or replace type body prlist is
 
   member function to_clob(formato   varchar2 default 'DD/MM/RRRR'
                          ,infinito  varchar2 default '<infinito>'
-                         ,separ_per varchar2 default ' a '
+                         ,sep_per   varchar2 default ' a '
                          ,a_partir  varchar2 default 'A partir de '
                          ,ate       varchar2 default 'Até '
                          ,separador char default ';') return clob is
@@ -1112,7 +1163,7 @@ create or replace type body prlist is
        self.list is not empty then
       for i in self.list.first .. self.list.last
       loop
-        result := result || self.list(i).to_char(formato, infinito, separ_per, a_partir, ate) || separador;
+        result := result || self.list(i).to_char(formato, infinito, sep_per, a_partir, ate) || separador;
       end loop;
       -- remove ultimo
       result := rtrim(result, separador);
