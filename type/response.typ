@@ -29,7 +29,7 @@ create or replace type response as object
   *declare
   *  rp response := response();
   *begin
-  *  rp.setTipo(1);
+  *  rp.setTipo('I');
   *  rp.adicionar('Olá Mundo');
   *  console.log(rp);
   *end;
@@ -62,7 +62,7 @@ create or replace type response as object
   *end;
   *</code>
   * %param mensagem (args) Informar <b>UMA ou MAIS</b> Mensagem utilizando um array de Argumentos
-  * %param tipo (number) Informar o Tipo da Mensagem
+  * %param tipo (char) Informar o Tipo da Mensagem
   * %param subtitulo (varchar2) Informar o Subtítulo, se quiser
   **/
   constructor function response(mensagem  args
@@ -74,12 +74,12 @@ create or replace type response as object
   *declare
   *  rp response := response();
   *begin
-  *  rp.setTipo(1);
+  *  rp.setTipo('I');
   *  rp.adicionar('Olá Mundo');
   *  console.log(rp);
   *end;
   *</code>
-  * %param tipo (number) Informar o Tipo da Mensagem
+  * %param tipo (char) Informar o Tipo da Mensagem
   **/
   member procedure settipo(self in out nocopy response
                           ,tipo char),
@@ -94,7 +94,7 @@ create or replace type response as object
   *begin
   *  rp.merge(rp4); // response('Alerta!', 'A');
   *  rp.merge(rp2); // response('Alerta!
-  *                             Quest]ao?', 'Q');
+  *                             Questão?', 'Q');
   *  rp.merge(rp3); // response('Erro!','E');
   *end;
   *</code>
