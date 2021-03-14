@@ -19,6 +19,7 @@ create public synonym datetime for datetime;
 create public synonym period for period;
 create public synonym datelist for datelist;
 create public synonym console for console;
+create public synonym response for response;
 -- Grant/Revoke object privileges
 grant execute on args to public;
 grant execute on argsd to public;
@@ -48,3 +49,4 @@ grant execute on datetime to public;
 grant execute on period to public;
 grant execute on datelist to public;
 grant execute on console to public;
+grant execute on response to public;
