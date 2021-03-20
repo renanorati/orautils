@@ -2819,7 +2819,7 @@ create or replace type body period is
        inicio_nvl().horario_num + fim_nvl().horario_num = 0 then
       vdia_ini := 1;
     end if;
-    return standard.trunc((fim_nvl().data - inicio_nvl().data + vdia_ini) * 24);
+    return standard.trunc(((fim_nvl().data - inicio_nvl().data + vdia_ini) * 24) + 1.15740740740741e-8);
   end;
 
   member function minutos(contar_dia_inicial char default 'S') return number is
@@ -2829,7 +2829,7 @@ create or replace type body period is
        inicio_nvl().horario_num + fim_nvl().horario_num = 0 then
       vdia_ini := 1;
     end if;
-    return standard.trunc((fim_nvl().data - inicio_nvl().data + vdia_ini) * 24 * 60);
+    return standard.trunc(((fim_nvl().data - inicio_nvl().data + vdia_ini) * 24 * 60) + 1.15740740740741e-8);
   end;
 
   member function segundos(contar_dia_inicial char default 'S') return number is
@@ -2839,7 +2839,7 @@ create or replace type body period is
        inicio_nvl().horario_num + fim_nvl().horario_num = 0 then
       vdia_ini := 1;
     end if;
-    return standard.trunc((fim_nvl().data - inicio_nvl().data + vdia_ini) * 24 * 60 * 60);
+    return standard.trunc(((fim_nvl().data - inicio_nvl().data + vdia_ini) * 24 * 60 * 60) + 1.15740740740741e-8);
   end;
 
   member function tempo(contar_bissexto char default 'N', resumido char default 'N', em_horas char default 'N', separador char default ':')
