@@ -1,4 +1,4 @@
-create or replace type datelist force as object
+create or replace type datelist as object
 (
 -- Author  : Renan Orati (renanorati@gmail.com)
 

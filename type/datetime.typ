@@ -1,6 +1,7 @@
 create or replace type datetime force as object
 (
 -- Author  : Renan Orati (renanorati@gmail.com)
+-- Purpose : Tratamento de dados do tipo "Período"
 
 -- Attributes
   data date,
@@ -669,6 +670,19 @@ create or replace type datetime force as object
 * %return "data em iso8601" (varchar2)
 **/
   member function iso8601 return varchar2,
+/** [function] Retorna "data" por extenso<br>
+*<code>
+*declare
+*  dt datetime := datetime(sysdate); -- considerando sysdate = 10/12/2018 10:25:42
+*begin
+*  console.log(
+*    dt.estenso() -- 10 de dezembro de 2018
+*  );
+*end;
+*</code>
+* %return "data por extenso" (varchar2)
+**/
+  member function extenso return varchar2,
 /** [function] Retorna o dia da semana (1-7)<br>
 *<code>
 *declare
@@ -1987,6 +2001,11 @@ create or replace type body datetime is
     return standard.to_char(self.data, 'RRRR-MM-DD"T"HH24:MI:SS') || dbtimezone;
   end;
 
+  member function extenso return varchar2 is
+  begin
+    return standard.to_char(self.data, 'DD" de "month" de "RRRR');
+  end;
+
   member function ds return number is
   begin
     return standard.to_char(self.data, 'D');
@@ -2353,6 +2372,4 @@ create or replace type body datetime is
   end mostra;
 
 end;
-
---select listagg(c.data,';') within group(order by 1) from vw_calendario c where datetime(c.data).ano() = 2017 and c.sit_tipo in ('F','P');
 /
