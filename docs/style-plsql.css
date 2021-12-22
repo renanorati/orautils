@@ -1,0 +1,125 @@
+.str
+{
+    color: #8fba8f;
+}
+.fun
+{
+    color: #b389b3;
+}
+.kwd
+{
+    color: #7ca7d1;
+}
+.exc
+{
+    color: #7ca7d1;
+}
+.com
+{
+    color: #66747B;
+}
+.typ
+{
+    color: #7ca7d1;
+}
+.ctyp
+{
+    color: #7ca7d1;
+}
+.lit
+{
+    color: #d0a651;
+}
+.pun
+{
+    color: #d07b7b;
+}
+.pln
+{
+    color: #c0c0c0;
+}
+.tag
+{
+    color: #8AC763;
+}
+.atn
+{
+    color: #E0E2E4;
+}
+.atv
+{
+    color: #8fba8f;
+}
+.dec
+{
+    color: purple;
+}
+pre.prettyprint
+{
+    border: 1px solid #1a1a22;
+    border-top: 0px;
+    border-right: 0px;
+}
+ol.linenums
+{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.prettyprint {
+    background: #282828;
+}
+li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9
+{
+    color: #555;
+    list-style-type: decimal;
+}
+li.L1, li.L3, li.L5, li.L7, li.L9 {
+    background: #252525;
+}
+@media print
+{
+    .str
+    {
+        color: #060;
+    }
+    .kwd
+    {
+        color: #006;
+        font-weight: bold;
+    }
+    .com
+    {
+        color: #600;
+        font-style: italic;
+    }
+    .typ
+    {
+        color: #404;
+        font-weight: bold;
+    }
+    .lit
+    {
+        color: #044;
+    }
+    .pun
+    {
+        color: #440;
+    }
+    .pln
+    {
+        color: #000;
+    }
+    .tag
+    {
+        color: #006;
+        font-weight: bold;
+    }
+    .atn
+    {
+        color: #404;
+    }
+    .atv
+    {
+        color: #060;
+    }
+}

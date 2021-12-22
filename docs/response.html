@@ -1,0 +1,515 @@
+<!-- REPLACE EXECUTADO -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="plsqldoc.css">
+ <script type="text/javascript" src="main.js"></script>
+<TITLE>Type response</TITLE>
+<META name="object" content="TYPE">
+<META name="name" content="response">
+<META name="description" content="">
+</HEAD>
+<BODY>
+<DIV CLASS="TOP_INDEX">
+<TABLE WIDTH="100%"><TR>
+<TD><P ALIGN="LEFT"><STRONG><SMALL></SMALL></STRONG></TD>
+<TD><P ALIGN="RIGHT"><STRONG><SMALL><A HREF="index.html">index</A></SMALL></STRONG></TD>
+</TR></TABLE>
+<TABLE CLASS="MAIN_TABLE"><TR><TD CLASS="DESC_TEXT">
+<P CLASS="MAIN_TITLE">Type response</P>
+
+</TD></TR></TABLE>
+</DIV>
+<DIV CLASS="MENU_LADO">
+<A NAME="Atributos"></A>
+<TABLE CLASS="SUB_TABLE"><TR><TD CLASS="SUB_TITLE">
+Atributos
+</TD></TR></TABLE>
+<TABLE CLASS="SUB_TABLE">
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#SUBTITULO">subtitulo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Subtitulo da mensagem (n&#227;o obrigat&#243;rio)
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#MENSAGEM">mensagem</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Array de ARGUMENTOS(ARGS) contendo 1(uma) ou mais mensagens
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#TIPO">tipo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Tipo de Mensagem<br>
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Unidades de Programas/M&eacute;todos"></A>
+<TABLE CLASS="SUB_TABLE"><TR><TD CLASS="SUB_TITLE">
+Unidades de Programas/M&eacute;todos
+</TD></TR></TABLE>
+<TABLE CLASS="SUB_TABLE">
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#RESPONSE">response</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[constructor]&nbsp; Construtor Gen&#233;rico/NULL<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#RESPONSE2">response</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[constructor] Construtor com par&#226;metros<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#RESPONSE3">response</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[constructor] Construtor com par&#226;metros<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#SETTIPO">settipo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[procedure] Setar o Tipo da Mensagem<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#MERGE">merge</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[procedure] Setar o Tipo da Mensagem<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ADICIONAR">adicionar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[procedure] Adcionar uma nova Mensagem<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ADICIONAR2">adicionar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[procedure] Adcionar uma nova Mensagem<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#CONCAT">concat</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[procedure] Concatena o texto &#224; ultima mensagem adcionada ao Array<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#TO_CHAR">to_char</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna as Mensagem em Forma de Texto<br>
+</TD></TR>
+</TABLE>
+<BR>
+</DIV>
+<DIV CLASS="TODO_CONTEUDO">
+<DIV CLASS="TODO_CONTEUDO_INS">
+<A NAME="SUBTITULO"></A>
+<P CLASS="TYPE_TITLE">
+subtitulo
+</P>
+<PRE CLASS="DECL_TEXT">
+subtitulo varchar2(80)
+</PRE>
+<P CLASS="DESC_TEXT">
+Subtitulo da mensagem (n&#227;o obrigat&#243;rio)<br>
+
+<BR>
+</P>
+<HR>
+<A NAME="MENSAGEM"></A>
+<P CLASS="TYPE_TITLE">
+mensagem
+</P>
+<PRE CLASS="DECL_TEXT">
+mensagem args
+</PRE>
+<P CLASS="DESC_TEXT">
+Array de ARGUMENTOS(ARGS) contendo 1(uma) ou mais mensagens<br>
+
+<BR>
+</P>
+<HR>
+<A NAME="TIPO"></A>
+<P CLASS="TYPE_TITLE">
+tipo
+</P>
+<PRE CLASS="DECL_TEXT">
+tipo char
+</PRE>
+<P CLASS="DESC_TEXT">
+Tipo de Mensagem<br>
+Retorno conforme tabela abaixo:<br>
+<LI CLASS="DESC_TEXT"> null =&gt; OK<br></LI>
+<LI CLASS="DESC_TEXT"> S&nbsp;&nbsp;&nbsp; =&gt; Sucesso<br></LI>
+<LI CLASS="DESC_TEXT"> I&nbsp;&nbsp;&nbsp; =&gt; Informa&#231;&#227;o<br></LI>
+<LI CLASS="DESC_TEXT"> A&nbsp;&nbsp;&nbsp; =&gt; Alerta<br></LI>
+<LI CLASS="DESC_TEXT"> Q&nbsp;&nbsp;&nbsp; =&gt; Quest&#227;o<br></LI>
+<LI CLASS="DESC_TEXT"> E&nbsp;&nbsp;&nbsp; =&gt; Erro<br></LI>
+<LI CLASS="DESC_TEXT"> B&nbsp;&nbsp;&nbsp; =&gt; BUG<br></LI>
+
+<BR>
+</P>
+<HR>
+<A NAME="RESPONSE"></A>
+<P CLASS="TYPE_TITLE">
+response
+</P>
+<PRE CLASS="DECL_TEXT">
+function response return self as result
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[constructor]&nbsp; Construtor Gen&#233;rico/NULL<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; rp response := response();<br>
+begin<br>
+&nbsp; rp.setTipo('I');<br>
+&nbsp; rp.adicionar('Ol&#225; Mundo');<br>
+&nbsp; console.log(rp);<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<HR>
+<A NAME="RESPONSE2"></A>
+<P CLASS="TYPE_TITLE">
+response
+</P>
+<PRE CLASS="DECL_TEXT">
+function response(mensagem varchar2, tipo char default null, subtitulo varchar2 default null) return self as result
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[constructor] Construtor com par&#226;metros<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; rp response := response('Ol&#225; Mundo', 'I');<br>
+begin<br>
+&nbsp; console.log(rp);<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+mensagem&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(varchar2) Informar <b>UMA</b> Mensagem em forma de Texto<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+tipo&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(number) Informar o Tipo da Mensagem<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+subtitulo&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(varchar2) Informar o Subt&#237;tulo, se quiser<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="RESPONSE3"></A>
+<P CLASS="TYPE_TITLE">
+response
+</P>
+<PRE CLASS="DECL_TEXT">
+function response(mensagem args, tipo char default null, subtitulo varchar2 default null) return self as result
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[constructor] Construtor com par&#226;metros<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; rp response :=response(args('Ol&#225; Mundo', 'Ocorreu um ERRO'), 'E');<br>
+begin<br>
+&nbsp; console.log(rp);<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+mensagem&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(args) Informar <b>UMA ou MAIS</b> Mensagem utilizando um array de Argumentos<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+tipo&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(char) Informar o Tipo da Mensagem<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+subtitulo&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(varchar2) Informar o Subt&#237;tulo, se quiser<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="SETTIPO"></A>
+<P CLASS="TYPE_TITLE">
+settipo
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure settipo(self in out nocopy response, tipo char)
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[procedure] Setar o Tipo da Mensagem<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; rp response := response();<br>
+begin<br>
+&nbsp; rp.setTipo('I');<br>
+&nbsp; rp.adicionar('Ol&#225; Mundo');<br>
+&nbsp; console.log(rp);<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+tipo&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(char) Informar o Tipo da Mensagem<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="MERGE"></A>
+<P CLASS="TYPE_TITLE">
+merge
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure merge(self in out nocopy response, res response)
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[procedure] Setar o Tipo da Mensagem<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; rp response := response('Alerta!','A');<br>
+&nbsp; rp2 response := response('Quest&#227;o?','Q');<br>
+&nbsp; rp3 response := response('Erro!','E');<br>
+&nbsp; rp4 response := response('Sucesso!','S');<br>
+begin<br>
+&nbsp; rp.merge(rp4); // response('Alerta!', 'A');<br>
+&nbsp; rp.merge(rp2); // response('Alerta!<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Quest&#227;o?', 'Q');<br>
+&nbsp; rp.merge(rp3); // response('Erro!','E');<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+res&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(response) Informar &quot;response&quot; que ser&#225; mesclado com o atual<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ADICIONAR"></A>
+<P CLASS="TYPE_TITLE">
+adicionar
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure adicionar(self in out nocopy response, mensagem varchar2)
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[procedure] Adcionar uma nova Mensagem<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; rp response :=response('Ol&#225; Mundo', 'I');<br>
+begin<br>
+&nbsp; rp.adicionar('Ol&#225; Mundo Novo');<br>
+&nbsp; console.log(rp);<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+mensagem&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(varchar2) Informar a Mensagem<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ADICIONAR2"></A>
+<P CLASS="TYPE_TITLE">
+adicionar
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure adicionar(self in out nocopy response, mensagem args)
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[procedure] Adcionar uma nova Mensagem<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; rp response :=response('Ol&#225; Mundo', 'I');<br>
+&nbsp; rp2 response :=response('Ol&#225; Mundo Novo', 'I');<br>
+begin<br>
+&nbsp; rp2.adicionar(rp.mensagem);<br>
+&nbsp; console.log(rp2.to_char());<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+mensagem&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(varchar2) Informar a Mensagem<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="CONCAT"></A>
+<P CLASS="TYPE_TITLE">
+concat
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure concat(self in out nocopy response, texto varchar2, seperador char default chr(10))
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[procedure] Concatena o texto &#224; ultima mensagem adcionada ao Array<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; rp response :=response('Ol&#225; Mundo', 'I');<br>
+begin<br>
+&nbsp; rp.concat('Ol&#225; Mundo Novo');<br>
+&nbsp; console.log(rp);<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+texto&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(varchar2) Informar o Texto a ser Concatenado<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+seperador&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(char) Informar o Separador para a concatena&#231;&#227;o, se n&#227;o informado assumira o ENTER como default<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="TO_CHAR"></A>
+<P CLASS="TYPE_TITLE">
+to_char
+</P>
+<PRE CLASS="DECL_TEXT">
+function to_char(marcador char default chr(7)) return varchar2
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna as Mensagem em Forma de Texto<br>
+OBS: Se Houver somente uma mensagem no Array, o caracter Marcador n&#227;o ser&#225; utilizado <pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp;rp response :=response('Ol&#225; Mundo', 'I');<br>
+begin<br>
+&nbsp;rp.concat('Ol&#225; Mundo Novo');<br>
+&nbsp;console.log(rp);<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+marcador&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(char) Informar o Marcador desejado para multiplas mensagems, se n&#227;o informado, assumira o character bullet(chr(7))<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(varchar2) Retorna um texto com as mensagens<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+</DIV>
+</DIV>
+</BODY>
+</HTML>

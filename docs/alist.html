@@ -1,0 +1,1455 @@
+<!-- REPLACE EXECUTADO -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="plsqldoc.css">
+ <script type="text/javascript" src="main.js"></script>
+<TITLE>Type alist</TITLE>
+<META name="object" content="TYPE">
+<META name="name" content="alist">
+<META name="description" content="">
+</HEAD>
+<BODY>
+<DIV CLASS="TOP_INDEX">
+<TABLE WIDTH="100%"><TR>
+<TD><P ALIGN="LEFT"><STRONG><SMALL></SMALL></STRONG></TD>
+<TD><P ALIGN="RIGHT"><STRONG><SMALL><A HREF="index.html">index</A></SMALL></STRONG></TD>
+</TR></TABLE>
+<TABLE CLASS="MAIN_TABLE"><TR><TD CLASS="DESC_TEXT">
+<P CLASS="MAIN_TITLE">Type alist</P>
+
+</TD></TR></TABLE>
+</DIV>
+<DIV CLASS="MENU_LADO">
+<A NAME="Atributos"></A>
+<TABLE CLASS="SUB_TABLE"><TR><TD CLASS="SUB_TITLE">
+Atributos
+</TD></TR></TABLE>
+<TABLE CLASS="SUB_TABLE">
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#LIST">list</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Unidades de Programas/M&eacute;todos"></A>
+<TABLE CLASS="SUB_TABLE"><TR><TD CLASS="SUB_TITLE">
+Unidades de Programas/M&eacute;todos
+</TD></TR></TABLE>
+<TABLE CLASS="SUB_TABLE">
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ALIST">alist</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ALIST2">alist</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[constructor] Construir o objeto inserindo string de valores iniciais:<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ALIST3">alist</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[constructor] Construir o objeto inserindo string de valores iniciais:<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ADICIONAR">adicionar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna nova lista com valor adicionado<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ADICIONAR2">adicionar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ADICIONAR3">adicionar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna nova lista com valores adicionados<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ADICIONAR4">adicionar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ADICIONAR5">adicionar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna nova lista com valores adicionados<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ADICIONAR6">adicionar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#REMOVER">remover</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna nova lista sem valor informado<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#REMOVER2">remover</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#REMOVER3">remover</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna nova lista sem valores informados<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#REMOVER4">remover</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#REMOVER5">remover</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna nova lista sem valores informados<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#REMOVER6">remover</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#CRUZAR">cruzar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna nova lista com valores cruzados<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#CRUZAR2">cruzar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#CRUZAR3">cruzar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna nova lista com valores cruzados<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#CRUZAR4">cruzar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#DIST">dist</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna lista distinta (sem itens duplicados)<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#DIST2">dist</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ORDENAR">ordenar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna lista ordenada<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ORDENAR2">ordenar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#GET">get</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna uma posi&#231;&#227;o na lista<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#TEXT">text</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna uma posi&#231;&#227;o na lista (formato 'text')<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ULTIMO">ultimo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna ultimo item na lista<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#PRIMEIRO">primeiro</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna primeiro item na lista<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#MAIOR">maior</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna item com maior length<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#MENOR">menor</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna item com menor length<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#MAIOR_LENGTH">maior_length</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna length do maior item<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#MENOR_LENGTH">menor_length</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna length do menor item<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#TAMANHO">tamanho</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna a quantidade de itens na lista<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#POSSUI">possui</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Verifica se possui o item indicado<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ABRANGE">abrange</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Verifica se possui o item indicado<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ABRANGE2">abrange</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Verifica se possui o item indicado<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#CRUZAMENTO">cruzamento</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Verifica se possui cruzamento entre as listas<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#CRUZAMENTO2">cruzamento</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#TO_ARGS">to_args</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna no formato &quot;args&quot;<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#TO_TABLE">to_table</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna no formato &quot;args&quot;<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#TO_ARGSN">to_argsn</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna no formato &quot;argsn&quot;<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#TO_ARGSD">to_argsd</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna no formato &quot;argsd&quot;<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#TO_CHAR">to_char</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna no formato &quot;varchar2&quot;<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#TO_CLOB">to_clob</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna no formato &quot;clob&quot;<br>
+</TD></TR>
+</TABLE>
+<BR>
+</DIV>
+<DIV CLASS="TODO_CONTEUDO">
+<DIV CLASS="TODO_CONTEUDO_INS">
+<A NAME="LIST"></A>
+<P CLASS="TYPE_TITLE">
+list
+</P>
+<PRE CLASS="DECL_TEXT">
+list args
+</PRE>
+<HR>
+<A NAME="ALIST"></A>
+<P CLASS="TYPE_TITLE">
+alist
+</P>
+<PRE CLASS="DECL_TEXT">
+function alist return self as result
+
+</PRE>
+<HR>
+<A NAME="ALIST2"></A>
+<P CLASS="TYPE_TITLE">
+alist
+</P>
+<PRE CLASS="DECL_TEXT">
+function alist(valores varchar2, separador char default ',') return self as result
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[constructor] Construir o objeto inserindo string de valores iniciais:<br>
+Valores devem ser separados por &quot;,&quot; ou pelo &quot;separador&quot; informado por par&#226;metro.<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp;vlista alist;<br>
+begin<br>
+&nbsp;vlista := alist('TESTE1,TESTE2,TESTE3');<br>
+&nbsp;console.log(vlista.to_args()); -- TESTE1, TESTE2, TESTE3<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+novo objeto (alist)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ALIST3"></A>
+<P CLASS="TYPE_TITLE">
+alist
+</P>
+<PRE CLASS="DECL_TEXT">
+function alist(valores clob, separador char default ',') return self as result
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[constructor] Construir o objeto inserindo string de valores iniciais:<br>
+Valores devem ser separados por &quot;,&quot; ou pelo &quot;separador&quot; informado por par&#226;metro.<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp;vlista alist;<br>
+begin<br>
+&nbsp;vlista := alist('TESTE1,TESTE2,TESTE3');<br>
+&nbsp;console.log(vlista.to_args()); -- TESTE1, TESTE2, TESTE3<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+novo objeto (alist)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ADICIONAR"></A>
+<P CLASS="TYPE_TITLE">
+adicionar
+</P>
+<PRE CLASS="DECL_TEXT">
+function adicionar(item varchar2, dist char default 'N') return alist
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna nova lista com valor adicionado<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; vlista alist;<br>
+begin<br>
+&nbsp; vlista := alist('TESTE1,TESTE2,TESTE3');<br>
+&nbsp; console.log(vlista.adiciona('TESTE4')); -- TESTE1,TESTE2,TESTE3,TESTE4<br>
+&nbsp; console.log(vlista.adiciona('TESTE4')); -- TESTE1,TESTE2,TESTE3,TESTE4,TESTE4<br>
+&nbsp; console.log(vlista.adiciona('TESTE4',dist=&gt;'S')); -- TESTE1,TESTE2,TESTE3,TESTE4,TESTE5<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+nova lista (alist)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ADICIONAR2"></A>
+<P CLASS="TYPE_TITLE">
+adicionar
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure adicionar(self in out nocopy alist, item varchar2, dist char default 'N')
+
+</PRE>
+<HR>
+<A NAME="ADICIONAR3"></A>
+<P CLASS="TYPE_TITLE">
+adicionar
+</P>
+<PRE CLASS="DECL_TEXT">
+function adicionar(lista args, dist char default 'N') return alist
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna nova lista com valores adicionados<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; vlista alist;<br>
+begin<br>
+&nbsp; vlista := alist('TESTE1,TESTE2,TESTE3');<br>
+&nbsp; console.log(vlista.adiciona(args('TESTE3','TESTE4'))); -- TESTE1,TESTE2,TESTE3,TESTE3,TESTE4<br>
+&nbsp; console.log(vlista.adiciona(args('TESTE4','TESTE5'))); -- TESTE1,TESTE2,TESTE3,TESTE3,TESTE4,TESTE4,TESTE5<br>
+&nbsp; console.log(vlista.adiciona(args('TESTE5','TESTE6'),dist=&gt;'S')); -- TESTE1,TESTE2,TESTE3,TESTE4,TESTE5,TESTE6<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+nova lista (alist)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ADICIONAR4"></A>
+<P CLASS="TYPE_TITLE">
+adicionar
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure adicionar(self in out nocopy alist, lista args, dist char default 'N')
+
+</PRE>
+<HR>
+<A NAME="ADICIONAR5"></A>
+<P CLASS="TYPE_TITLE">
+adicionar
+</P>
+<PRE CLASS="DECL_TEXT">
+function adicionar(lista alist, dist char default 'N') return alist
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna nova lista com valores adicionados<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; vlista alist;<br>
+begin<br>
+&nbsp; vlista := alist('TESTE1,TESTE2,TESTE3');<br>
+&nbsp; console.log(vlista.adiciona(alist('TESTE3,TESTE4'))); -- TESTE1,TESTE2,TESTE3,TESTE3,TESTE4<br>
+&nbsp; console.log(vlista.adiciona(alist('TESTE4-TESTE5',separador=&gt;'-'))); -- TESTE1,TESTE2,TESTE3,TESTE3,TESTE4,TESTE4,TESTE5<br>
+&nbsp; console.log(vlista.adiciona(alist('TESTE5,TESTE6'),dist=&gt;'S')); -- TESTE1,TESTE2,TESTE3,TESTE4,TESTE5,TESTE6<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+nova lista (alist)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ADICIONAR6"></A>
+<P CLASS="TYPE_TITLE">
+adicionar
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure adicionar(self in out nocopy alist, lista alist, dist char default 'N')
+
+</PRE>
+<HR>
+<A NAME="REMOVER"></A>
+<P CLASS="TYPE_TITLE">
+remover
+</P>
+<PRE CLASS="DECL_TEXT">
+function remover(item varchar2, dist char default 'N') return alist
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna nova lista sem valor informado<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; vlista alist;<br>
+begin<br>
+&nbsp; vlista := alist('TESTE1,TESTE2,TESTE3,TESTE3');<br>
+&nbsp; console.log(vlista.remover('TESTE2')); -- TESTE1,TESTE3,TESTE3<br>
+&nbsp; console.log(vlista.remover('TESTE3')); -- TESTE1,TESTE2,TESTE3<br>
+&nbsp; console.log(vlista.remover('TESTE3',dist=&gt;'S')); -- TESTE1,TESTE2<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+nova lista (alist)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="REMOVER2"></A>
+<P CLASS="TYPE_TITLE">
+remover
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure remover(self in out nocopy alist, item varchar2, dist char default 'N')
+
+</PRE>
+<HR>
+<A NAME="REMOVER3"></A>
+<P CLASS="TYPE_TITLE">
+remover
+</P>
+<PRE CLASS="DECL_TEXT">
+function remover(lista args, dist char default 'N') return alist
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna nova lista sem valores informados<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; vlista alist;<br>
+begin<br>
+&nbsp; vlista := alist('TESTE1,TESTE2,TESTE3,TESTE3');<br>
+&nbsp; console.log(vlista.remover(args('TESTE2','TESTE3'))); -- TESTE1,TESTE3<br>
+&nbsp; console.log(vlista.remover(args('TESTE3','TESTE4'))); -- TESTE1,TESTE2,TESTE3<br>
+&nbsp; console.log(vlista.remover(args('TESTE2','TESTE3'),dist=&gt;'S')); -- TESTE1<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+nova lista (alist)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="REMOVER4"></A>
+<P CLASS="TYPE_TITLE">
+remover
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure remover(self in out nocopy alist, lista args, dist char default 'N')
+
+</PRE>
+<HR>
+<A NAME="REMOVER5"></A>
+<P CLASS="TYPE_TITLE">
+remover
+</P>
+<PRE CLASS="DECL_TEXT">
+function remover(lista alist, dist char default 'N') return alist
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna nova lista sem valores informados<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; vlista alist;<br>
+begin<br>
+&nbsp; vlista := alist('TESTE1,TESTE2,TESTE3,TESTE3');<br>
+&nbsp; console.log(vlista.remover(alist('TESTE2,TESTE3'))); -- TESTE1,TESTE3<br>
+&nbsp; console.log(vlista.remover(alist('TESTE3&gt;TESTE4',separador=&gt;'&gt;'))); -- TESTE1,TESTE2,TESTE3<br>
+&nbsp; console.log(vlista.remover(alist('TESTE2,TESTE3'),dist=&gt;'S')); -- TESTE1<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+nova lista (alist)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="REMOVER6"></A>
+<P CLASS="TYPE_TITLE">
+remover
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure remover(self in out nocopy alist, lista alist, dist char default 'N')
+
+</PRE>
+<HR>
+<A NAME="CRUZAR"></A>
+<P CLASS="TYPE_TITLE">
+cruzar
+</P>
+<PRE CLASS="DECL_TEXT">
+function cruzar(lista args, dist char default 'N') return alist
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna nova lista com valores cruzados<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; vlista alist;<br>
+begin<br>
+&nbsp; vlista := alist('TESTE1,TESTE2,TESTE3,TESTE3');<br>
+&nbsp; console.log(vlista.cruzar(args('TESTE2','TESTE3','TESTE3','TESTE4'))); -- TESTE2,TESTE3,TESTE3<br>
+&nbsp; console.log(vlista.cruzar(args('TESTE4','TESTE5'))); -- &lt;vazio&gt;<br>
+&nbsp; console.log(vlista.cruzar(args('TESTE3','TESTE3','TESTE6'),dist=&gt;'S')); -- TESTE3<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+nova lista (alist)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="CRUZAR2"></A>
+<P CLASS="TYPE_TITLE">
+cruzar
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure cruzar(self in out nocopy alist, lista args, dist char default 'N')
+
+</PRE>
+<HR>
+<A NAME="CRUZAR3"></A>
+<P CLASS="TYPE_TITLE">
+cruzar
+</P>
+<PRE CLASS="DECL_TEXT">
+function cruzar(lista alist, dist char default 'N') return alist
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna nova lista com valores cruzados<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; vlista alist;<br>
+begin<br>
+&nbsp; vlista := alist('TESTE1,TESTE2,TESTE3,TESTE3');<br>
+&nbsp; console.log(vlista.cruzar(alist('TESTE2,TESTE3,TESTE3,TESTE4'))); -- TESTE2,TESTE3,TESTE3<br>
+&nbsp; console.log(vlista.cruzar(alist('TESTE4-TESTE5',separador=&gt;'-'))); -- &lt;vazio&gt;<br>
+&nbsp; console.log(vlista.cruzar(alist('TESTE3,TESTE3,TESTE6'),dist=&gt;'S')); -- TESTE3<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+nova lista (alist)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="CRUZAR4"></A>
+<P CLASS="TYPE_TITLE">
+cruzar
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure cruzar(self in out nocopy alist, lista alist, dist char default 'N')
+
+</PRE>
+<HR>
+<A NAME="DIST"></A>
+<P CLASS="TYPE_TITLE">
+dist
+</P>
+<PRE CLASS="DECL_TEXT">
+function dist return alist
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna lista distinta (sem itens duplicados)<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; vlista alist;<br>
+begin<br>
+&nbsp; vlista := alist('TESTE1,TESTE2,TESTE3,TESTE1');<br>
+&nbsp; console.log(vlista.set()); -- TESTE1, TESTE2, TESTE3<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+lista (alist)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="DIST2"></A>
+<P CLASS="TYPE_TITLE">
+dist
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure dist(self in out nocopy alist)
+
+</PRE>
+<HR>
+<A NAME="ORDENAR"></A>
+<P CLASS="TYPE_TITLE">
+ordenar
+</P>
+<PRE CLASS="DECL_TEXT">
+function ordenar(ordem char default 'A') return alist
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna lista ordenada<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; vlista alist;<br>
+begin<br>
+&nbsp; vlista := alist('TESTE7,TESTE2,TESTE3,TESTE1');<br>
+&nbsp; console.log(vlista.set()); -- TESTE1, TESTE2, TESTE3, TESTE7<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+ordem&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+('A','D')<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+lista (alist)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ORDENAR2"></A>
+<P CLASS="TYPE_TITLE">
+ordenar
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure ordenar(self in out nocopy alist, ordem char default 'A')
+
+</PRE>
+<HR>
+<A NAME="GET"></A>
+<P CLASS="TYPE_TITLE">
+get
+</P>
+<PRE CLASS="DECL_TEXT">
+function get(ps number default 1) return varchar2
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna uma posi&#231;&#227;o na lista<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; vlista alist;<br>
+begin<br>
+&nbsp; vlista := alist('TESTE1,TESTE2,TESTE3');<br>
+&nbsp; console.log(vlista.get()); -- TESTE1<br>
+&nbsp; console.log(vlista.get(2)); -- TESTE2<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+item (varchar2)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="TEXT"></A>
+<P CLASS="TYPE_TITLE">
+text
+</P>
+<PRE CLASS="DECL_TEXT">
+function text(ps number default 1) return text
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna uma posi&#231;&#227;o na lista (formato 'text')<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; vlista alist;<br>
+begin<br>
+&nbsp; vlista := alist('TESTE1,TESTE2,TESTE45');<br>
+&nbsp; console.log(vlista.text().apenas_numeros()); -- 1<br>
+&nbsp; console.log(vlista.text(3).apenas_numeros()); -- 45<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+item (text)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ULTIMO"></A>
+<P CLASS="TYPE_TITLE">
+ultimo
+</P>
+<PRE CLASS="DECL_TEXT">
+function ultimo return varchar2
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna ultimo item na lista<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; vlista alist;<br>
+begin<br>
+&nbsp; vlista := alist('TESTE1,TESTE2,TESTE3');<br>
+&nbsp; console.log(vlista.ultimo()); -- TESTE3<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+item (varchar2)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="PRIMEIRO"></A>
+<P CLASS="TYPE_TITLE">
+primeiro
+</P>
+<PRE CLASS="DECL_TEXT">
+function primeiro return varchar2
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna primeiro item na lista<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; vlista alist;<br>
+begin<br>
+&nbsp; vlista := alist('TESTE1,TESTE2,TESTE3');<br>
+&nbsp; console.log(vlista.primeiro()); -- TESTE1<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+item (varchar2)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="MAIOR"></A>
+<P CLASS="TYPE_TITLE">
+maior
+</P>
+<PRE CLASS="DECL_TEXT">
+function maior return varchar2
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna item com maior length<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; vlista alist;<br>
+begin<br>
+&nbsp; vlista := alist('TESTE1,TESTE22,TESTE333');<br>
+&nbsp; console.log(vlista.maior_len()); -- 8<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(varchar2)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="MENOR"></A>
+<P CLASS="TYPE_TITLE">
+menor
+</P>
+<PRE CLASS="DECL_TEXT">
+function menor return varchar2
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna item com menor length<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; vlista alist;<br>
+begin<br>
+&nbsp; vlista := alist('TESTE1,TESTE22,TESTE333');<br>
+&nbsp; console.log(vlista.menor()); -- 6<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(varchar2)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="MAIOR_LENGTH"></A>
+<P CLASS="TYPE_TITLE">
+maior_length
+</P>
+<PRE CLASS="DECL_TEXT">
+function maior_length return number
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna length do maior item<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; vlista alist;<br>
+begin<br>
+&nbsp; vlista := alist('TESTE1,TESTE22,TESTE333');<br>
+&nbsp; console.log(vlista.maior_length()); -- 8<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(number)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="MENOR_LENGTH"></A>
+<P CLASS="TYPE_TITLE">
+menor_length
+</P>
+<PRE CLASS="DECL_TEXT">
+function menor_length return number
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna length do menor item<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; vlista alist;<br>
+begin<br>
+&nbsp; vlista := alist('TESTE1,TESTE22,TESTE333');<br>
+&nbsp; console.log(vlista.menor_length()); -- 6<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(number)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="TAMANHO"></A>
+<P CLASS="TYPE_TITLE">
+tamanho
+</P>
+<PRE CLASS="DECL_TEXT">
+function tamanho return number
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna a quantidade de itens na lista<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; vlista alist;<br>
+begin<br>
+&nbsp; vlista := alist('TESTE1,TESTE2,TESTE3');<br>
+&nbsp; console.log(vlista.tamanho()); -- 3<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+tamanho (number)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="POSSUI"></A>
+<P CLASS="TYPE_TITLE">
+possui
+</P>
+<PRE CLASS="DECL_TEXT">
+function possui(item varchar2) return char
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Verifica se possui o item indicado<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; vlista alist;<br>
+begin<br>
+&nbsp; vlista := alist('TESTE1,TESTE2,TESTE3');<br>
+&nbsp; console.log(vlista.possui('TESTE2')); -- S<br>
+&nbsp; console.log(vlista.possui('TESTE5')); -- N<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(S/N)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ABRANGE"></A>
+<P CLASS="TYPE_TITLE">
+abrange
+</P>
+<PRE CLASS="DECL_TEXT">
+function abrange(lista args) return char
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Verifica se possui o item indicado<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; vlista alist;<br>
+begin<br>
+&nbsp; vlista := alist('TESTE1,TESTE2,TESTE3');<br>
+&nbsp; console.log(vlista.abrange(args('TESTE2','TESTE3'))); -- S<br>
+&nbsp; console.log(vlista.abrange(args('TESTE3','TESTE5'))); -- N<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(S/N)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ABRANGE2"></A>
+<P CLASS="TYPE_TITLE">
+abrange
+</P>
+<PRE CLASS="DECL_TEXT">
+function abrange(lista alist) return char
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Verifica se possui o item indicado<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; vlista alist;<br>
+begin<br>
+&nbsp; vlista := alist('TESTE1,TESTE2,TESTE3');<br>
+&nbsp; console.log(vlista.abrange(alist('TESTE2,TESTE3'))); -- S<br>
+&nbsp; console.log(vlista.abrange(alist('TESTE3:TESTE5',separador=&gt;':'))); -- N<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(S/N)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="CRUZAMENTO"></A>
+<P CLASS="TYPE_TITLE">
+cruzamento
+</P>
+<PRE CLASS="DECL_TEXT">
+function cruzamento(lista args) return char
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Verifica se possui cruzamento entre as listas<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; vlista alist;<br>
+begin<br>
+&nbsp; vlista := alist('TESTE1,TESTE2,TESTE3');<br>
+&nbsp; console.log(vlista.cruzamento(alist('TESTE1,TESTE3'))); -- S<br>
+&nbsp; console.log(vlista.cruzamento(args('TESTE4','TESTE'))); -- N<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(S/N)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="CRUZAMENTO2"></A>
+<P CLASS="TYPE_TITLE">
+cruzamento
+</P>
+<PRE CLASS="DECL_TEXT">
+function cruzamento(lista alist) return char
+
+</PRE>
+<HR>
+<A NAME="TO_ARGS"></A>
+<P CLASS="TYPE_TITLE">
+to_args
+</P>
+<PRE CLASS="DECL_TEXT">
+function to_args return args
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna no formato &quot;args&quot;<br>
+<pre class="prettyprint linenums lang-plsql">
+&nbsp; select * from table(alist('TESTE1,TESTE2,TESTE3').to_args()); -- &lt;&lt;table[varchar2]: TESTE1, TESTE2, TESTE3&gt;&gt;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+novo objeto (args)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="TO_TABLE"></A>
+<P CLASS="TYPE_TITLE">
+to_table
+</P>
+<PRE CLASS="DECL_TEXT">
+function to_table return args
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna no formato &quot;args&quot;<br>
+<pre class="prettyprint linenums lang-plsql">
+&nbsp; select * from table(alist('TESTE1,TESTE2,TESTE3').to_args()); -- &lt;&lt;table[varchar2]: TESTE1, TESTE2, TESTE3&gt;&gt;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+novo objeto (args)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="TO_ARGSN"></A>
+<P CLASS="TYPE_TITLE">
+to_argsn
+</P>
+<PRE CLASS="DECL_TEXT">
+function to_argsn return argsn
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna no formato &quot;argsn&quot;<br>
+<pre class="prettyprint linenums lang-plsql">
+&nbsp; select * from table(alist('1,002,3').to_args()); -- &lt;&lt;table[number]: 1, 2, 3&gt;&gt;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+novo objeto (argsn)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="TO_ARGSD"></A>
+<P CLASS="TYPE_TITLE">
+to_argsd
+</P>
+<PRE CLASS="DECL_TEXT">
+function to_argsd(formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return argsd
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna no formato &quot;argsd&quot;<br>
+<pre class="prettyprint linenums lang-plsql">
+&nbsp; select * from table(alist('01/12/2017,02/12/2017,03/12/2017').to_args()); -- &lt;&lt;table[date]: 01/12/2017, 02/12/2017, 03/12/2017&gt;&gt;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+novo objeto (argsd)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="TO_CHAR"></A>
+<P CLASS="TYPE_TITLE">
+to_char
+</P>
+<PRE CLASS="DECL_TEXT">
+function to_char(separador char default ',', pre char default null, pos char default null) return varchar2
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna no formato &quot;varchar2&quot;<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; vlista alist;<br>
+begin<br>
+&nbsp; vlista := alist('TESTE1,TESTE2,TESTE3');<br>
+&nbsp; console.log(vlista.to_char()); -- 'TESTE1,TESTE2,TESTE3'<br>
+&nbsp; console.log(vlista.to_char(separador=&gt;' -&gt; ')); -- 'TESTE1 -&gt; TESTE2 -&gt; TESTE3'<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+texto (varchar2)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="TO_CLOB"></A>
+<P CLASS="TYPE_TITLE">
+to_clob
+</P>
+<PRE CLASS="DECL_TEXT">
+function to_clob(separador char default ',', pre char default null, pos char default null) return clob
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna no formato &quot;clob&quot;<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; vlista alist;<br>
+begin<br>
+&nbsp; vlista := alist('TESTE1,TESTE2,TESTE3');<br>
+&nbsp; console.log(vlista.to_char()); -- 'TESTE1,TESTE2,TESTE3'<br>
+&nbsp; console.log(vlista.to_char(separador=&gt;' -&gt; ')); -- 'TESTE1 -&gt; TESTE2 -&gt; TESTE3'<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+texto (clob)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+</DIV>
+</DIV>
+</BODY>
+</HTML>

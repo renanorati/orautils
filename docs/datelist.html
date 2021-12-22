@@ -1,0 +1,947 @@
+<!-- REPLACE EXECUTADO -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="plsqldoc.css">
+ <script type="text/javascript" src="main.js"></script>
+<TITLE>Type datelist</TITLE>
+<META name="object" content="TYPE">
+<META name="name" content="datelist">
+<META name="description" content="">
+</HEAD>
+<BODY>
+<DIV CLASS="TOP_INDEX">
+<TABLE WIDTH="100%"><TR>
+<TD><P ALIGN="LEFT"><STRONG><SMALL></SMALL></STRONG></TD>
+<TD><P ALIGN="RIGHT"><STRONG><SMALL><A HREF="index.html">index</A></SMALL></STRONG></TD>
+</TR></TABLE>
+<TABLE CLASS="MAIN_TABLE"><TR><TD CLASS="DESC_TEXT">
+<P CLASS="MAIN_TITLE">Type datelist</P>
+
+</TD></TR></TABLE>
+</DIV>
+<DIV CLASS="MENU_LADO">
+<A NAME="Atributos"></A>
+<TABLE CLASS="SUB_TABLE"><TR><TD CLASS="SUB_TITLE">
+Atributos
+</TD></TR></TABLE>
+<TABLE CLASS="SUB_TABLE">
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#LIST">list</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Unidades de Programas/M&eacute;todos"></A>
+<TABLE CLASS="SUB_TABLE"><TR><TD CLASS="SUB_TITLE">
+Unidades de Programas/M&eacute;todos
+</TD></TR></TABLE>
+<TABLE CLASS="SUB_TABLE">
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#DATELIST">datelist</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#DATELIST2">datelist</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ATRIBUIR">atribuir</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ATRIBUIR2">atribuir</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#EXISTE">existe</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#EXISTE2">existe</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#EXISTE3">existe</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ADICIONAR">adicionar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ADICIONAR2">adicionar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ADICIONAR3">adicionar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ADICIONAR4">adicionar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ADICIONAR5">adicionar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ADICIONAR6">adicionar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ADICIONAR7">adicionar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ADICIONAR8">adicionar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ADICIONAR_PERIODO">adicionar_periodo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ADICIONAR_PERIODO2">adicionar_periodo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ADICIONAR_PERIODO3">adicionar_periodo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ADICIONAR_PERIODO4">adicionar_periodo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ADICIONAR_PERIODO5">adicionar_periodo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ADICIONAR_PERIODO6">adicionar_periodo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#REMOVER">remover</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#REMOVER2">remover</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#REMOVER3">remover</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#REMOVER4">remover</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#REMOVER5">remover</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#REMOVER6">remover</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#REMOVER7">remover</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#REMOVER8">remover</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#REMOVER_PERIODO">remover_periodo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#REMOVER_PERIODO2">remover_periodo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#REMOVER_PERIODO3">remover_periodo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#REMOVER_PERIODO4">remover_periodo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#REMOVER_PERIODO5">remover_periodo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#REMOVER_PERIODO6">remover_periodo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#MAIOR">maior</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#MENOR">menor</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ORDENAR">ordenar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ORDENAR2">ordenar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#CRUZAMENTO">cruzamento</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#CRUZAMENTO2">cruzamento</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#CRUZAMENTO_PERIODO">cruzamento_periodo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#CRUZAMENTO_PERIODO2">cruzamento_periodo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#CRUZAMENTO_PERIODO3">cruzamento_periodo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ESTA_DENTRO">esta_dentro</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ESTA_DENTRO2">esta_dentro</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ABRANGE">abrange</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ABRANGE2">abrange</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#POSSUI">possui</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#POSSUI2">possui</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#POSSUI3">possui</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#LIMITAR">limitar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#LIMITAR2">limitar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#LIMITAR3">limitar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#LIMITAR4">limitar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#LIMITAR5">limitar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#LIMITAR6">limitar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#DIAS">dias</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#DIAS_SEMANA">dias_semana</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#POSSUI_DS">possui_ds</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#TO_CHAR">to_char</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#TO_TABLE">to_table</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#MOSTRA">mostra</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+</TABLE>
+<BR>
+</DIV>
+<DIV CLASS="TODO_CONTEUDO">
+<DIV CLASS="TODO_CONTEUDO_INS">
+<A NAME="LIST"></A>
+<P CLASS="TYPE_TITLE">
+list
+</P>
+<PRE CLASS="DECL_TEXT">
+list argsdt
+</PRE>
+<HR>
+<A NAME="DATELIST"></A>
+<P CLASS="TYPE_TITLE">
+datelist
+</P>
+<PRE CLASS="DECL_TEXT">
+function datelist return self as result
+
+</PRE>
+<HR>
+<A NAME="DATELIST2"></A>
+<P CLASS="TYPE_TITLE">
+datelist
+</P>
+<PRE CLASS="DECL_TEXT">
+function datelist(list varchar2, formato varchar2 default 'DD/MM/RRRR', separador varchar2 default ';') return self as result
+
+</PRE>
+<HR>
+<A NAME="ATRIBUIR"></A>
+<P CLASS="TYPE_TITLE">
+atribuir
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure atribuir(self in out nocopy datelist, list varchar2, formato varchar2 default 'DD/MM/RRRR', separador varchar2 default ';')
+
+</PRE>
+<HR>
+<A NAME="ATRIBUIR2"></A>
+<P CLASS="TYPE_TITLE">
+atribuir
+</P>
+<PRE CLASS="DECL_TEXT">
+function atribuir(self in out nocopy datelist, list varchar2, formato varchar2 default 'DD/MM/RRRR', separador varchar2 default ';') return datelist
+
+</PRE>
+<HR>
+<A NAME="EXISTE"></A>
+<P CLASS="TYPE_TITLE">
+existe
+</P>
+<PRE CLASS="DECL_TEXT">
+function existe(data datetime) return boolean
+
+</PRE>
+<HR>
+<A NAME="EXISTE2"></A>
+<P CLASS="TYPE_TITLE">
+existe
+</P>
+<PRE CLASS="DECL_TEXT">
+function existe(data date) return boolean
+
+</PRE>
+<HR>
+<A NAME="EXISTE3"></A>
+<P CLASS="TYPE_TITLE">
+existe
+</P>
+<PRE CLASS="DECL_TEXT">
+function existe(data varchar2, formato varchar2 default 'DD/MM/RRRR') return boolean
+
+</PRE>
+<HR>
+<A NAME="ADICIONAR"></A>
+<P CLASS="TYPE_TITLE">
+adicionar
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure adicionar(self in out nocopy datelist, data datetime, repetir varchar2 default 'N')
+
+</PRE>
+<HR>
+<A NAME="ADICIONAR2"></A>
+<P CLASS="TYPE_TITLE">
+adicionar
+</P>
+<PRE CLASS="DECL_TEXT">
+function adicionar(data datetime, repetir varchar2 default 'N') return datelist
+
+</PRE>
+<HR>
+<A NAME="ADICIONAR3"></A>
+<P CLASS="TYPE_TITLE">
+adicionar
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure adicionar(data date, repetir varchar2 default 'N')
+
+</PRE>
+<HR>
+<A NAME="ADICIONAR4"></A>
+<P CLASS="TYPE_TITLE">
+adicionar
+</P>
+<PRE CLASS="DECL_TEXT">
+function adicionar(data date, repetir varchar2 default 'N') return datelist
+
+</PRE>
+<HR>
+<A NAME="ADICIONAR5"></A>
+<P CLASS="TYPE_TITLE">
+adicionar
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure adicionar(list varchar2, formato varchar2 default 'DD/MM/RRRR', separador varchar2 default ';', repetir varchar2 default 'N')
+
+</PRE>
+<HR>
+<A NAME="ADICIONAR6"></A>
+<P CLASS="TYPE_TITLE">
+adicionar
+</P>
+<PRE CLASS="DECL_TEXT">
+function adicionar(list varchar2, formato varchar2 default 'DD/MM/RRRR', separador varchar2 default ';', repetir varchar2 default 'N')
+return datelist
+
+</PRE>
+<HR>
+<A NAME="ADICIONAR7"></A>
+<P CLASS="TYPE_TITLE">
+adicionar
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure adicionar(lista datelist, repetir varchar2 default 'N')
+
+</PRE>
+<HR>
+<A NAME="ADICIONAR8"></A>
+<P CLASS="TYPE_TITLE">
+adicionar
+</P>
+<PRE CLASS="DECL_TEXT">
+function adicionar(lista datelist, repetir varchar2 default 'N') return datelist
+
+</PRE>
+<HR>
+<A NAME="ADICIONAR_PERIODO"></A>
+<P CLASS="TYPE_TITLE">
+adicionar_periodo
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure adicionar_periodo(inicio datetime default datetime(), fim datetime default datetime(), repetir varchar2 default 'N')
+
+</PRE>
+<HR>
+<A NAME="ADICIONAR_PERIODO2"></A>
+<P CLASS="TYPE_TITLE">
+adicionar_periodo
+</P>
+<PRE CLASS="DECL_TEXT">
+function adicionar_periodo(inicio datetime default datetime(), fim datetime default datetime(), repetir varchar2 default 'N') return datelist
+
+</PRE>
+<HR>
+<A NAME="ADICIONAR_PERIODO3"></A>
+<P CLASS="TYPE_TITLE">
+adicionar_periodo
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure adicionar_periodo(inicio date default null, fim date default null, repetir varchar2 default 'N')
+
+</PRE>
+<HR>
+<A NAME="ADICIONAR_PERIODO4"></A>
+<P CLASS="TYPE_TITLE">
+adicionar_periodo
+</P>
+<PRE CLASS="DECL_TEXT">
+function adicionar_periodo(inicio date default null, fim date default null, repetir varchar2 default 'N') return datelist
+
+</PRE>
+<HR>
+<A NAME="ADICIONAR_PERIODO5"></A>
+<P CLASS="TYPE_TITLE">
+adicionar_periodo
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure adicionar_periodo(inicio  varchar2 default null
+,fim     varchar2 default null
+,formato varchar2 default 'DD/MM/RRRR'
+,repetir varchar2 default 'N')
+
+</PRE>
+<HR>
+<A NAME="ADICIONAR_PERIODO6"></A>
+<P CLASS="TYPE_TITLE">
+adicionar_periodo
+</P>
+<PRE CLASS="DECL_TEXT">
+function adicionar_periodo(inicio  varchar2 default null
+,fim     varchar2 default null
+,formato varchar2 default 'DD/MM/RRRR'
+,repetir varchar2 default 'N') return datelist
+
+</PRE>
+<HR>
+<A NAME="REMOVER"></A>
+<P CLASS="TYPE_TITLE">
+remover
+</P>
+<PRE CLASS="DECL_TEXT">
+function remover(data datetime) return datelist
+
+</PRE>
+<HR>
+<A NAME="REMOVER2"></A>
+<P CLASS="TYPE_TITLE">
+remover
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure remover(self in out nocopy datelist, data datetime)
+
+</PRE>
+<HR>
+<A NAME="REMOVER3"></A>
+<P CLASS="TYPE_TITLE">
+remover
+</P>
+<PRE CLASS="DECL_TEXT">
+function remover(data date) return datelist
+
+</PRE>
+<HR>
+<A NAME="REMOVER4"></A>
+<P CLASS="TYPE_TITLE">
+remover
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure remover(data date)
+
+</PRE>
+<HR>
+<A NAME="REMOVER5"></A>
+<P CLASS="TYPE_TITLE">
+remover
+</P>
+<PRE CLASS="DECL_TEXT">
+function remover(lista datelist) return datelist
+
+</PRE>
+<HR>
+<A NAME="REMOVER6"></A>
+<P CLASS="TYPE_TITLE">
+remover
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure remover(self in out nocopy datelist, lista datelist)
+
+</PRE>
+<HR>
+<A NAME="REMOVER7"></A>
+<P CLASS="TYPE_TITLE">
+remover
+</P>
+<PRE CLASS="DECL_TEXT">
+function remover(list varchar2, formato varchar2 default 'DD/MM/RRRR', separador varchar2 default ';') return datelist
+
+</PRE>
+<HR>
+<A NAME="REMOVER8"></A>
+<P CLASS="TYPE_TITLE">
+remover
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure remover(list varchar2, formato varchar2 default 'DD/MM/RRRR', separador varchar2 default ';')
+
+</PRE>
+<HR>
+<A NAME="REMOVER_PERIODO"></A>
+<P CLASS="TYPE_TITLE">
+remover_periodo
+</P>
+<PRE CLASS="DECL_TEXT">
+function remover_periodo(inicio datetime default datetime(), fim datetime default datetime()) return datelist
+
+</PRE>
+<HR>
+<A NAME="REMOVER_PERIODO2"></A>
+<P CLASS="TYPE_TITLE">
+remover_periodo
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure remover_periodo(self in out nocopy datelist, inicio datetime default datetime(), fim datetime default datetime())
+
+</PRE>
+<HR>
+<A NAME="REMOVER_PERIODO3"></A>
+<P CLASS="TYPE_TITLE">
+remover_periodo
+</P>
+<PRE CLASS="DECL_TEXT">
+function remover_periodo(inicio date default null, fim date default null) return datelist
+
+</PRE>
+<HR>
+<A NAME="REMOVER_PERIODO4"></A>
+<P CLASS="TYPE_TITLE">
+remover_periodo
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure remover_periodo(inicio date default null, fim date default null)
+
+</PRE>
+<HR>
+<A NAME="REMOVER_PERIODO5"></A>
+<P CLASS="TYPE_TITLE">
+remover_periodo
+</P>
+<PRE CLASS="DECL_TEXT">
+function remover_periodo(inicio varchar2 default null, fim varchar2 default null, formato varchar2 default 'DD/MM/RRRR') return datelist
+
+</PRE>
+<HR>
+<A NAME="REMOVER_PERIODO6"></A>
+<P CLASS="TYPE_TITLE">
+remover_periodo
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure remover_periodo(inicio varchar2 default null, fim varchar2 default null, formato varchar2 default 'DD/MM/RRRR')
+
+</PRE>
+<HR>
+<A NAME="MAIOR"></A>
+<P CLASS="TYPE_TITLE">
+maior
+</P>
+<PRE CLASS="DECL_TEXT">
+function maior return datetime
+
+</PRE>
+<HR>
+<A NAME="MENOR"></A>
+<P CLASS="TYPE_TITLE">
+menor
+</P>
+<PRE CLASS="DECL_TEXT">
+function menor return datetime
+
+</PRE>
+<HR>
+<A NAME="ORDENAR"></A>
+<P CLASS="TYPE_TITLE">
+ordenar
+</P>
+<PRE CLASS="DECL_TEXT">
+function ordenar(ordem varchar2 default 'A') return datelist
+
+</PRE>
+<HR>
+<A NAME="ORDENAR2"></A>
+<P CLASS="TYPE_TITLE">
+ordenar
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure ordenar(self in out nocopy datelist, ordem varchar2 default 'A')
+
+</PRE>
+<HR>
+<A NAME="CRUZAMENTO"></A>
+<P CLASS="TYPE_TITLE">
+cruzamento
+</P>
+<PRE CLASS="DECL_TEXT">
+function cruzamento(lista datelist) return varchar2
+
+</PRE>
+<HR>
+<A NAME="CRUZAMENTO2"></A>
+<P CLASS="TYPE_TITLE">
+cruzamento
+</P>
+<PRE CLASS="DECL_TEXT">
+function cruzamento(list varchar2, formato varchar2 default 'DD/MM/RRRR', separador varchar2 default ';') return varchar2
+
+</PRE>
+<HR>
+<A NAME="CRUZAMENTO_PERIODO"></A>
+<P CLASS="TYPE_TITLE">
+cruzamento_periodo
+</P>
+<PRE CLASS="DECL_TEXT">
+function cruzamento_periodo(inicio datetime, fim datetime) return varchar2
+
+</PRE>
+<HR>
+<A NAME="CRUZAMENTO_PERIODO2"></A>
+<P CLASS="TYPE_TITLE">
+cruzamento_periodo
+</P>
+<PRE CLASS="DECL_TEXT">
+function cruzamento_periodo(inicio date, fim date) return varchar2
+
+</PRE>
+<HR>
+<A NAME="CRUZAMENTO_PERIODO3"></A>
+<P CLASS="TYPE_TITLE">
+cruzamento_periodo
+</P>
+<PRE CLASS="DECL_TEXT">
+function cruzamento_periodo(inicio varchar2, fim varchar2, formato varchar2 default 'DD/MM/RRRR') return varchar2
+
+</PRE>
+<HR>
+<A NAME="ESTA_DENTRO"></A>
+<P CLASS="TYPE_TITLE">
+esta_dentro
+</P>
+<PRE CLASS="DECL_TEXT">
+function esta_dentro(lista datelist) return varchar2
+
+</PRE>
+<HR>
+<A NAME="ESTA_DENTRO2"></A>
+<P CLASS="TYPE_TITLE">
+esta_dentro
+</P>
+<PRE CLASS="DECL_TEXT">
+function esta_dentro(list varchar2, formato varchar2 default 'DD/MM/RRRR', separador varchar2 default ';') return varchar2
+
+</PRE>
+<HR>
+<A NAME="ABRANGE"></A>
+<P CLASS="TYPE_TITLE">
+abrange
+</P>
+<PRE CLASS="DECL_TEXT">
+function abrange(lista datelist) return varchar2
+
+</PRE>
+<HR>
+<A NAME="ABRANGE2"></A>
+<P CLASS="TYPE_TITLE">
+abrange
+</P>
+<PRE CLASS="DECL_TEXT">
+function abrange(list varchar2, formato varchar2 default 'DD/MM/RRRR', separador varchar2 default ';') return varchar2
+
+</PRE>
+<HR>
+<A NAME="POSSUI"></A>
+<P CLASS="TYPE_TITLE">
+possui
+</P>
+<PRE CLASS="DECL_TEXT">
+function possui(data datetime) return varchar2
+
+</PRE>
+<HR>
+<A NAME="POSSUI2"></A>
+<P CLASS="TYPE_TITLE">
+possui
+</P>
+<PRE CLASS="DECL_TEXT">
+function possui(data date) return varchar2
+
+</PRE>
+<HR>
+<A NAME="POSSUI3"></A>
+<P CLASS="TYPE_TITLE">
+possui
+</P>
+<PRE CLASS="DECL_TEXT">
+function possui(data varchar2, formato varchar2 default 'DD/MM/RRRR') return varchar2
+
+</PRE>
+<HR>
+<A NAME="LIMITAR"></A>
+<P CLASS="TYPE_TITLE">
+limitar
+</P>
+<PRE CLASS="DECL_TEXT">
+function limitar(inicio datetime default datetime(), fim datetime default datetime()) return datelist
+
+</PRE>
+<HR>
+<A NAME="LIMITAR2"></A>
+<P CLASS="TYPE_TITLE">
+limitar
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure limitar(self in out nocopy datelist, inicio datetime default datetime(), fim datetime default datetime())
+
+</PRE>
+<HR>
+<A NAME="LIMITAR3"></A>
+<P CLASS="TYPE_TITLE">
+limitar
+</P>
+<PRE CLASS="DECL_TEXT">
+function limitar(inicio date default null, fim date default null) return datelist
+
+</PRE>
+<HR>
+<A NAME="LIMITAR4"></A>
+<P CLASS="TYPE_TITLE">
+limitar
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure limitar(inicio date default null, fim date default null)
+
+</PRE>
+<HR>
+<A NAME="LIMITAR5"></A>
+<P CLASS="TYPE_TITLE">
+limitar
+</P>
+<PRE CLASS="DECL_TEXT">
+function limitar(inicio varchar2 default null, fim varchar2 default null, formato varchar2 default 'DD/MM/RRRR') return datelist
+
+</PRE>
+<HR>
+<A NAME="LIMITAR6"></A>
+<P CLASS="TYPE_TITLE">
+limitar
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure limitar(inicio varchar2 default null, fim varchar2 default null, formato varchar2 default 'DD/MM/RRRR')
+
+</PRE>
+<HR>
+<A NAME="DIAS"></A>
+<P CLASS="TYPE_TITLE">
+dias
+</P>
+<PRE CLASS="DECL_TEXT">
+function dias return number
+
+</PRE>
+<HR>
+<A NAME="DIAS_SEMANA"></A>
+<P CLASS="TYPE_TITLE">
+dias_semana
+</P>
+<PRE CLASS="DECL_TEXT">
+function dias_semana(formato varchar2 default 'D', separador varchar2 default ',') return varchar2
+
+</PRE>
+<HR>
+<A NAME="POSSUI_DS"></A>
+<P CLASS="TYPE_TITLE">
+possui_ds
+</P>
+<PRE CLASS="DECL_TEXT">
+function possui_ds(ds number) return varchar2
+
+</PRE>
+<HR>
+<A NAME="TO_CHAR"></A>
+<P CLASS="TYPE_TITLE">
+to_char
+</P>
+<PRE CLASS="DECL_TEXT">
+function to_char(formato varchar2 default 'DD/MM/RRRR', separador varchar2 default ';') return varchar2
+
+</PRE>
+<HR>
+<A NAME="TO_TABLE"></A>
+<P CLASS="TYPE_TITLE">
+to_table
+</P>
+<PRE CLASS="DECL_TEXT">
+function to_table return argsdt
+
+</PRE>
+<HR>
+<A NAME="MOSTRA"></A>
+<P CLASS="TYPE_TITLE">
+mostra
+</P>
+<PRE CLASS="DECL_TEXT">
+function mostra(formato varchar2 default 'DD/MM/RRRR', separador varchar2 default ';') return varchar2
+
+</PRE>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+</DIV>
+</DIV>
+</BODY>
+</HTML>

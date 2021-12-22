@@ -1,0 +1,4832 @@
+<!-- REPLACE EXECUTADO -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<LINK REL="STYLESHEET" TYPE="text/css" HREF="plsqldoc.css">
+ <script type="text/javascript" src="main.js"></script>
+<TITLE>Type datetime</TITLE>
+<META name="object" content="TYPE">
+<META name="name" content="datetime">
+<META name="description" content="">
+</HEAD>
+<BODY>
+<DIV CLASS="TOP_INDEX">
+<TABLE WIDTH="100%"><TR>
+<TD><P ALIGN="LEFT"><STRONG><SMALL></SMALL></STRONG></TD>
+<TD><P ALIGN="RIGHT"><STRONG><SMALL><A HREF="index.html">index</A></SMALL></STRONG></TD>
+</TR></TABLE>
+<TABLE CLASS="MAIN_TABLE"><TR><TD CLASS="DESC_TEXT">
+<P CLASS="MAIN_TITLE">Type datetime</P>
+
+</TD></TR></TABLE>
+</DIV>
+<DIV CLASS="MENU_LADO">
+<A NAME="Atributos"></A>
+<TABLE CLASS="SUB_TABLE"><TR><TD CLASS="SUB_TITLE">
+Atributos
+</TD></TR></TABLE>
+<TABLE CLASS="SUB_TABLE">
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#DATA">data</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Unidades de Programas/M&eacute;todos"></A>
+<TABLE CLASS="SUB_TABLE"><TR><TD CLASS="SUB_TITLE">
+Unidades de Programas/M&eacute;todos
+</TD></TR></TABLE>
+<TABLE CLASS="SUB_TABLE">
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#DATETIME">datetime</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[constructor] Construir o objeto informando data (varchar2)<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#DATETIME2">datetime</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#DATETIME3">datetime</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[constructor] Construir o objeto com partes da data, o restante ser&#225; preenchido com sysdate truncado (pode ser informado dia, mes, ano, hora, minuto, segundo)<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ALTERAR">alterar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Altera a data, passando um date e retornando um novo objeto
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ALTERAR2">alterar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Altera a data, passando um varchar2 e retornando um novo objeto
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ALTERAR3">alterar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Altera parte da data retornando um novo objeto (pode ser alterado dia, mes, ano, hora, minuto, segundo)<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ATRIBUIR">atribuir</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[procedure] Informar nova data no objeto passando um date
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ATRIBUIR2">atribuir</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[procedure] Informar nova data no objeto passando um varchar2
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ATRIBUIR3">atribuir</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[procedure] Informar novas partes do objeto (pode ser informado dia, mes, ano, hora, minuto, segundo)<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#LIMPAR">limpar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna novo objeto com data NULL ou data modificada de acordo com os par&#226;metros informados<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#LIMPAR2">limpar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[procedure] Seta NULL na data do objeto ou modifica a data de acordo com os par&#226;metros informados<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#LIMPAR_HORARIO">limpar_horario</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna novo objeto com horario zerado<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#LIMPAR_HORARIO2">limpar_horario</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[procedure] Zera o hor&#225;rio do objeto<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ADICIONAR">adicionar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Adiciona dias, meses, anos, horas minutos e/ou segundos na data<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ADICIONAR2">adicionar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[procedure] Adiciona dias, meses, anos, horas minutos e/ou segundos na data<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ADICIONAR3">adicionar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Adiciona dias &#250;teis na data<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ADICIONAR4">adicionar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Adiciona dias &#250;teis na data passando lista de feri&#225;dos em varchar2<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ADICIONAR5">adicionar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[procedure] Adiciona dias &#250;teis na data<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ADICIONAR6">adicionar</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Adiciona dias &#250;teis na data passando lista de feri&#225;dos em varchar2<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#SUBTRAIR">subtrair</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Subtrai dias, meses, anos, horas minutos e/ou segundos na data<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#SUBTRAIR2">subtrair</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[procedure] Subtrai dias, meses, anos, horas minutos e/ou segundos na data<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#SUBTRAIR3">subtrair</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Subtrai dias &#250;teis na data<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#SUBTRAIR4">subtrair</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Subtrai dias &#250;teis na data passando lista de feri&#225;dos em varchar2<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#SUBTRAIR5">subtrair</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[procedure] Subtrai dias &#250;teis na data<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#SUBTRAIR6">subtrair</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Subtrai dias &#250;teis na data passando lista de feri&#225;dos em varchar2<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ULTIMO">ultimo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna um novo objeto com a data do &#250;ltimo dia do m&#234;s/ano atual<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#DIA">dia</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna o &quot;dia&quot;<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#MES">mes</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna o &quot;mes&quot;<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ANO">ano</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna o &quot;ano&quot;<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#HORA">hora</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna a &quot;hora&quot;<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#MINUTO">minuto</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna o &quot;minuto&quot;<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#SEGUNDO">segundo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna o &quot;segundo&quot;<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ANOMES">anomes</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna &quot;ano&quot; e &quot;mes&quot; no formato AAAAMM<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#MESDIA">mesdia</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna &quot;mes&quot; e &quot;dia&quot; no formato MMDD<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#HORAMINUTO">horaminuto</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna &quot;hora&quot; e &quot;minuto&quot; no formato HH24MI<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#HORARIO">horario</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna &quot;horario&quot; no formato HH24:MI:SS<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#HORARIO_NUM">horario_num</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna &quot;horario&quot; no formato HH24MISS<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#DATA_COMPLETA">data_completa</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna &quot;data completa&quot; no formato DD/MM/RRRR HH24:MI:SS<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#DATA_COMPLETA_NUM">data_completa_num</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna &quot;data completa&quot; no formato RRRRMMDDHH24MISS<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ISO8601">iso8601</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna &quot;data completa&quot; no formato ISO8601<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#DS">ds</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna o dia da semana (1-7)<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#FDS">fds</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna se &#233; um dia de fim de semana (S/N)<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#FERIADO">feriado</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna se &#233; um feriado (S/N).<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#DIA_UTIL">dia_util</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna se &#233; um dia &#250;til (S/N).<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#BISSEXTO">bissexto</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna se &#233; um ano bissexto (S/N)<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#NULO">nulo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna se a data atual &#233; nula (S/N)<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#NAO_NULO">nao_nulo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna se a data atual n&#227;o &#233; nula (S/N)<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#SE_NULO">se_nulo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna um novo objeto com uma nova data caso a data atual seja nula, passando um datetime<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#SE_NULO2">se_nulo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna um novo objeto com uma nova data caso a data atual seja nula, passando um date<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#SE_NULO3">se_nulo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna um novo objeto com uma nova data caso a data atual seja nula, passando um varchar2<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#SE_NULO4">se_nulo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[procedure] Atribui uma nova data caso a data atual seja nula, passando um datetime<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#SE_NULO5">se_nulo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[procedure] Atribui uma nova data caso a data atual seja nula, passando um date<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#SE_NULO6">se_nulo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[procedure] Atribui uma nova data caso a data atual seja nula, passando um varchar2<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#INICIAL_SE_NULO">inicial_se_nulo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna um novo objeto com a primeira data poss&#237;vel caso a data atual seja nula<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#INICIAL_SE_NULO2">inicial_se_nulo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[procedure] Atribui a primeira data poss&#237;vel caso a data atual seja nula<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#FINAL_SE_NULO">final_se_nulo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna um novo objeto com a &#250;ltima data poss&#237;vel caso a data atual seja nula<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#FINAL_SE_NULO2">final_se_nulo</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[procedure] Atribui a &#250;ltima data poss&#237;vel caso a data atual seja nula<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ESTA_NA_LISTA">esta_na_lista</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna se a data atual est&#225; dentro de uma lista de datas (S/N)<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ESTA_NA_LISTA2">esta_na_lista</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna se a data atual est&#225; dentro de uma lista de datas (S/N)<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ESTA_DENTRO">esta_dentro</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna se a data atual est&#225; dentro de um per&#237;odo (passando datas em datetime) (S/N)<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ESTA_DENTRO2">esta_dentro</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna se a data atual est&#225; dentro de um per&#237;odo (passando datas em date) (S/N)<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ESTA_DENTRO3">esta_dentro</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna se a data atual est&#225; dentro de um per&#237;odo (passando datas em varchar2) (S/N)<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ESTA_DENTRO_ANOMES">esta_dentro_anomes</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna se a data atual est&#225; dentro de um per&#237;odo ANO/MES (passando datas em datetime) (S/N)<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ESTA_DENTRO_ANOMES2">esta_dentro_anomes</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna se a data atual est&#225; dentro de um per&#237;odo AN0/MES (passando datas em date) (S/N)<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ESTA_DENTRO_ANOMES3">esta_dentro_anomes</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna se a data atual est&#225; dentro de um per&#237;odo AN0/MES (passando datas em varchar2) (S/N)<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ESTA_DENTRO_ANOMES4">esta_dentro_anomes</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna se a data atual est&#225; dentro de um per&#237;odo AN0/MES (passando RRRRMM em number) (S/N)<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ESTA_DENTRO_HORARIO">esta_dentro_horario</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna o hor&#225;rio atual est&#225; dentro de um per&#237;odo de hor&#225;rio (passando HH24MI em number) (S/N)<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ESTA_DENTRO_HORARIO2">esta_dentro_horario</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna o hor&#225;rio atual est&#225; dentro de um per&#237;odo de hor&#225;rio (passando datetime) (S/N)<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ESTA_DENTRO_HORARIO3">esta_dentro_horario</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna o hor&#225;rio atual est&#225; dentro de um per&#237;odo de hor&#225;rio (passando date) (S/N)<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#ESTA_DENTRO_HORARIO4">esta_dentro_horario</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna o hor&#225;rio atual est&#225; dentro de um per&#237;odo de hor&#225;rio (passando varchar2) (S/N)<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#TRUNC">trunc</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna a data truncada<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#TO_FORMAT">to_format</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna um novo objeto datetime com o formato informado<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#TO_CHAR">to_char</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna a data em varchar2<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#TO_NUMBER">to_number</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna a data em number<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#TO_DATE">to_date</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[function] Retorna a data<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#BISSEXTO2">bissexto</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[static function] Retorna se &#233; um ano bissexto (S/N)<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#FERIADOS">feriados</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[static function] Retorna datas de feriados<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#FERIADOS2">feriados</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[static function] Retorna datas de feriados<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#FERIADOS3">feriados</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[static function] Retorna datas de feriados<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#FERIADOS4">feriados</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[static function] Retorna datas de feriados<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#LISTAR_FERIADOS">listar_feriados</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[static function] Retorna a lista de feriados<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#LISTAR_FERIADOS2">listar_feriados</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[static function] Retorna a lista de feriados<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#LISTAR_FERIADOS3">listar_feriados</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[static function] Retorna a lista de feriados<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#LISTAR_FERIADOS4">listar_feriados</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+[static function] Retorna a lista de feriados<br>
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="TYPE_ITEM">
+<A HREF="#MOSTRA">mostra</A>&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+
+</TD></TR>
+</TABLE>
+<BR>
+</DIV>
+<DIV CLASS="TODO_CONTEUDO">
+<DIV CLASS="TODO_CONTEUDO_INS">
+<A NAME="DATA"></A>
+<P CLASS="TYPE_TITLE">
+data
+</P>
+<PRE CLASS="DECL_TEXT">
+data date
+</PRE>
+<HR>
+<A NAME="DATETIME"></A>
+<P CLASS="TYPE_TITLE">
+datetime
+</P>
+<PRE CLASS="DECL_TEXT">
+function datetime(data varchar2, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return self as result
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[constructor] Construir o objeto informando data (varchar2)<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt1 datetime := datetime('13/03/2017');<br>
+&nbsp; dt2 datetime := datetime('12/2019','MM/RRRR');<br>
+&nbsp; dt3 datetime := datetime('2018-12-10T10:25:42Z','ISO8601'); -- padr&#227;o ISO8601<br>
+begin<br>
+&nbsp; console.log(args(<br>
+&nbsp;&nbsp;&nbsp; dt1.to_char(), -- 13/03/2017<br>
+&nbsp;&nbsp;&nbsp; dt2.to_char(), -- 01/12/2019<br>
+&nbsp;&nbsp;&nbsp; dt3.data_completa() -- 10/12/2018 07:25:42<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+data&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(varchar2)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+novo objeto (datetime)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="DATETIME2"></A>
+<P CLASS="TYPE_TITLE">
+datetime
+</P>
+<PRE CLASS="DECL_TEXT">
+function datetime(data number, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return self as result
+
+</PRE>
+<HR>
+<A NAME="DATETIME3"></A>
+<P CLASS="TYPE_TITLE">
+datetime
+</P>
+<PRE CLASS="DECL_TEXT">
+function datetime(ano     number default null
+,mes     number default null
+,dia     number default null
+,hora    number default null
+,minuto  number default null
+,segundo number default null) return self as result
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[constructor] Construir o objeto com partes da data, o restante ser&#225; preenchido com sysdate truncado (pode ser informado dia, mes, ano, hora, minuto, segundo)<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime(dia=&gt;13,ano=&gt;2021); -- considerando sysdate = 31/12/2016<br>
+begin<br>
+&nbsp; console.log(<br>
+&nbsp;&nbsp;&nbsp; dt.to_char() -- '13/12/2021'<br>
+&nbsp; );<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+ano&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Informar novo ano<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+mes&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Informar novo mes<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+dia&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Informar novo dia<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+hora&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Informar nova hora<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+minuto&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Informar novo minuto<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+segundo&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Informar novo segundo<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ALTERAR"></A>
+<P CLASS="TYPE_TITLE">
+alterar
+</P>
+<PRE CLASS="DECL_TEXT">
+function alterar(data date default null) return datetime
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Altera a data, passando um date e retornando um novo objeto<br>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+data&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+nova data (date)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+novo objeto (datetime)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ALTERAR2"></A>
+<P CLASS="TYPE_TITLE">
+alterar
+</P>
+<PRE CLASS="DECL_TEXT">
+function alterar(data varchar2, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return datetime
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Altera a data, passando um varchar2 e retornando um novo objeto<br>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+data&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+nova data (varchar2)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+formato&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+da data (default 'DD/MM/RRRR HH24:MI:SS')<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+novo objeto (datetime)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ALTERAR3"></A>
+<P CLASS="TYPE_TITLE">
+alterar
+</P>
+<PRE CLASS="DECL_TEXT">
+function alterar(ano     number default null
+,mes     number default null
+,dia     number default null
+,hora    number default null
+,minuto  number default null
+,segundo number default null) return datetime
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Altera parte da data retornando um novo objeto (pode ser alterado dia, mes, ano, hora, minuto, segundo)<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('17/07/2017');<br>
+begin<br>
+&nbsp; console.log(args(<br>
+&nbsp;&nbsp;&nbsp; dt.alterar(mes=&gt;9).to_char()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -- '17/09/2017'<br>
+&nbsp;&nbsp;&nbsp; dt.alterar(dia=&gt;12,ano=&gt;2020).to_char() -- '12/07/2020'<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+ano&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Informar novo ano<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+mes&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Informar novo mes<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+dia&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Informar novo dia<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+hora&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Informar nova hora<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+minuto&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Informar novo minuto<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+segundo&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Informar novo segundo<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+novo objeto (datetime)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ATRIBUIR"></A>
+<P CLASS="TYPE_TITLE">
+atribuir
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure atribuir(self in out nocopy datetime, data date default null)
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[procedure] Informar nova data no objeto passando um date<br>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+data&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+nova data (date)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ATRIBUIR2"></A>
+<P CLASS="TYPE_TITLE">
+atribuir
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure atribuir(self in out nocopy datetime, data varchar2, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS')
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[procedure] Informar nova data no objeto passando um varchar2<br>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+data&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+nova data (varchar2)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+formato&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+da nova data (default 'DD/MM/RRRR HH24:MI:SS')<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ATRIBUIR3"></A>
+<P CLASS="TYPE_TITLE">
+atribuir
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure atribuir(self    in out nocopy datetime
+,ano     number default null
+,mes     number default null
+,dia     number default null
+,hora    number default null
+,minuto  number default null
+,segundo number default null)
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[procedure] Informar novas partes do objeto (pode ser informado dia, mes, ano, hora, minuto, segundo)<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('17/07/2017');<br>
+begin<br>
+&nbsp; dt.atribuir(mes=&gt;9);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -- nova data '17/09/2017'<br>
+&nbsp; dt.atribuir(dia=&gt;12,ano=&gt;2020); -- nova data '12/09/2020'<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+ano&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Informar novo ano<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+mes&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Informar novo mes<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+dia&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Informar novo dia<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+hora&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Informar nova hora<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+minuto&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Informar novo minuto<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+segundo&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Informar novo segundo<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="LIMPAR"></A>
+<P CLASS="TYPE_TITLE">
+limpar
+</P>
+<PRE CLASS="DECL_TEXT">
+function limpar(ano     char default 'N'
+,mes     char default 'N'
+,dia     char default 'N'
+,hora    char default 'N'
+,minuto  char default 'N'
+,segundo char default 'N'
+,horario char default 'N') return datetime
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna novo objeto com data NULL ou data modificada de acordo com os par&#226;metros informados<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('17/07/2017 23:56:13'); -- considerando sysdate = 17/07/2015<br>
+begin<br>
+&nbsp; console.log(args(<br>
+&nbsp;&nbsp;&nbsp; dt.limpar().to_char(), -- NULL<br>
+&nbsp;&nbsp;&nbsp; dt.limpar(ano=&gt;'S').to_char(), -- 17/07/2015<br>
+&nbsp;&nbsp;&nbsp; dt.limpar(ano=&gt;'S',horario='S').data_completa() -- 17/07/2015 00:00:00<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+ano&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Se informado com &quot;S&quot; seta o ano de sysdate<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+mes&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Se informado com &quot;S&quot; seta o mes de sysdate<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+dia&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Se informado com &quot;S&quot; seta o dia de sysdate<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+hora&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Se informado com &quot;S&quot; seta 00<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+minuto&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Se informado com &quot;S&quot; seta 00<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+segundo&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Se informado com &quot;S&quot; seta 00<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+novo objeto (datetime)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="LIMPAR2"></A>
+<P CLASS="TYPE_TITLE">
+limpar
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure limpar(self    in out nocopy datetime
+,ano     boolean default false
+,mes     boolean default false
+,dia     boolean default false
+,hora    boolean default false
+,minuto  boolean default false
+,segundo boolean default false
+,horario boolean default false)
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[procedure] Seta NULL na data do objeto ou modifica a data de acordo com os par&#226;metros informados<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('17/07/2017 23:56:13'); -- considerando sysdate = 17/07/2015<br>
+begin<br>
+&nbsp; dt.limpar(); -- NULL<br>
+&nbsp; dt.limpar(ano=&gt;'S'); -- 17/07/2015<br>
+&nbsp; dt.limpar(ano=&gt;'S',horario='S'); -- 17/07/2015 00:00:00<br>
+end;<br>
+</pre><p class="space"></p>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+ano&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Se informado com &quot;S&quot; seta o ano de sysdate<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+mes&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Se informado com &quot;S&quot; seta o mes de sysdate<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+dia&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Se informado com &quot;S&quot; seta o dia de sysdate<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+hora&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Se informado com &quot;S&quot; seta 00<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+minuto&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Se informado com &quot;S&quot; seta 00<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+segundo&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Se informado com &quot;S&quot; seta 00<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="LIMPAR_HORARIO"></A>
+<P CLASS="TYPE_TITLE">
+limpar_horario
+</P>
+<PRE CLASS="DECL_TEXT">
+function limpar_horario return datetime
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna novo objeto com horario zerado<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime(sysdate); -- considerando sysdate = 10/12/2018 10:25:42<br>
+begin<br>
+&nbsp; console.log(<br>
+&nbsp;&nbsp;&nbsp; dt.limpar_horario().to_char() -- 10/12/2018 00:00:00<br>
+&nbsp; );<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+novo objeto (datetime)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="LIMPAR_HORARIO2"></A>
+<P CLASS="TYPE_TITLE">
+limpar_horario
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure limpar_horario
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[procedure] Zera o hor&#225;rio do objeto<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime(sysdate); -- considerando sysdate = 10/12/2018 10:25:42<br>
+begin<br>
+&nbsp; dt.limpar_horario(); -- 10/12/2018 00:00:00<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<HR>
+<A NAME="ADICIONAR"></A>
+<P CLASS="TYPE_TITLE">
+adicionar
+</P>
+<PRE CLASS="DECL_TEXT">
+function adicionar(anos     number default null
+,meses    number default null
+,dias     number default null
+,horas    number default null
+,minutos  number default null
+,segundos number default null) return datetime
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Adiciona dias, meses, anos, horas minutos e/ou segundos na data<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('17/07/2017');<br>
+begin<br>
+&nbsp; console.log(<br>
+&nbsp;&nbsp;&nbsp; dt.adicionar(dias=&gt;3,anos=&gt;4).to_char() -- '20/07/2021'<br>
+&nbsp; );<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+anos&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Quantidade de anos (number)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+meses&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Quantidade de meses (number)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+dias&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Quantidade de dias (number)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+horas&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Quantidade de horas (number)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+minutos&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Quantidade de minutos (number)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+segundos&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Quantidade de segundos (number)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+novo objeto (datetime)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ADICIONAR2"></A>
+<P CLASS="TYPE_TITLE">
+adicionar
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure adicionar(self     in out nocopy datetime
+,anos     number default null
+,meses    number default null
+,dias     number default null
+,horas    number default null
+,minutos  number default null
+,segundos number default null)
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[procedure] Adiciona dias, meses, anos, horas minutos e/ou segundos na data<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('17/07/2017');<br>
+begin<br>
+&nbsp; dt.adicionar(dias=&gt;3,anos=&gt;4); -- '20/07/2021'<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+anos&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Quantidade de anos (number)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+meses&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Quantidade de meses (number)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+dias&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Quantidade de dias (number)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+horas&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Quantidade de horas (number)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+minutos&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Quantidade de minutos (number)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+segundos&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Quantidade de segundos (number)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ADICIONAR3"></A>
+<P CLASS="TYPE_TITLE">
+adicionar
+</P>
+<PRE CLASS="DECL_TEXT">
+function adicionar(dias_uteis number, list_feriados argsd default argsd()) return datetime
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Adiciona dias &#250;teis na data<br>
+&#201; poss&#237;vel informar a lista de feri&#225;dos a serem considerados, ou por padr&#227;o ser&#227;o consultados na tabela vw_calendario.<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('06/09/2016');<br>
+begin<br>
+&nbsp; console.log(<br>
+&nbsp;&nbsp;&nbsp; dt.adicionar(dias_uteis=&gt;3).to_char() -- '12/09/2016' -- (dias n&#227;o contados: 07, 10 e 11/09/2016)<br>
+&nbsp; );<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+dias_uteis&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Quantidade de dias (number)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+list_feriados&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+lista de feriados (argsd)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+novo objeto (datetime)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ADICIONAR4"></A>
+<P CLASS="TYPE_TITLE">
+adicionar
+</P>
+<PRE CLASS="DECL_TEXT">
+function adicionar(dias_uteis    number
+,list_feriados varchar2
+,formato       varchar2 default 'DD/MM/RRRR HH24:MI:SS'
+,separador     char default ';'
+,intervalo     char default '-') return datetime
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Adiciona dias &#250;teis na data passando lista de feri&#225;dos em varchar2<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('06/09/2016');<br>
+&nbsp; feriados_nacionais varchar2(500):= '01/01/2016;21/04/2016;01/05/2016;07/09/2016;12/10/2016;02/11/2016;15/11/2016;25/12/2016';<br>
+begin<br>
+&nbsp; console.log(<br>
+&nbsp;&nbsp;&nbsp; dt.adicionar(dias_uteis=&gt;3,feriados_nacionais).to_char() -- '12/09/2016' -- (dias n&#227;o contados: 07, 10 e 11/09/2016)<br>
+&nbsp; );<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+dias_uteis&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Quantidade de dias (number)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+list_feriados&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+lista de datas (varchar2)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+formato&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+da data (default 'DD/MM/RRRR HH24:MI:SS')<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+separador&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+caractere que separa as datas (por padr&#227;o ';')<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+novo objeto (datetime)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ADICIONAR5"></A>
+<P CLASS="TYPE_TITLE">
+adicionar
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure adicionar(self in out nocopy datetime, dias_uteis number, list_feriados argsd default argsd())
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[procedure] Adiciona dias &#250;teis na data<br>
+&#201; poss&#237;vel informar a lista de feri&#225;dos a serem considerados, ou por padr&#227;o ser&#227;o consultados na tabela vw_calendario.<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('06/09/2016');<br>
+begin<br>
+&nbsp; dt.adicionar(dias_uteis=&gt;3); -- '12/09/2016' -- (dias n&#227;o contados: 07, 10 e 11/09/2016)<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+dias_uteis&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Quantidade de dias (number)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ADICIONAR6"></A>
+<P CLASS="TYPE_TITLE">
+adicionar
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure adicionar(self          in out nocopy datetime
+,dias_uteis    number
+,list_feriados varchar2
+,formato       varchar2 default 'DD/MM/RRRR HH24:MI:SS'
+,separador     char default ';')
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Adiciona dias &#250;teis na data passando lista de feri&#225;dos em varchar2<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('06/09/2016');<br>
+&nbsp; feriados_nacionais varchar2(500):= '01/01/2016;21/04/2016;01/05/2016;07/09/2016;12/10/2016;02/11/2016;15/11/2016;25/12/2016';<br>
+begin<br>
+&nbsp; dt.adicionar(dias_uteis=&gt;3,feriados_nacionais); -- '12/09/2016' -- (dias n&#227;o contados: 07, 10 e 11/09/2016)<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+dias_uteis&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Quantidade de dias (number)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+list_feriados&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+lista de datas (varchar2)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+formato&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+da data (default 'DD/MM/RRRR HH24:MI:SS')<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+separador&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+caractere que separa as datas (por padr&#227;o ';')<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="SUBTRAIR"></A>
+<P CLASS="TYPE_TITLE">
+subtrair
+</P>
+<PRE CLASS="DECL_TEXT">
+function subtrair(anos     number default null
+,meses    number default null
+,dias     number default null
+,horas    number default null
+,minutos  number default null
+,segundos number default null) return datetime
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Subtrai dias, meses, anos, horas minutos e/ou segundos na data<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('17/07/2017');<br>
+begin<br>
+&nbsp; console.log(args(<br>
+<br>
+&nbsp;&nbsp;&nbsp; dt.subtrair(dias=&gt;3,anos=&gt;4).to_char(), -- '14/07/2013'<br>
+<br>
+&nbsp;&nbsp;&nbsp; -<A></A>- m&#233;todos encadeados<BR>
+&nbsp;&nbsp;&nbsp; dt.subtrair(anos=&gt;3)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .adicionar(meses=&gt;2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .alterar(dia=&gt;21).to_char() -- '21/09/2014'<br>
+<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+anos&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Quantidade de anos (number)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+meses&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Quantidade de meses (number)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+dias&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Quantidade de dias (number)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+horas&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Quantidade de horas (number)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+minutos&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Quantidade de minutos (number)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+segundos&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Quantidade de segundos (number)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+novo objeto (datetime)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="SUBTRAIR2"></A>
+<P CLASS="TYPE_TITLE">
+subtrair
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure subtrair(self     in out nocopy datetime
+,anos     number default null
+,meses    number default null
+,dias     number default null
+,horas    number default null
+,minutos  number default null
+,segundos number default null)
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[procedure] Subtrai dias, meses, anos, horas minutos e/ou segundos na data<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('17/07/2017');<br>
+begin<br>
+&nbsp; dt.subtrair(dias=&gt;3,anos=&gt;4); -- '14/07/2013'<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+anos&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Quantidade de anos (number)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+meses&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Quantidade de meses (number)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+dias&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Quantidade de dias (number)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+horas&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Quantidade de horas (number)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+minutos&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Quantidade de minutos (number)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+segundos&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Quantidade de segundos (number)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="SUBTRAIR3"></A>
+<P CLASS="TYPE_TITLE">
+subtrair
+</P>
+<PRE CLASS="DECL_TEXT">
+function subtrair(dias_uteis number, list_feriados argsd default argsd()) return datetime
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Subtrai dias &#250;teis na data<br>
+&#201; poss&#237;vel informar a lista de feri&#225;dos a serem considerados, ou por padr&#227;o ser&#227;o consultados na tabela vw_calendario.<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('12/09/2016');<br>
+begin<br>
+&nbsp; console.log(<br>
+&nbsp;&nbsp;&nbsp; dt.subtrair(dias_uteis=&gt;3).to_char() -- '06/09/2016' -- (dias n&#227;o contados: 07, 10 e 11/09/2016)<br>
+&nbsp; );<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+dias_uteis&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Quantidade de dias (number)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+list_feriados&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+lista de feriados (argsd)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+novo objeto (datetime)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="SUBTRAIR4"></A>
+<P CLASS="TYPE_TITLE">
+subtrair
+</P>
+<PRE CLASS="DECL_TEXT">
+function subtrair(dias_uteis    number
+,list_feriados varchar2
+,formato       varchar2 default 'DD/MM/RRRR HH24:MI:SS'
+,separador     char default ';'
+,intervalo     char default '-') return datetime
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Subtrai dias &#250;teis na data passando lista de feri&#225;dos em varchar2<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('12/09/2016');<br>
+&nbsp; feriados_nacionais varchar2(500):= '01/01/2016;21/04/2016;01/05/2016;07/09/2016;12/10/2016;02/11/2016;15/11/2016;25/12/2016';<br>
+begin<br>
+&nbsp; console.log(<br>
+&nbsp;&nbsp;&nbsp; dt.subtrair(dias_uteis=&gt;3,feriados_nacionais).to_char() -- '06/09/2016' -- (dias n&#227;o contados: 07, 10 e 11/09/2016)<br>
+&nbsp; );<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+dias_uteis&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Quantidade de dias (number)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+list_feriados&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+lista de datas (varchar2)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+formato&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+da data (default 'DD/MM/RRRR HH24:MI:SS')<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+separador&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+caractere que separa as datas (por padr&#227;o ';')<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+novo objeto (datetime)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="SUBTRAIR5"></A>
+<P CLASS="TYPE_TITLE">
+subtrair
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure subtrair(self in out nocopy datetime, dias_uteis number, list_feriados argsd default argsd())
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[procedure] Subtrai dias &#250;teis na data<br>
+&#201; poss&#237;vel informar a lista de feri&#225;dos a serem considerados, ou por padr&#227;o ser&#227;o consultados na tabela vw_calendario.<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('12/09/2016');<br>
+begin<br>
+&nbsp; dt.subtrair(dias_uteis=&gt;3); -- '06/09/2016' -- (dias n&#227;o contados: 07, 10 e 11/09/2016)<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+dias_uteis&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Quantidade de dias (number)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="SUBTRAIR6"></A>
+<P CLASS="TYPE_TITLE">
+subtrair
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure subtrair(self          in out nocopy datetime
+,dias_uteis    number
+,list_feriados varchar2
+,formato       varchar2 default 'DD/MM/RRRR HH24:MI:SS'
+,separador     char default ';')
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Subtrai dias &#250;teis na data passando lista de feri&#225;dos em varchar2<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('12/09/2016');<br>
+&nbsp; feriados_nacionais varchar2(500):= '01/01/2016;21/04/2016;01/05/2016;07/09/2016;12/10/2016;02/11/2016;15/11/2016;25/12/2016';<br>
+begin<br>
+&nbsp; dt.subtrair(dias_uteis=&gt;3,feriados_nacionais); -- '06/09/2016' -- (dias n&#227;o contados: 07, 10 e 11/09/2016)<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+dias_uteis&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+Quantidade de dias (number)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+list_feriados&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+lista de datas (varchar2)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+formato&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+da data (default 'DD/MM/RRRR HH24:MI:SS')<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+separador&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+caractere que separa as datas (por padr&#227;o ';')<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ULTIMO"></A>
+<P CLASS="TYPE_TITLE">
+ultimo
+</P>
+<PRE CLASS="DECL_TEXT">
+function ultimo return datetime
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna um novo objeto com a data do &#250;ltimo dia do m&#234;s/ano atual<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('17/07/2017');<br>
+begin<br>
+&nbsp; console.log(args(<br>
+<br>
+&nbsp;&nbsp;&nbsp; dt.ultimo().to_char(), -- '31/07/2017'<br>
+<br>
+&nbsp;&nbsp;&nbsp; -<A></A>- m&#233;todos encadeados<BR>
+&nbsp;&nbsp;&nbsp; dt.adicionar(meses=&gt;4).ultimo().to_char(), -- '30/11/2017'<br>
+&nbsp;&nbsp;&nbsp; dt.adicionar(meses=&gt;4).ultimo().dia(), -- 30<br>
+&nbsp;&nbsp;&nbsp; dt.ultimo().dia() -- 31<br>
+<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+novo objeto (datetime)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="DIA"></A>
+<P CLASS="TYPE_TITLE">
+dia
+</P>
+<PRE CLASS="DECL_TEXT">
+function dia return char
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna o &quot;dia&quot;<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('17/08/2017');<br>
+begin<br>
+&nbsp; console.log(args(<br>
+<br>
+&nbsp;&nbsp;&nbsp; dt.dia(), -- 17<br>
+<br>
+&nbsp;&nbsp;&nbsp; -<A></A>- m&#233;todos encadeados<BR>
+&nbsp;&nbsp;&nbsp; dt.adicionar(dias=&gt;20).dia(), -- 06<br>
+&nbsp;&nbsp;&nbsp; dt.adicionar(meses=&gt;1,dias=&gt;20).dia() -- 07<br>
+<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+dia (char)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="MES"></A>
+<P CLASS="TYPE_TITLE">
+mes
+</P>
+<PRE CLASS="DECL_TEXT">
+function mes return char
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna o &quot;mes&quot;<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('17/08/2017');<br>
+begin<br>
+&nbsp; console.log(args(<br>
+<br>
+&nbsp;&nbsp;&nbsp; dt.mes(), -- 08<br>
+<br>
+&nbsp;&nbsp;&nbsp; -<A></A>- m&#233;todos encadeados<BR>
+&nbsp;&nbsp;&nbsp; dt.adicionar(meses=&gt;5).mes() -- 01<br>
+<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+mes (char)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ANO"></A>
+<P CLASS="TYPE_TITLE">
+ano
+</P>
+<PRE CLASS="DECL_TEXT">
+function ano return char
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna o &quot;ano&quot;<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('17/08/2017');<br>
+begin<br>
+&nbsp; console.log(args(<br>
+<br>
+&nbsp;&nbsp;&nbsp; dt.ano(), -- 2017<br>
+<br>
+&nbsp;&nbsp;&nbsp; -<A></A>- m&#233;todos encadeados<BR>
+&nbsp;&nbsp;&nbsp; dt.adicionar(meses=&gt;5).ano() -- 2018<br>
+<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+ano (char)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="HORA"></A>
+<P CLASS="TYPE_TITLE">
+hora
+</P>
+<PRE CLASS="DECL_TEXT">
+function hora return char
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna a &quot;hora&quot;<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('13/12/2017 15:35:22');<br>
+begin<br>
+&nbsp; console.log(args(<br>
+<br>
+&nbsp;&nbsp;&nbsp; dt.hora(), -- 15<br>
+<br>
+&nbsp;&nbsp;&nbsp; -<A></A>- m&#233;todos encadeados<BR>
+&nbsp;&nbsp;&nbsp; dt.adicionar(minutos=&gt;30).hora() -- 16<br>
+<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+hora (char)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="MINUTO"></A>
+<P CLASS="TYPE_TITLE">
+minuto
+</P>
+<PRE CLASS="DECL_TEXT">
+function minuto return char
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna o &quot;minuto&quot;<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('13/12/2017 15:35:22');<br>
+begin<br>
+&nbsp; console.log(args(<br>
+<br>
+&nbsp;&nbsp;&nbsp; dt.minuto(), -- 35<br>
+<br>
+&nbsp;&nbsp;&nbsp; -<A></A>- m&#233;todos encadeados<BR>
+&nbsp;&nbsp;&nbsp; dt.adicionar(minutos=&gt;30).minuto() -- 05<br>
+<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+minuto (char)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="SEGUNDO"></A>
+<P CLASS="TYPE_TITLE">
+segundo
+</P>
+<PRE CLASS="DECL_TEXT">
+function segundo return char
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna o &quot;segundo&quot;<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('13/12/2017 15:35:22');<br>
+begin<br>
+&nbsp; console.log(args(<br>
+<br>
+&nbsp;&nbsp;&nbsp; dt.segundo(), -- 22<br>
+<br>
+&nbsp;&nbsp;&nbsp; -<A></A>- m&#233;todos encadeados<BR>
+&nbsp;&nbsp;&nbsp; dt.adicionar(segundos=&gt;42).segundo() -- 04<br>
+<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+segundo (char)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ANOMES"></A>
+<P CLASS="TYPE_TITLE">
+anomes
+</P>
+<PRE CLASS="DECL_TEXT">
+function anomes return char
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna &quot;ano&quot; e &quot;mes&quot; no formato AAAAMM<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('17/08/2017');<br>
+begin<br>
+&nbsp; console.log(args(<br>
+<br>
+&nbsp;&nbsp;&nbsp; dt.anomes(), -- 201708<br>
+<br>
+&nbsp;&nbsp;&nbsp; -<A></A>- m&#233;todos encadeados<BR>
+&nbsp;&nbsp;&nbsp; dt.adicionar(meses=&gt;5).anomes() -- 201801<br>
+<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+ano e mes (char)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="MESDIA"></A>
+<P CLASS="TYPE_TITLE">
+mesdia
+</P>
+<PRE CLASS="DECL_TEXT">
+function mesdia return char
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna &quot;mes&quot; e &quot;dia&quot; no formato MMDD<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('17/08/2017');<br>
+begin<br>
+&nbsp; console.log(<br>
+&nbsp;&nbsp;&nbsp; dt.mesdia() -- 0817<br>
+&nbsp; );<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+mes e dia (char)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="HORAMINUTO"></A>
+<P CLASS="TYPE_TITLE">
+horaminuto
+</P>
+<PRE CLASS="DECL_TEXT">
+function horaminuto return char
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna &quot;hora&quot; e &quot;minuto&quot; no formato HH24MI<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime(sysdate); -- considerando sysdate = 10/12/2018 10:25:42<br>
+begin<br>
+&nbsp; console.log(<br>
+&nbsp;&nbsp;&nbsp; dt.horaminuto() -- 1025<br>
+&nbsp; );<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+&quot;hora&quot; e &quot;minuto&quot; (char)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="HORARIO"></A>
+<P CLASS="TYPE_TITLE">
+horario
+</P>
+<PRE CLASS="DECL_TEXT">
+function horario return char
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna &quot;horario&quot; no formato HH24:MI:SS<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime(sysdate); -- considerando sysdate = 10/12/2018 10:25:42<br>
+begin<br>
+&nbsp; console.log(<br>
+&nbsp;&nbsp;&nbsp; dt.horario() -- 10:25:42<br>
+&nbsp; );<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+horario (char)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="HORARIO_NUM"></A>
+<P CLASS="TYPE_TITLE">
+horario_num
+</P>
+<PRE CLASS="DECL_TEXT">
+function horario_num return number
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna &quot;horario&quot; no formato HH24MISS<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime(sysdate); -- considerando sysdate = 10/12/2018 10:25:42<br>
+begin<br>
+&nbsp; console.log(<br>
+&nbsp;&nbsp;&nbsp; dt.horario_num() -- 102542<br>
+&nbsp; );<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+horario (number)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="DATA_COMPLETA"></A>
+<P CLASS="TYPE_TITLE">
+data_completa
+</P>
+<PRE CLASS="DECL_TEXT">
+function data_completa return varchar2
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna &quot;data completa&quot; no formato DD/MM/RRRR HH24:MI:SS<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime(sysdate); -- considerando sysdate = 10/12/2018 10:25:42<br>
+begin<br>
+&nbsp; console.log(<br>
+&nbsp;&nbsp;&nbsp; dt.data_completa() -- 10/12/2018 10:25:42<br>
+&nbsp; );<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+&quot;data completa&quot; (varchar2)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="DATA_COMPLETA_NUM"></A>
+<P CLASS="TYPE_TITLE">
+data_completa_num
+</P>
+<PRE CLASS="DECL_TEXT">
+function data_completa_num return number
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna &quot;data completa&quot; no formato RRRRMMDDHH24MISS<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime(sysdate); -- considerando sysdate = 10/12/2018 10:25:42<br>
+begin<br>
+&nbsp; console.log(<br>
+&nbsp;&nbsp;&nbsp; dt.data_completa_num() -- 20181210102542<br>
+&nbsp; );<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+&quot;data completa&quot; (number)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ISO8601"></A>
+<P CLASS="TYPE_TITLE">
+iso8601
+</P>
+<PRE CLASS="DECL_TEXT">
+function iso8601 return varchar2
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna &quot;data completa&quot; no formato ISO8601<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime(sysdate); -- considerando sysdate = 10/12/2018 10:25:42 (GMT-3)<br>
+begin<br>
+&nbsp; console.log(<br>
+&nbsp;&nbsp;&nbsp; dt.iso8601() -- 2018-12-10T10:25:42-03:00<br>
+&nbsp; );<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+&quot;data em iso8601&quot; (varchar2)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="DS"></A>
+<P CLASS="TYPE_TITLE">
+ds
+</P>
+<PRE CLASS="DECL_TEXT">
+function ds return number
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna o dia da semana (1-7)<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('17/08/2017');<br>
+begin<br>
+&nbsp; console.log(args(<br>
+<br>
+&nbsp;&nbsp;&nbsp; dt.ds(), -- 5<br>
+<br>
+&nbsp;&nbsp;&nbsp; -<A></A>- m&#233;todos encadeados<BR>
+&nbsp;&nbsp;&nbsp; dt.adicionar(meses=&gt;5).ds() -- 4<br>
+<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+dia da semana (number)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="FDS"></A>
+<P CLASS="TYPE_TITLE">
+fds
+</P>
+<PRE CLASS="DECL_TEXT">
+function fds return char
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna se &#233; um dia de fim de semana (S/N)<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('19/08/2017');<br>
+begin<br>
+&nbsp; console.log(args(<br>
+<br>
+&nbsp;&nbsp;&nbsp; dt.fds(), -- &quot;S&quot;<br>
+<br>
+&nbsp;&nbsp;&nbsp; -<A></A>- m&#233;todos encadeados<BR>
+&nbsp;&nbsp;&nbsp; dt.adicionar(meses=&gt;5).fds() -- &quot;N&quot;<br>
+<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+fim de semana (S/N)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="FERIADO"></A>
+<P CLASS="TYPE_TITLE">
+feriado
+</P>
+<PRE CLASS="DECL_TEXT">
+function feriado(list_feriados argsd default argsd()) return char
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna se &#233; um feriado (S/N).<br>
+&#201; poss&#237;vel informar a lista de feri&#225;dos a serem considerados, ou por padr&#227;o ser&#227;o consultados na tabela vw_calendario.<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('07/09/2016');<br>
+&nbsp; dt2 datetime := datetime('08/09/2016');<br>
+&nbsp; dt3 datetime := datetime('10/09/2016'); -- s&#225;bado<br>
+begin<br>
+&nbsp; console.log(args(<br>
+&nbsp;&nbsp;&nbsp; dt.feriado(), -- &quot;S&quot;<br>
+&nbsp;&nbsp;&nbsp; dt2.feriado(), -- &quot;N&quot;<br>
+&nbsp;&nbsp;&nbsp; dt3.feriado() -- &quot;N&quot;<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+list_feriados&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+lista de feriados (argsd)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+feriado (S/N)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="DIA_UTIL"></A>
+<P CLASS="TYPE_TITLE">
+dia_util
+</P>
+<PRE CLASS="DECL_TEXT">
+function dia_util(list_feriados argsd default argsd()) return char
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna se &#233; um dia &#250;til (S/N).<br>
+&#201; poss&#237;vel informar a lista de feri&#225;dos a serem considerados, ou por padr&#227;o ser&#227;o consultados na tabela vw_calendario.<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('07/09/2016');<br>
+&nbsp; dt2 datetime := datetime('08/09/2016');<br>
+&nbsp; dt3 datetime := datetime('10/09/2016'); -- s&#225;bado<br>
+begin<br>
+&nbsp; console.log(args(<br>
+&nbsp;&nbsp;&nbsp; dt.dia_util(), -- &quot;N&quot;<br>
+&nbsp;&nbsp;&nbsp; dt2.dia_util(), -- &quot;S&quot;<br>
+&nbsp;&nbsp;&nbsp; dt3.dia_util() -- &quot;N&quot;<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+list_feriados&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+lista de feriados (argsd)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+dia &#250;til (S/N)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="BISSEXTO"></A>
+<P CLASS="TYPE_TITLE">
+bissexto
+</P>
+<PRE CLASS="DECL_TEXT">
+function bissexto return char
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna se &#233; um ano bissexto (S/N)<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime(sysdate); -- considerando sysdate = 13/09/2016<br>
+begin<br>
+&nbsp; console.log(args(<br>
+<br>
+&nbsp;&nbsp;&nbsp; dt.bissexto(), -- &quot;S&quot;<br>
+<br>
+&nbsp;&nbsp;&nbsp; -<A></A>- m&#233;todos encadeados<BR>
+&nbsp;&nbsp;&nbsp; dt.adicionar(meses=&gt;5).bissexto(), -- &quot;N&quot;<br>
+<br>
+&nbsp;&nbsp;&nbsp; -<A></A>- construindo objeto apenas com ano<BR>
+&nbsp;&nbsp;&nbsp; datetime(ano=&gt;2012).bissexto() -- &quot;S&quot;<br>
+<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+ano bissexto (S/N)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="NULO"></A>
+<P CLASS="TYPE_TITLE">
+nulo
+</P>
+<PRE CLASS="DECL_TEXT">
+function nulo return char
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna se a data atual &#233; nula (S/N)<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime();<br>
+begin<br>
+&nbsp; console.log(args(<br>
+<br>
+&nbsp;&nbsp;&nbsp; dt.nulo(), -- &quot;S&quot;<br>
+<br>
+&nbsp;&nbsp;&nbsp; -<A></A>- m&#233;todos encadeados<BR>
+&nbsp;&nbsp;&nbsp; dt.alterar(dia=&gt;10).nulo() -- &quot;N&quot;<br>
+<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+data atual &#233; nula (S/N)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="NAO_NULO"></A>
+<P CLASS="TYPE_TITLE">
+nao_nulo
+</P>
+<PRE CLASS="DECL_TEXT">
+function nao_nulo return char
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna se a data atual n&#227;o &#233; nula (S/N)<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime();<br>
+begin<br>
+&nbsp; console.log(args(<br>
+<br>
+&nbsp;&nbsp;&nbsp; dt.nulo(), -- &quot;N&quot;<br>
+<br>
+&nbsp;&nbsp;&nbsp; -<A></A>- m&#233;todos encadeados<BR>
+&nbsp;&nbsp;&nbsp; dt.alterar(dia=&gt;10).nulo() -- &quot;S&quot;<br>
+<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+data atual n&#227;o &#233; nula (S/N)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="SE_NULO"></A>
+<P CLASS="TYPE_TITLE">
+se_nulo
+</P>
+<PRE CLASS="DECL_TEXT">
+function se_nulo(data datetime) return datetime
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna um novo objeto com uma nova data caso a data atual seja nula, passando um datetime<br>
+<pre class="prettyprint linenums lang-plsql">
+declare -- considerando sysdate = 11/05/2018<br>
+&nbsp; dt datetime := datetime('15/05/2019');<br>
+&nbsp; dt2 datetime := datetime();<br>
+begin<br>
+&nbsp; console.log(args(<br>
+<br>
+&nbsp;&nbsp;&nbsp; dt.se_nulo(datetime(dia=&gt;18)).to_char(), -- 15/05/2019<br>
+<br>
+&nbsp;&nbsp;&nbsp; -<A></A>- m&#233;todos encadeados<BR>
+&nbsp;&nbsp;&nbsp; dt2.se_nulo(dt).subtrair(anos=&gt;2).to_char() -- 15/05/2017<br>
+<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+data&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+nova data (datetime)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+novo objeto (datetime)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="SE_NULO2"></A>
+<P CLASS="TYPE_TITLE">
+se_nulo
+</P>
+<PRE CLASS="DECL_TEXT">
+function se_nulo(data date) return datetime
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna um novo objeto com uma nova data caso a data atual seja nula, passando um date<br>
+<pre class="prettyprint linenums lang-plsql">
+declare -- considerando sysdate = 11/05/2018<br>
+&nbsp; dt datetime := datetime('15/05/2019');<br>
+&nbsp; dt2 datetime := datetime();<br>
+begin<br>
+&nbsp; console.log(args(<br>
+<br>
+&nbsp;&nbsp;&nbsp; dt.se_nulo(sysdate).to_char(), -- 15/05/2019<br>
+<br>
+&nbsp;&nbsp;&nbsp; -<A></A>- m&#233;todos encadeados<BR>
+&nbsp;&nbsp;&nbsp; dt2.se_nulo(sysdate).subtrair(anos=&gt;2).to_char() -- 11/05/2016<br>
+<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+data&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+nova data (date)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+novo objeto (datetime)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="SE_NULO3"></A>
+<P CLASS="TYPE_TITLE">
+se_nulo
+</P>
+<PRE CLASS="DECL_TEXT">
+function se_nulo(data varchar2, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return datetime
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna um novo objeto com uma nova data caso a data atual seja nula, passando um varchar2<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('15/05/2019');<br>
+&nbsp; dt2 datetime := datetime();<br>
+begin<br>
+&nbsp; console.log(args(<br>
+<br>
+&nbsp;&nbsp;&nbsp; dt.se_nulo('10/10/2019').to_char(), -- 15/05/2019<br>
+<br>
+&nbsp;&nbsp;&nbsp; -<A></A>- m&#233;todos encadeados<BR>
+&nbsp;&nbsp;&nbsp; dt2.se_nulo('10/10/2019').subtrair(anos=&gt;2).to_char() -- 10/10/2017<br>
+<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+data&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+nova data (varchar2)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+formato&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+da data (default 'DD/MM/RRRR HH24:MI:SS')<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+novo objeto (datetime)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="SE_NULO4"></A>
+<P CLASS="TYPE_TITLE">
+se_nulo
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure se_nulo(self in out nocopy datetime, data datetime)
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[procedure] Atribui uma nova data caso a data atual seja nula, passando um datetime<br>
+<pre class="prettyprint linenums lang-plsql">
+declare -- considerando sysdate = 11/05/2018<br>
+&nbsp; dt datetime := datetime();<br>
+&nbsp; dt2 datetime := datetime();<br>
+begin<br>
+&nbsp; dt.se_nulo(datetime(dia=&gt;18)); -- 18/05/2018<br>
+&nbsp; -<A></A>- m&#233;todos encadeados<BR>
+&nbsp; dt2.se_nulo(dt).subtrair(anos=&gt;2); -- 18/05/2016<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+data&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+nova data (datetime)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="SE_NULO5"></A>
+<P CLASS="TYPE_TITLE">
+se_nulo
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure se_nulo(self in out nocopy datetime, data date)
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[procedure] Atribui uma nova data caso a data atual seja nula, passando um date<br>
+<pre class="prettyprint linenums lang-plsql">
+declare -- considerando sysdate = 11/05/2018<br>
+&nbsp; dt datetime := datetime('15/05/2019');<br>
+&nbsp; dt2 datetime := datetime();<br>
+begin<br>
+&nbsp;&nbsp;&nbsp; dt.se_nulo(sysdate); -- 15/05/2019<br>
+&nbsp;&nbsp;&nbsp; -<A></A>- m&#233;todos encadeados<BR>
+&nbsp;&nbsp;&nbsp; dt2.se_nulo(sysdate).subtrair(anos=&gt;2); -- 11/05/2016<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+data&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+nova data (date)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="SE_NULO6"></A>
+<P CLASS="TYPE_TITLE">
+se_nulo
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure se_nulo(data varchar2, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS')
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[procedure] Atribui uma nova data caso a data atual seja nula, passando um varchar2<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('15/05/2019');<br>
+&nbsp; dt2 datetime := datetime();<br>
+begin<br>
+&nbsp; dt.se_nulo('10/10/2019'); -- 15/05/2019<br>
+&nbsp; -<A></A>- m&#233;todos encadeados<BR>
+&nbsp; dt2.se_nulo('10/10/2019').subtrair(anos=&gt;2); -- 10/10/2017<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+data&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+nova data (varchar2)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+formato&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+da data (default 'DD/MM/RRRR HH24:MI:SS')<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="INICIAL_SE_NULO"></A>
+<P CLASS="TYPE_TITLE">
+inicial_se_nulo
+</P>
+<PRE CLASS="DECL_TEXT">
+function inicial_se_nulo return datetime
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna um novo objeto com a primeira data poss&#237;vel caso a data atual seja nula<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime();<br>
+begin<br>
+&nbsp; console.log(<br>
+&nbsp;&nbsp;&nbsp; dt.inicial_se_nulo.to_char() -- 01/01/0001<br>
+&nbsp; );<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+novo objeto (datetime)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="INICIAL_SE_NULO2"></A>
+<P CLASS="TYPE_TITLE">
+inicial_se_nulo
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure inicial_se_nulo
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[procedure] Atribui a primeira data poss&#237;vel caso a data atual seja nula<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime();<br>
+begin<br>
+&nbsp; dt.inicial_se_nulo; -- 01/01/0001<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<HR>
+<A NAME="FINAL_SE_NULO"></A>
+<P CLASS="TYPE_TITLE">
+final_se_nulo
+</P>
+<PRE CLASS="DECL_TEXT">
+function final_se_nulo return datetime
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna um novo objeto com a &#250;ltima data poss&#237;vel caso a data atual seja nula<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime();<br>
+begin<br>
+&nbsp; console.log(<br>
+&nbsp;&nbsp;&nbsp; dt.final_se_nulo.to_char() -- 31/12/9999<br>
+&nbsp; );<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+novo objeto (datetime)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="FINAL_SE_NULO2"></A>
+<P CLASS="TYPE_TITLE">
+final_se_nulo
+</P>
+<PRE CLASS="DECL_TEXT">
+procedure final_se_nulo
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[procedure] Atribui a &#250;ltima data poss&#237;vel caso a data atual seja nula<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime();<br>
+begin<br>
+&nbsp; dt.final_se_nulo; -- 31/12/9999<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<HR>
+<A NAME="ESTA_NA_LISTA"></A>
+<P CLASS="TYPE_TITLE">
+esta_na_lista
+</P>
+<PRE CLASS="DECL_TEXT">
+function esta_na_lista(list varchar2, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS', separador char default ';', intervalo char default '-')
+return char
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna se a data atual est&#225; dentro de uma lista de datas (S/N)<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('25/12/2018');<br>
+&nbsp; dt2 datetime := datetime('18/10/2018');<br>
+&nbsp; datas_eventuais varchar2(500) := '10/10/2016;18/10/2018;25/10/2018;02/11/2018';<br>
+&nbsp; feriados_nacionais varchar2(500):= '01/01;21/04;01/05;07/09;12/10;02/11;15/11;25/12';<br>
+begin<br>
+&nbsp; console.log(args(<br>
+<br>
+&nbsp;&nbsp;&nbsp; dt.esta_na_lista(datas_eventuais), -- &quot;N&quot;<br>
+&nbsp;&nbsp;&nbsp; dt2.esta_na_lista(datas_eventuais), -- &quot;S&quot;<br>
+<br>
+&nbsp;&nbsp;&nbsp; -<A></A>- verificar datas sem o ano<BR>
+&nbsp;&nbsp;&nbsp; dt.limpar(ano=&gt;'S').esta_na_lista(feriados_nacionais,'DD/MM'), -- &quot;S&quot;<br>
+&nbsp;&nbsp;&nbsp; dt2.limpar(ano=&gt;'S').esta_na_lista(feriados_nacionais,'DD/MM'), -- &quot;N&quot;<br>
+&nbsp;&nbsp;&nbsp; -<A></A>- utilizando to_format no lugar do limpar<BR>
+&nbsp;&nbsp;&nbsp; dt.to_format('DD/MM').esta_na_lista(feriados_nacionais,'DD/MM'), -- &quot;S&quot;<br>
+&nbsp;&nbsp;&nbsp; dt2.to_format('DD/MM').esta_na_lista(feriados_nacionais,'DD/MM') -- &quot;N&quot;<br>
+<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+list&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+lista de datas (varchar2)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+formato&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+da data (default 'DD/MM/RRRR HH24:MI:SS')<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+separador&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+caractere que separa as datas (por padr&#227;o ';')<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+est&#225; na lista (S/N)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ESTA_NA_LISTA2"></A>
+<P CLASS="TYPE_TITLE">
+esta_na_lista
+</P>
+<PRE CLASS="DECL_TEXT">
+function esta_na_lista(list argsd default argsd()) return char
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna se a data atual est&#225; dentro de uma lista de datas (S/N)<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('07/09/2016');<br>
+&nbsp; dt2 datetime := datetime('01/02/2016');<br>
+begin<br>
+&nbsp; console.log(args(<br>
+&nbsp;&nbsp;&nbsp; dt.esta_na_lista(datetime.feriados()), -- S<br>
+&nbsp;&nbsp;&nbsp; dt2.esta_na_lista(datetime.feriados()) -- N<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+list&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+argsd default argsd()<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+char (S/N)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ESTA_DENTRO"></A>
+<P CLASS="TYPE_TITLE">
+esta_dentro
+</P>
+<PRE CLASS="DECL_TEXT">
+function esta_dentro(inicio datetime, fim datetime, infinito char default 'N') return char
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna se a data atual est&#225; dentro de um per&#237;odo (passando datas em datetime) (S/N)<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('25/12/2018');<br>
+&nbsp; dt2 datetime := datetime('18/12/2018');<br>
+&nbsp; dt3 datetime := datetime('31/12/2018');<br>
+begin<br>
+&nbsp; console.log(args(<br>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro(dt2,dt3), -- &quot;S&quot;<br>
+&nbsp;&nbsp;&nbsp; dt2.esta_dentro(dt,dt3) -- &quot;N&quot;<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+inicio&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(datetime)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+fim&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(datetime)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+infinito&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+considerar per&#237;odo infinito quando inicio e fim forem ambos nulos S/N (default 'N')<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+est&#225; dentro do periodo (S/N)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ESTA_DENTRO2"></A>
+<P CLASS="TYPE_TITLE">
+esta_dentro
+</P>
+<PRE CLASS="DECL_TEXT">
+function esta_dentro(inicio date default null, fim date default null, infinito char default 'N') return char
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna se a data atual est&#225; dentro de um per&#237;odo (passando datas em date) (S/N)<br>
+<pre class="prettyprint linenums lang-plsql">
+declare -- considerando sysdate = 10/12/2018<br>
+&nbsp; dt datetime := datetime('25/12/2018');<br>
+begin<br>
+&nbsp; console.log(args(<br>
+<br>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro(to_date('01/12/2018'),to_date('15/12/2018')), -- &quot;N&quot;<br>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro(sysdate,to_date('28/12/2018')), -- &quot;S&quot;<br>
+<br>
+&nbsp;&nbsp;&nbsp; -<A></A>- data apartir<BR>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro(sysdate), -- &quot;S&quot;<br>
+&nbsp;&nbsp;&nbsp; -<A></A>- data at&#233;<BR>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro(fim=&gt;sysdate) -- &quot;N&quot;<br>
+<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+inicio&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(date)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+fim&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(date)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+infinito&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+considerar per&#237;odo infinito quando inicio e fim forem ambos nulos S/N (default 'N')<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+est&#225; dentro do periodo (S/N)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ESTA_DENTRO3"></A>
+<P CLASS="TYPE_TITLE">
+esta_dentro
+</P>
+<PRE CLASS="DECL_TEXT">
+function esta_dentro(inicio   varchar2 default null
+,fim      varchar2 default null
+,formato  varchar2 default 'DD/MM/RRRR HH24:MI:SS'
+,infinito char default 'N') return char
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna se a data atual est&#225; dentro de um per&#237;odo (passando datas em varchar2) (S/N)<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('25/12/2018');<br>
+begin<br>
+&nbsp; console.log(args(<br>
+<br>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro('01/12/2018','15/12/2018'), -- &quot;N&quot;<br>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro('10/12/2018','28/12/2018'), -- &quot;S&quot;<br>
+<br>
+&nbsp;&nbsp;&nbsp; -<A></A>- data apartir<BR>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro('10/12/2018'), -- &quot;S&quot;<br>
+&nbsp;&nbsp;&nbsp; -<A></A>- data at&#233;<BR>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro(fim=&gt;'10/12/2018') -- &quot;N&quot;<br>
+<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+inicio&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(varchar2)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+fim&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(varchar2)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+formato&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+das datas (default 'DD/MM/RRRR HH24:MI:SS')<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+infinito&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+considerar per&#237;odo infinito quando inicio e fim forem ambos nulos S/N (default 'N')<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+est&#225; dentro do periodo (S/N)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ESTA_DENTRO_ANOMES"></A>
+<P CLASS="TYPE_TITLE">
+esta_dentro_anomes
+</P>
+<PRE CLASS="DECL_TEXT">
+function esta_dentro_anomes(inicio datetime, fim datetime, infinito char default 'N') return char
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna se a data atual est&#225; dentro de um per&#237;odo ANO/MES (passando datas em datetime) (S/N)<br>
+Se a data possuir &quot;dia&quot; ser&#225; descartado da compara&#231;&#227;o.<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('05/10/2018');<br>
+&nbsp; dt2 datetime := datetime('18/10/2018');<br>
+&nbsp; dt3 datetime := datetime('20/12/2018');<br>
+begin<br>
+&nbsp; console.log(args(<br>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro_anomes(dt2,dt3), -- &quot;S&quot;<br>
+&nbsp;&nbsp;&nbsp; dt3.esta_dentro_anomes(dt,dt2) -- &quot;N&quot;<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+inicio&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(datetime)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+fim&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(datetime)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+infinito&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+considerar per&#237;odo infinito quando inicio e fim forem ambos nulos S/N (default 'N')<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+est&#225; dentro do periodo AN0/MES (S/N)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ESTA_DENTRO_ANOMES2"></A>
+<P CLASS="TYPE_TITLE">
+esta_dentro_anomes
+</P>
+<PRE CLASS="DECL_TEXT">
+function esta_dentro_anomes(inicio date default null, fim date default null, infinito char default 'N') return char
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna se a data atual est&#225; dentro de um per&#237;odo AN0/MES (passando datas em date) (S/N)<br>
+Se a data possuir &quot;dia&quot; ser&#225; descartado da compara&#231;&#227;o.<br>
+<pre class="prettyprint linenums lang-plsql">
+declare -- considerando sysdate = 10/12/2018<br>
+&nbsp; dt datetime := datetime('25/12/2018');<br>
+begin<br>
+&nbsp; console.log(args(<br>
+<br>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro_anomes(to_date('31/12/2018'),to_date('01/01/2019')), -- &quot;S&quot;<br>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro_anomes(sysdate,to_date('11/12/2018')), -- &quot;S&quot;<br>
+<br>
+&nbsp;&nbsp;&nbsp; -<A></A>- data apartir<BR>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro_anomes(sysdate), -- &quot;S&quot;<br>
+&nbsp;&nbsp;&nbsp; -<A></A>- data at&#233;<BR>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro_anomes(fim=&gt;to_date('10/11/2018')) -- &quot;N&quot;<br>
+<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+inicio&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(date)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+fim&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(date)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+infinito&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+considerar per&#237;odo infinito quando inicio e fim forem ambos nulos S/N (default 'N')<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+est&#225; dentro do periodo AN0/MES (S/N)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ESTA_DENTRO_ANOMES3"></A>
+<P CLASS="TYPE_TITLE">
+esta_dentro_anomes
+</P>
+<PRE CLASS="DECL_TEXT">
+function esta_dentro_anomes(inicio   varchar2 default null
+,fim      varchar2 default null
+,formato  varchar2 default 'DD/MM/RRRR HH24:MI:SS'
+,infinito char default 'N') return char
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna se a data atual est&#225; dentro de um per&#237;odo AN0/MES (passando datas em varchar2) (S/N)<br>
+Se a data possuir &quot;dia&quot; ser&#225; descartado da compara&#231;&#227;o.<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('25/12/2018');<br>
+begin<br>
+&nbsp; console.log(args(<br>
+<br>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro_anomes('10/2018','11/2018','MM/RRRR'), -- &quot;N&quot;<br>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro_anomes('10/12/2018','15/12/2018'), -- &quot;S&quot;<br>
+<br>
+&nbsp;&nbsp;&nbsp; -<A></A>- data apartir<BR>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro_anomes('11/2018',formato=&gt;'MM/RRRR'), -- &quot;S&quot;<br>
+&nbsp;&nbsp;&nbsp; -<A></A>- data at&#233;<BR>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro_anomes(fim=&gt;'11/2018',formato=&gt;'MM/RRRR') -- &quot;N&quot;<br>
+<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+inicio&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(varchar2)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+fim&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(varchar2)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+formato&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+das datas (default 'DD/MM/RRRR HH24:MI:SS')<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+infinito&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+considerar per&#237;odo infinito quando inicio e fim forem ambos nulos S/N (default 'N')<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+est&#225; dentro do periodo AN0/MES (S/N)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ESTA_DENTRO_ANOMES4"></A>
+<P CLASS="TYPE_TITLE">
+esta_dentro_anomes
+</P>
+<PRE CLASS="DECL_TEXT">
+function esta_dentro_anomes(inicio number default null, fim number default null, infinito char default 'N') return char
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna se a data atual est&#225; dentro de um per&#237;odo AN0/MES (passando RRRRMM em number) (S/N)<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('25/12/2018');<br>
+begin<br>
+&nbsp; console.log(args(<br>
+<br>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro_anomes(201810,201811), -- &quot;N&quot;<br>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro_anomes(201812,201812), -- &quot;S&quot;<br>
+<br>
+&nbsp;&nbsp;&nbsp; -<A></A>- data apartir<BR>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro_anomes(201811), -- &quot;S&quot;<br>
+&nbsp;&nbsp;&nbsp; -<A></A>- data at&#233;<BR>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro_anomes(fim=&gt;201811) -- &quot;N&quot;<br>
+<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+inicio&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+RRRRMM (number)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+fim&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+RRRRMM (number)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+infinito&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+considerar per&#237;odo infinito quando inicio e fim forem ambos nulos S/N (default 'N')<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+est&#225; dentro do periodo AN0/MES (S/N)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ESTA_DENTRO_HORARIO"></A>
+<P CLASS="TYPE_TITLE">
+esta_dentro_horario
+</P>
+<PRE CLASS="DECL_TEXT">
+function esta_dentro_horario(inicio number default null, fim number default null, inicio_fim char default 'N') return varchar2
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna o hor&#225;rio atual est&#225; dentro de um per&#237;odo de hor&#225;rio (passando HH24MI em number) (S/N)<br>
+<b>Obs.:</b> Considera apenas horas e minutos.<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime(hora=&gt;12,minuto=&gt;13);<br>
+begin<br>
+&nbsp; console.log(args(<br>
+<br>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro_horario(1100,1400), -- S<br>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro_horario(1213), -- S<br>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro_horario(1214), -- N<br>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro_horario(1213,inicio_fim=&gt;'S'), -- S<br>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro_horario(fim=&gt;1213), -- S<br>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro_horario(fim=&gt;1212), -- N<br>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro_horario(fim=&gt;1213,inicio_fim=&gt;'S') -- N<br>
+<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+inicio&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+HH24MI (number)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+fim&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+HH24MI (number)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+inicio_fim&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+data pode colidir com o final do per&#237;odo (default 'N')<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+est&#225; dentro de outro hor&#225;rio (S/N)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ESTA_DENTRO_HORARIO2"></A>
+<P CLASS="TYPE_TITLE">
+esta_dentro_horario
+</P>
+<PRE CLASS="DECL_TEXT">
+function esta_dentro_horario(inicio datetime, fim datetime, inicio_fim char default 'N') return varchar2
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna o hor&#225;rio atual est&#225; dentro de um per&#237;odo de hor&#225;rio (passando datetime) (S/N)<br>
+<b>Obs.:</b> Considera apenas horas e minutos.<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime(hora=&gt;12,minuto=&gt;13);<br>
+&nbsp; dt2 datetime := datetime('11:00','HH24:MI');<br>
+&nbsp; dt3 datetime := datetime('14:00','HH24:MI');<br>
+&nbsp; dt4 datetime := datetime('12:13','HH24:MI');<br>
+begin<br>
+&nbsp; console.log(args(<br>
+<br>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro_horario(dt2,dt3), -- S<br>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro_horario(dt4), -- N<br>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro_horario(dt4,inicio_fim=&gt;'S') -- S<br>
+<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+inicio&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(datetime)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+fim&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(datetime)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+inicio_fim&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+data pode colidir com o final do per&#237;odo (default 'N')<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+est&#225; dentro de outro hor&#225;rio (S/N)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ESTA_DENTRO_HORARIO3"></A>
+<P CLASS="TYPE_TITLE">
+esta_dentro_horario
+</P>
+<PRE CLASS="DECL_TEXT">
+function esta_dentro_horario(inicio date default null, fim date default null, inicio_fim char default 'N') return varchar2
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna o hor&#225;rio atual est&#225; dentro de um per&#237;odo de hor&#225;rio (passando date) (S/N)<br>
+<b>Obs.:</b> Considera apenas horas e minutos.<br>
+<pre class="prettyprint linenums lang-plsql">
+declare -- considerando sysdate = 10/12/2018 12:13:55<br>
+&nbsp; dt datetime := datetime(hora=&gt;12,minuto=&gt;13);<br>
+begin<br>
+&nbsp; console.log(args(<br>
+<br>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro_horario(to_date('11:00','HH24:MI'),to_date('14:00','HH24:MI')), -- S<br>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro_horario(sysdate), -- N<br>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro_horario(sysdate,inicio_fim=&gt;'S') -- S<br>
+<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+inicio&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(date)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+fim&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(date)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+inicio_fim&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+data pode colidir com o final do per&#237;odo (default 'N')<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+est&#225; dentro de outro hor&#225;rio (S/N)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="ESTA_DENTRO_HORARIO4"></A>
+<P CLASS="TYPE_TITLE">
+esta_dentro_horario
+</P>
+<PRE CLASS="DECL_TEXT">
+function esta_dentro_horario(inicio varchar2 default null, fim varchar2 default null, inicio_fim char default 'N') return varchar2
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna o hor&#225;rio atual est&#225; dentro de um per&#237;odo de hor&#225;rio (passando varchar2) (S/N)<br>
+<b>Obs.:</b> Considera apenas horas e minutos.<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime(hora=&gt;12,minuto=&gt;13);<br>
+begin<br>
+&nbsp; console.log(args(<br>
+<br>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro_horario('11:00','14:00'), -- S<br>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro_horario('12:13'), -- N<br>
+&nbsp;&nbsp;&nbsp; dt.esta_dentro_horario('12:13',inicio_fim=&gt;'S') -- S<br>
+<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+inicio&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(varchar2)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+fim&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(varchar2)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+inicio_fim&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+data pode colidir com o final do per&#237;odo (default 'N')<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+est&#225; dentro de outro hor&#225;rio (S/N)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="TRUNC"></A>
+<P CLASS="TYPE_TITLE">
+trunc
+</P>
+<PRE CLASS="DECL_TEXT">
+function trunc return date
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna a data truncada<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('19/12/2018 13:45:22');<br>
+begin<br>
+&nbsp; console.log(<br>
+&nbsp;&nbsp;&nbsp; dt.trunc() -- 19/12/2018<br>
+&nbsp; );<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+data truncada DD/MM/RRRR<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="TO_FORMAT"></A>
+<P CLASS="TYPE_TITLE">
+to_format
+</P>
+<PRE CLASS="DECL_TEXT">
+function to_format(formato varchar2 default 'MM/RRRR') return datetime
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna um novo objeto datetime com o formato informado<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('19/12/2018 13:45:22'); -- considerando sysdate = 18/11/2019<br>
+begin<br>
+&nbsp; console.log(args(<br>
+&nbsp;&nbsp;&nbsp; dt.to_format('RRRR').to_char(), -- 01/11/2018<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+formato&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(default 'DD/MM/RRRR')<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+data (datetime) de acordo com o formato<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="TO_CHAR"></A>
+<P CLASS="TYPE_TITLE">
+to_char
+</P>
+<PRE CLASS="DECL_TEXT">
+function to_char(formato varchar2 default 'DD/MM/RRRR') return varchar2
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna a data em varchar2<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('19/12/2018 13:45:22');<br>
+begin<br>
+&nbsp; console.log(args(<br>
+&nbsp;&nbsp;&nbsp; dt.to_char(), -- 19/12/2018<br>
+&nbsp;&nbsp;&nbsp; dt.to_char('MM/RRRR'), -- 12/2018<br>
+&nbsp;&nbsp;&nbsp; dt.to_char('MM/RR'), -- 12/18<br>
+&nbsp;&nbsp;&nbsp; dt.to_char('DD/MM'), -- 19/12<br>
+&nbsp;&nbsp;&nbsp; dt.to_char('DD/MM -&gt; HH24:MI') -- 19/12 -&gt; 13:45<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+formato&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(default 'DD/MM/RRRR')<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+data (varchar2) de acordo com o formato<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="TO_NUMBER"></A>
+<P CLASS="TYPE_TITLE">
+to_number
+</P>
+<PRE CLASS="DECL_TEXT">
+function to_number(formato varchar2 default 'RRRRMMDD') return number
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna a data em number<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; dt datetime := datetime('19/12/2018 13:45:22');<br>
+begin<br>
+&nbsp; console.log(args(<br>
+&nbsp;&nbsp;&nbsp; dt.to_char(), -- 20181219<br>
+&nbsp;&nbsp;&nbsp; dt.to_char('MMRRRR'), -- 122018<br>
+&nbsp;&nbsp;&nbsp; dt.to_char('RRMM'), -- 1812<br>
+&nbsp;&nbsp;&nbsp; dt.to_char('DDMM') -- 1912<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+formato&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(default 'DD/MM/RRRR')<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+data (number) de acordo com o formato<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="TO_DATE"></A>
+<P CLASS="TYPE_TITLE">
+to_date
+</P>
+<PRE CLASS="DECL_TEXT">
+function to_date return date
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[function] Retorna a data<br>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+data (date)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="BISSEXTO2"></A>
+<P CLASS="TYPE_TITLE">
+bissexto
+</P>
+<PRE CLASS="DECL_TEXT">
+function bissexto(ano number) return char
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[static function] Retorna se &#233; um ano bissexto (S/N)<br>
+<pre class="prettyprint linenums lang-plsql">
+begin<br>
+&nbsp; console.log(args(<br>
+&nbsp;&nbsp;&nbsp; datetime.bissexto(2010), -- &quot;N&quot;<br>
+&nbsp;&nbsp;&nbsp; datetime.bissexto(2012) -- &quot;S&quot;<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+ano&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(number)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+ano bissexto (S/N)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="FERIADOS"></A>
+<P CLASS="TYPE_TITLE">
+feriados
+</P>
+<PRE CLASS="DECL_TEXT">
+function feriados return argsd
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[static function] Retorna datas de feriados<br>
+<pre class="prettyprint linenums lang-plsql">
+select * from table(datetime.feriados()); -- todos os feriados<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+feriados (argsd)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="FERIADOS2"></A>
+<P CLASS="TYPE_TITLE">
+feriados
+</P>
+<PRE CLASS="DECL_TEXT">
+function feriados(inicio datetime, fim datetime) return argsd
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[static function] Retorna datas de feriados<br>
+<pre class="prettyprint linenums lang-plsql">
+select * from table(datetime.feriados(datetime('10/10/2016'))); -- feriados a partir de 10/10/2016<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+inicio&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(datetime)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+fim&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(datetime)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+feriados (argsd)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="FERIADOS3"></A>
+<P CLASS="TYPE_TITLE">
+feriados
+</P>
+<PRE CLASS="DECL_TEXT">
+function feriados(inicio date, fim date default null) return argsd
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[static function] Retorna datas de feriados<br>
+<pre class="prettyprint linenums lang-plsql">
+select * from table(datetime.feriados(sysdate)); -- feriados a partir de sysdate<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+inicio&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(date)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+fim&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(date)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+feriados (argsd)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="FERIADOS4"></A>
+<P CLASS="TYPE_TITLE">
+feriados
+</P>
+<PRE CLASS="DECL_TEXT">
+function feriados(inicio varchar2, fim varchar2 default null, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return argsd
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[static function] Retorna datas de feriados<br>
+<pre class="prettyprint linenums lang-plsql">
+select * from table(datetime.feriados('01/01/2018','31/12/2018')); -- feriados de 01/01/2018 at&#233; 31/12/2018<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+inicio&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(varchar2)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+fim&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(varchar2)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+formato&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(default 'DD/MM/RRRR HH24:MI:SS')<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+feriados (argsd)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="LISTAR_FERIADOS"></A>
+<P CLASS="TYPE_TITLE">
+listar_feriados
+</P>
+<PRE CLASS="DECL_TEXT">
+function listar_feriados return varchar2
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[static function] Retorna a lista de feriados<br>
+<pre class="prettyprint linenums lang-plsql">
+begin<br>
+&nbsp; console.log(<br>
+&nbsp;&nbsp;&nbsp; datetime.feriados -- todos os feriados<br>
+&nbsp; );<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+lista separada por ';' (varchar2)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="LISTAR_FERIADOS2"></A>
+<P CLASS="TYPE_TITLE">
+listar_feriados
+</P>
+<PRE CLASS="DECL_TEXT">
+function listar_feriados(inicio datetime, fim datetime) return varchar2
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[static function] Retorna a lista de feriados<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; inicio datetime := datetime('01/01/2016');<br>
+&nbsp; fim datetime := datetime('31/12/2016');<br>
+begin<br>
+&nbsp; console.log(args(<br>
+&nbsp;&nbsp;&nbsp; datetime.feriados(inicio), -- feriados a partir de 01/01/2016<br>
+&nbsp;&nbsp;&nbsp; datetime.feriados(inicio,fim) -- feriados entre 01/01/2016 e 31/12/2016<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+inicio&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(datetime)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+fim&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(datetime)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+lista separada por ';' (varchar2)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="LISTAR_FERIADOS3"></A>
+<P CLASS="TYPE_TITLE">
+listar_feriados
+</P>
+<PRE CLASS="DECL_TEXT">
+function listar_feriados(inicio date, fim date default null) return varchar2
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[static function] Retorna a lista de feriados<br>
+<pre class="prettyprint linenums lang-plsql">
+declare<br>
+&nbsp; inicio date := to_date('01/01/2016');<br>
+&nbsp; fim date := to_date('31/12/2016');<br>
+begin<br>
+&nbsp; console.log(args(<br>
+&nbsp;&nbsp;&nbsp; datetime.feriados(inicio), -- feriados a partir de 01/01/2016<br>
+&nbsp;&nbsp;&nbsp; datetime.feriados(inicio,fim) -- feriados entre 01/01/2016 e 31/12/2016<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+inicio&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(date)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+fim&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(date)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+lista separada por ';' (varchar2)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="LISTAR_FERIADOS4"></A>
+<P CLASS="TYPE_TITLE">
+listar_feriados
+</P>
+<PRE CLASS="DECL_TEXT">
+function listar_feriados(inicio varchar2, fim varchar2 default null, formato varchar2 default 'DD/MM/RRRR HH24:MI:SS') return varchar2
+
+</PRE>
+<P CLASS="DESC_TEXT">
+[static function] Retorna a lista de feriados<br>
+<pre class="prettyprint linenums lang-plsql">
+begin<br>
+&nbsp; console.log(args(<br>
+&nbsp;&nbsp;&nbsp; datetime.feriados(fim=&gt;'31/12/2016'), -- feriados at&#233; de 01/01/2016<br>
+&nbsp;&nbsp;&nbsp; datetime.feriados('01/01/2016','31/12/2016') -- feriados entre 01/01/2016 e 31/12/2016<br>
+&nbsp; ));<br>
+end;<br>
+</pre><p class="space"></p>
+
+<BR>
+</P>
+<A NAME="Par&acirc;metros"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Par&acirc;metros
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+inicio&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(varchar2)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+fim&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(varchar2)<br>
+
+</TD></TR>
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+formato&nbsp;&nbsp;
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+(default 'DD/MM/RRRR HH24:MI:SS')<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<A NAME="Retorno"></A>
+<TABLE CLASS="LIST_TABLE"><TR><TD CLASS="LIST_TITLE">
+Retorno
+</TD></TR></TABLE>
+<TABLE CLASS="LIST_TABLE">
+<TR><TD VALIGN="TOP" CLASS="LIST_ITEM" WIDTH=1%>
+</TD><TD CLASS="DESC_TEXT" WIDTH=95%>
+lista separada por ';' (varchar2)<br>
+
+</TD></TR>
+</TABLE>
+<BR>
+<HR>
+<A NAME="MOSTRA"></A>
+<P CLASS="TYPE_TITLE">
+mostra
+</P>
+<PRE CLASS="DECL_TEXT">
+function mostra(formato varchar2 default 'DD/MM/RRRR') return varchar2
+
+</PRE>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+</DIV>
+</DIV>
+</BODY>
+</HTML>
