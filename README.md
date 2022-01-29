@@ -1,4 +1,6 @@
 # ORAUTILS
+Autor: **Renan Orati**
+
 Bibliotecas para apoio ao desenvolvimento Oracle. [[documentação]](https://renanorati.github.io/orautils)
 
 - [Coleções Básicas](#coleções-básicas)
