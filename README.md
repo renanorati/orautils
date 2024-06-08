@@ -63,7 +63,7 @@ select decode(to_char(add_months(sysdate, 2) + 5, 'D'), 1, 'S', 7, 'S', 'N') fro
 -- Utilizando tipo 'datetime'
 select datetime(sysdate).adicionar(meses => 2, dias => 5).fds() from dual;
 ```
-- Verificar o último dia do mês, do dia de HOJE + 2 anos, 3 meses e 5 dias:
+- Verificar o último dia do mês, do dia de HOJE + 2 anos, 3 meses e 15 dias:
 ```TSQL
 -- Utilizando apenas funções nativas
 select to_char(last_day(add_months(sysdate, (2 * 12) + 3) + 15), 'DD') from dual;
